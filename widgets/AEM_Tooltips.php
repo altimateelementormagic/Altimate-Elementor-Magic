@@ -34,7 +34,7 @@ class AEM_Tooltips extends Widget_Base {
     }
 
     protected function register_controls() {
-        $goee_primary_color = get_option( 'goee_primary_color_option', '#7a56ff' );
+        $aem_primary_color = get_option( 'aem_primary_color_option', '#7a56ff' );
 
         $this->start_controls_section(
             'tooltip_button_content',
@@ -44,7 +44,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_control(
-			'goee_tooltip_type',
+			'aem_tooltip_type',
 			[
                 'label'       => esc_html__( 'Content Type', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::CHOOSE,
@@ -69,20 +69,20 @@ class AEM_Tooltips extends Widget_Base {
 		);
 
   		$this->add_control(
-			'goee_tooltip_content',
+			'aem_tooltip_content',
 			[
                 'label'       => esc_html__( 'Content', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'default'     => esc_html__( 'Hover Me!', AEM_TEXTDOMAIN ),
                 'condition'   => [
-					'goee_tooltip_type' => [ 'text' ]
+					'aem_tooltip_type' => [ 'text' ]
 				]
 			]
         );
 		
 		$this->add_control(
-			'goee_tooltip_icon_content',
+			'aem_tooltip_icon_content',
 			[
                 'label'       => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::ICONS,
@@ -91,13 +91,13 @@ class AEM_Tooltips extends Widget_Base {
                     'library' => 'fa-brands'
                 ],
                 'condition'   => [
-					'goee_tooltip_type' => [ 'icon' ]
+					'aem_tooltip_type' => [ 'icon' ]
 				]
 			]
 		);
 
 		$this->add_control(
-			'goee_tooltip_img_content',
+			'aem_tooltip_img_content',
 			[
                 'label'     => esc_html__( 'Image', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::MEDIA,
@@ -108,7 +108,7 @@ class AEM_Tooltips extends Widget_Base {
 					'active' => true,
 				],
 				'condition' => [
-					'goee_tooltip_type' => [ 'image' ]
+					'aem_tooltip_type' => [ 'image' ]
 				]
 			]
 		);
@@ -116,11 +116,11 @@ class AEM_Tooltips extends Widget_Base {
         $this->add_group_control(
             Group_Control_Image_Size::get_type(),
             [
-                'name'      => 'goee_tooltip_image_size',
+                'name'      => 'aem_tooltip_image_size',
                 'default'   => 'thumbnail',
                 'condition' => [
-                    'goee_tooltip_type'              => [ 'image' ],
-                    'goee_tooltip_img_content[url]!' => ''
+                    'aem_tooltip_type'              => [ 'image' ],
+                    'aem_tooltip_img_content[url]!' => ''
                 ]
             ]
         );
@@ -128,11 +128,11 @@ class AEM_Tooltips extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			[
-				'name' => 'goee_tooltip_image_css_filter',
+				'name' => 'aem_tooltip_image_css_filter',
                 'selector' => '{{WRAPPER}} .aem-tooltip .aem-tooltip-content img',
                 'condition' => [
-                    'goee_tooltip_type' => [ 'image' ],
-                    'goee_tooltip_img_content[url]!' => ''
+                    'aem_tooltip_type' => [ 'image' ],
+                    'aem_tooltip_img_content[url]!' => ''
 				]
 			]
 		);
@@ -163,7 +163,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_tooltip_enable_link',
+            'aem_tooltip_enable_link',
             [
                 'label'        => __( 'Show Link', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SWITCHER,
@@ -175,7 +175,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_tooltip_link',
+            'aem_tooltip_link',
             [
                 'label'           => __( 'Link', AEM_TEXTDOMAIN ),
                 'type'            => Controls_Manager::URL,
@@ -186,7 +186,7 @@ class AEM_Tooltips extends Widget_Base {
                     'is_external' => true
                 ],
                 'condition'       => [
-                    'goee_tooltip_enable_link'=>'yes'
+                    'aem_tooltip_enable_link'=>'yes'
                 ]
             ]
         );
@@ -201,7 +201,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_tooltip_text',
+            'aem_tooltip_text',
             [
                 'label'       => esc_html__( 'Tooltip Text', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::TEXTAREA,
@@ -212,7 +212,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_control(
-          'goee_tooltip_direction',
+          'aem_tooltip_direction',
             [
                 'label'         => esc_html__( 'Direction', AEM_TEXTDOMAIN ),
                 'type'          => Controls_Manager::SELECT,
@@ -242,16 +242,16 @@ class AEM_Tooltips extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'label'     => __( 'Text Typography', AEM_TEXTDOMAIN ),
-                'name'      => 'goee_tooltip_button_text_typography',
+                'name'      => 'aem_tooltip_button_text_typography',
                 'selector'  => '{{WRAPPER}} .aem-tooltip .aem-tooltip-content',
                 'condition' => [
-                    'goee_tooltip_type' => [ 'text' ]
+                    'aem_tooltip_type' => [ 'text' ]
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'goee_tooltip_button_icon_size',
+            'aem_tooltip_button_icon_size',
             [
                 'label'        => __( 'Icon Size', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SLIDER,
@@ -271,13 +271,13 @@ class AEM_Tooltips extends Widget_Base {
                     '{{WRAPPER}} .aem-tooltip .aem-tooltip-content i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'    => [
-                    'goee_tooltip_type' => [ 'icon' ]
+                    'aem_tooltip_type' => [ 'icon' ]
                 ]
             ]
         );
 
 		$this->add_responsive_control(
-			'goee_tooltip_content_width',
+			'aem_tooltip_content_width',
 		    [
                 'label' => __( 'Content Width', AEM_TEXTDOMAIN ),
                 'type'  => Controls_Manager::SLIDER,
@@ -305,7 +305,7 @@ class AEM_Tooltips extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_tooltip_content_padding',
+			'aem_tooltip_content_padding',
 			[
                 'label'      => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -325,14 +325,14 @@ class AEM_Tooltips extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'     => 'goee_tooltip_hover_border',
+                'name'     => 'aem_tooltip_hover_border',
                 'selector' => '{{WRAPPER}} .aem-tooltip .aem-tooltip-content'
             ]
         );
 
     
         $this->add_responsive_control(
-            'goee_tooltip_content_radius',
+            'aem_tooltip_content_radius',
             [
                 'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -349,18 +349,18 @@ class AEM_Tooltips extends Widget_Base {
             ]
         );
 		
-		$this->start_controls_tabs( 'goee_tooltip_content_style_tabs' );
+		$this->start_controls_tabs( 'aem_tooltip_content_style_tabs' );
 			// Normal State Tab
-			$this->start_controls_tab( 'goee_tooltip_content_normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
+			$this->start_controls_tab( 'aem_tooltip_content_normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
                 
 				$this->add_control(
-					'goee_tooltip_content_color',
+					'aem_tooltip_content_color',
 					[
                         'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => $goee_primary_color,
+                        'default'   => $aem_primary_color,
                         'condition' => [
-                            'goee_tooltip_type!' => [ 'image' ]
+                            'aem_tooltip_type!' => [ 'image' ]
                         ],
                         'selectors' => [
                             '{{WRAPPER}} .aem-tooltip .aem-tooltip-content, {{WRAPPER}} .aem-tooltip .aem-tooltip-content a' => 'color: {{VALUE}};'
@@ -369,7 +369,7 @@ class AEM_Tooltips extends Widget_Base {
                 );
 
 				$this->add_control(
-					'goee_tooltip_content_bg_color',
+					'aem_tooltip_content_bg_color',
 					[
                         'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -383,7 +383,7 @@ class AEM_Tooltips extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'goee_tooltip_content_shadow',
+                        'name'     => 'aem_tooltip_content_shadow',
                         'selector' => '{{WRAPPER}} .aem-tooltip .aem-tooltip-content'
                     ]
                 );
@@ -391,15 +391,15 @@ class AEM_Tooltips extends Widget_Base {
 			$this->end_controls_tab();
 
 			// Hover State Tab
-			$this->start_controls_tab( 'goee_tooltip_content_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
+			$this->start_controls_tab( 'aem_tooltip_content_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_control(
-					'goee_tooltip_content_hover_color',
+					'aem_tooltip_content_hover_color',
 					[
                         'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
                         'condition' => [
-                            'goee_tooltip_type!' => [ 'image' ]
+                            'aem_tooltip_type!' => [ 'image' ]
                         ],
                         'default'   => '#212121',
                         'selectors' => [
@@ -410,7 +410,7 @@ class AEM_Tooltips extends Widget_Base {
                 );
 
 				$this->add_control(
-					'goee_tooltip_content_hover_bg_color',
+					'aem_tooltip_content_hover_bg_color',
 					[
                         'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -424,7 +424,7 @@ class AEM_Tooltips extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'goee_tooltip_hover_shadow',
+                        'name'     => 'aem_tooltip_hover_shadow',
                         'selector' => '{{WRAPPER}} .aem-tooltip .aem-tooltip-content:hover'
                     ]
                 );
@@ -437,7 +437,7 @@ class AEM_Tooltips extends Widget_Base {
 
         // Tooltip Style tab section
         $this->start_controls_section(
-            'goee_tooltip_style_section',
+            'aem_tooltip_style_section',
             [
                 'label' => __( 'Tooltip Styles', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -453,7 +453,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_tooltip_style_color',
+            'aem_tooltip_style_color',
             [
                 'label'     => __( 'Text Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -474,7 +474,7 @@ class AEM_Tooltips extends Widget_Base {
                         'default' => 'classic'
                     ],
                     'color'       => [
-                        'default' => $goee_primary_color
+                        'default' => $aem_primary_color
                     ]
                 ],
                 'selector' => '{{WRAPPER}} .aem-tooltip .aem-tooltip-text'
@@ -482,7 +482,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_tooltip_text_width',
+			'aem_tooltip_text_width',
 		    [
                 'label' => __( 'Tooltip Width', AEM_TEXTDOMAIN ),
                 'type'  => Controls_Manager::SLIDER,
@@ -509,7 +509,7 @@ class AEM_Tooltips extends Widget_Base {
 		);
 
         $this->add_responsive_control(
-            'goee_tooltip_text_padding',
+            'aem_tooltip_text_padding',
             [
                 'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -528,7 +528,7 @@ class AEM_Tooltips extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_tooltip_content_border_radius',
+            'aem_tooltip_content_border_radius',
             [
                 'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -545,11 +545,11 @@ class AEM_Tooltips extends Widget_Base {
         );
     
         $this->add_control(
-            'goee_tooltip_arrow_color',
+            'aem_tooltip_arrow_color',
             [
                 'label'     => __( 'Arrow Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => $goee_primary_color,
+                'default'   => $aem_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .aem-tooltip .aem-tooltip-item.tooltip-top .aem-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
                     '{{WRAPPER}} .aem-tooltip .aem-tooltip-item.tooltip-left .aem-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
@@ -567,49 +567,49 @@ class AEM_Tooltips extends Widget_Base {
 
         $settings        = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'goee_tooltip_wrapper', 'class', 'aem-tooltip' );
+        $this->add_render_attribute( 'aem_tooltip_wrapper', 'class', 'aem-tooltip' );
 
-        if( isset( $settings['goee_tooltip_link']['url'] ) ) {
-            $this->add_render_attribute( 'goee_tooltip_link', 'href', esc_url( $settings['goee_tooltip_link']['url'] ) );
-            if( $settings['goee_tooltip_link']['is_external'] ) {
-                $this->add_render_attribute( 'goee_tooltip_link', 'target', '_blank' );
+        if( isset( $settings['aem_tooltip_link']['url'] ) ) {
+            $this->add_render_attribute( 'aem_tooltip_link', 'href', esc_url( $settings['aem_tooltip_link']['url'] ) );
+            if( $settings['aem_tooltip_link']['is_external'] ) {
+                $this->add_render_attribute( 'aem_tooltip_link', 'target', '_blank' );
             }
-            if( $settings['goee_tooltip_link']['nofollow'] ) {
-                $this->add_render_attribute( 'goee_tooltip_link', 'rel', 'nofollow' );
+            if( $settings['aem_tooltip_link']['nofollow'] ) {
+                $this->add_render_attribute( 'aem_tooltip_link', 'rel', 'nofollow' );
             }
         }
 
-        $this->add_inline_editing_attributes( 'goee_tooltip_content', 'basic' );
+        $this->add_inline_editing_attributes( 'aem_tooltip_content', 'basic' );
 
         ?>
        
-        <div <?php echo $this->get_render_attribute_string( 'goee_tooltip_wrapper' ); ?>>
-            <div class="aem-tooltip-item <?php echo esc_attr( $settings['goee_tooltip_direction'] ); ?>">
+        <div <?php echo $this->get_render_attribute_string( 'aem_tooltip_wrapper' ); ?>>
+            <div class="aem-tooltip-item <?php echo esc_attr( $settings['aem_tooltip_direction'] ); ?>">
                 <div class="aem-tooltip-content">
 
-                    <?php if( 'yes' === $settings['goee_tooltip_enable_link'] && !empty( $settings['goee_tooltip_link']['url'] ) ) : ?>
-                        <a <?php echo $this->get_render_attribute_string( 'goee_tooltip_link' ); ?>>
+                    <?php if( 'yes' === $settings['aem_tooltip_enable_link'] && !empty( $settings['aem_tooltip_link']['url'] ) ) : ?>
+                        <a <?php echo $this->get_render_attribute_string( 'aem_tooltip_link' ); ?>>
                     <?php endif; ?>
 
-                    <?php if( 'text' === $settings['goee_tooltip_type'] && !empty( $settings['goee_tooltip_content'] ) ) : ?>
-                        <span <?php echo $this->get_render_attribute_string( 'goee_tooltip_content' ); ?>><?php echo wp_kses_post( $settings['goee_tooltip_content'] ); ?></span>
+                    <?php if( 'text' === $settings['aem_tooltip_type'] && !empty( $settings['aem_tooltip_content'] ) ) : ?>
+                        <span <?php echo $this->get_render_attribute_string( 'aem_tooltip_content' ); ?>><?php echo wp_kses_post( $settings['aem_tooltip_content'] ); ?></span>
 
-                    <?php elseif( 'icon' === $settings['goee_tooltip_type'] && !empty( $settings['goee_tooltip_icon_content']['value'] ) ) : ?>
-                        <?php Icons_Manager::render_icon( $settings['goee_tooltip_icon_content'] ); ?>
+                    <?php elseif( 'icon' === $settings['aem_tooltip_type'] && !empty( $settings['aem_tooltip_icon_content']['value'] ) ) : ?>
+                        <?php Icons_Manager::render_icon( $settings['aem_tooltip_icon_content'] ); ?>
 
-                    <?php elseif( 'image' === $settings['goee_tooltip_type'] && !empty( $settings['goee_tooltip_img_content']['url'] ) ) : ?>
-                        <?php if ( $settings['goee_tooltip_img_content']['url'] || $settings['goee_tooltip_img_content']['id'] ) { ?>
-                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'goee_tooltip_image_size', 'goee_tooltip_img_content' ); ?>
+                    <?php elseif( 'image' === $settings['aem_tooltip_type'] && !empty( $settings['aem_tooltip_img_content']['url'] ) ) : ?>
+                        <?php if ( $settings['aem_tooltip_img_content']['url'] || $settings['aem_tooltip_img_content']['id'] ) { ?>
+                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'aem_tooltip_image_size', 'aem_tooltip_img_content' ); ?>
                         <?php } ?>
                     <?php endif; ?>
 
-                    <?php if( 'yes' === $settings['goee_tooltip_enable_link'] && !empty( $settings['goee_tooltip_link']['url'] ) ) : ?>
+                    <?php if( 'yes' === $settings['aem_tooltip_enable_link'] && !empty( $settings['aem_tooltip_link']['url'] ) ) : ?>
                         </a>
                     <?php endif; ?>
 
                 </div>
 
-                <?php $settings['goee_tooltip_text'] ? printf( '<div class="aem-tooltip-text">%s</div>', wp_kses_post( $settings['goee_tooltip_text'] ) ) : ''; ?>
+                <?php $settings['aem_tooltip_text'] ? printf( '<div class="aem-tooltip-text">%s</div>', wp_kses_post( $settings['aem_tooltip_text'] ) ) : ''; ?>
             </div>
         </div>
         <?php

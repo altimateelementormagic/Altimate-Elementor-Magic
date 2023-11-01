@@ -32,21 +32,21 @@ class AEM_Alert extends Widget_Base {
     }
 
     protected function register_controls() {
-        $goee_primary_color   = get_option( 'goee_primary_color_option', '#7a56ff' );
-        $goee_secondary_color = get_option( 'goee_secondary_color_option', '#00d8d8' );
+        $aem_primary_color   = get_option( 'aem_primary_color_option', '#7a56ff' );
+        $aem_secondary_color = get_option( 'aem_secondary_color_option', '#00d8d8' );
         
         /**
          * Alert Content Tab
          */
         $this->start_controls_section(
-            'goee_alert_content',
+            'aem_alert_content',
             [
               'label' => esc_html__( 'Content', AEM_TEXTDOMAIN )
             ]
         );
 
         $this->add_control(
-            'goee_alert_content_icon_show',
+            'aem_alert_content_icon_show',
             [
                 'label'        => esc_html__( 'Enable Icon', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SWITCHER,
@@ -58,7 +58,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_content_icon',
+            'aem_alert_content_icon',
               [
                 'label'   => __( 'Icon', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::ICONS,
@@ -67,13 +67,13 @@ class AEM_Alert extends Widget_Base {
                     'library' => 'fa-brands'
                 ],
                 'condition' => [
-                    'goee_alert_content_icon_show' => 'yes'
+                    'aem_alert_content_icon_show' => 'yes'
                 ]
             ]
         );
 
         $this->add_control(
-            'goee_alert_content_title_show',
+            'aem_alert_content_title_show',
             [
                 'label'        => esc_html__( 'Enable Title', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SWITCHER,
@@ -85,13 +85,13 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_content_title',
+            'aem_alert_content_title',
             [
                 'label'     => __( 'Title', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::TEXTAREA,
                 'default'   => 'Well Done!',
                 'condition' => [
-                    'goee_alert_content_title_show' => 'yes'
+                    'aem_alert_content_title_show' => 'yes'
                 ],
                 'dynamic' => [
 					'active' => true,
@@ -100,7 +100,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-          'goee_alert_content_description',
+          'aem_alert_content_description',
             [
                 'label'   => __( 'Description', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::TEXTAREA,
@@ -112,7 +112,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_close_button',
+            'aem_alert_close_button',
             [
                 'label'   => __( 'Close Icon/Button', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::SELECT,
@@ -126,13 +126,13 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_close_primary_button',
+            'aem_alert_close_primary_button',
             [
                 'label'     => __( 'Primary Button', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::TEXT,
                 'default'   => __( 'Done', AEM_TEXTDOMAIN ),
                 'condition' => [
-                    'goee_alert_close_button' => ['button']
+                    'aem_alert_close_button' => ['button']
                 ],
                 'dynamic' => [
 					'active' => true,
@@ -141,13 +141,13 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_close_secondary_button',
+            'aem_alert_close_secondary_button',
             [
                 'label'                   => __( 'Secondary Button', AEM_TEXTDOMAIN ),
                 'type'                    => Controls_Manager::TEXT,
                 'default'                 => __( 'Cancel', AEM_TEXTDOMAIN ),
                 'condition'               => [
-                    'goee_alert_close_button' => ['button']
+                    'aem_alert_close_button' => ['button']
                 ],
                 'dynamic' => [
 					'active' => true,
@@ -161,7 +161,7 @@ class AEM_Alert extends Widget_Base {
          * Alert Content style Tab
          */
         $this->start_controls_section(
-          'goee_alert_style',
+          'aem_alert_style',
             [
                 'label' => esc_html__( 'Container', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -169,7 +169,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_background_style',
+            'aem_alert_background_style',
             [
                 'label'     => esc_html__( 'Background', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -181,7 +181,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_alert_border_radius',
+            'aem_alert_border_radius',
             [
                 'label'     => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::DIMENSIONS,
@@ -192,7 +192,7 @@ class AEM_Alert extends Widget_Base {
         );
         
         $this->add_responsive_control(
-            'goee_alert_padding',
+            'aem_alert_padding',
             [
                 'label'      => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -212,7 +212,7 @@ class AEM_Alert extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'     => 'goee_alert_border',
+                'name'     => 'aem_alert_border',
                 'selector' => '{{WRAPPER}} .aem-alert-wrapper'
             ]
         );
@@ -220,7 +220,7 @@ class AEM_Alert extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'     => 'goee_alert_box_shadow',
+                'name'     => 'aem_alert_box_shadow',
                 'selector' => '{{WRAPPER}} .aem-alert-wrapper'
             ]
         );
@@ -231,18 +231,18 @@ class AEM_Alert extends Widget_Base {
          * Alert Icon style
          */
         $this->start_controls_section(
-            'goee_alert_icon_style',
+            'aem_alert_icon_style',
             [
                 'label'     => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'goee_alert_content_icon_show' => 'yes'
+                    'aem_alert_content_icon_show' => 'yes'
                 ]
             ]
         );
 
         $this->add_responsive_control(
-            'goee_alert_icon_size',
+            'aem_alert_icon_size',
             [
                 'label'        => esc_html__( 'Size', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SLIDER,
@@ -264,7 +264,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-          'goee_alert_icon_width',
+          'aem_alert_icon_width',
             [
                 'label'       => esc_html__( 'Width', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::SLIDER,
@@ -286,7 +286,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-          'goee_alert_icon_color',
+          'aem_alert_icon_color',
             [
                 'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -298,7 +298,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-          'goee_alert_icon_bg_color',
+          'aem_alert_icon_bg_color',
             [
                 'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -309,7 +309,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_alert_icon_padding',
+            'aem_alert_icon_padding',
             [
                 'label'      => __('Padding', AEM_TEXTDOMAIN),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -320,7 +320,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_alert_icon_border_radius',
+            'aem_alert_icon_border_radius',
             [
                 'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -337,12 +337,12 @@ class AEM_Alert extends Widget_Base {
          * Alert Content Title style Tab
          */
         $this->start_controls_section(
-            'goee_alert_title_style',
+            'aem_alert_title_style',
             [
                 'label'     => esc_html__( 'Title', AEM_TEXTDOMAIN ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'goee_alert_content_title_show' => 'yes'
+                    'aem_alert_content_title_show' => 'yes'
                 ]
             ]
         );
@@ -350,13 +350,13 @@ class AEM_Alert extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'goee_alert_title_typography',
+                'name'     => 'aem_alert_title_typography',
                 'selector' => '{{WRAPPER}} .aem-alert-element .aem-alert-element-content h5'
             ]
         );
 
         $this->add_control(
-          'goee_alert_title_color',
+          'aem_alert_title_color',
             [
                 'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -368,7 +368,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_alert_title_margin',
+            'aem_alert_title_margin',
             [
                 'label'      => __('Margin', AEM_TEXTDOMAIN),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -385,7 +385,7 @@ class AEM_Alert extends Widget_Base {
          * Alert Content Description style Tab
          */
         $this->start_controls_section(
-            'goee_alert_description_style',
+            'aem_alert_description_style',
             [
                 'label' => esc_html__( 'Description', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -395,13 +395,13 @@ class AEM_Alert extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'goee_alert_description_typography',
+                'name'     => 'aem_alert_description_typography',
                 'selector' => '{{WRAPPER}} .aem-alert-element .aem-alert-element-content .aem-alert-desc'
             ]
         );
 
         $this->add_control(
-            'goee_alert_description_color',
+            'aem_alert_description_color',
             [
                 'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -412,7 +412,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_alert_description_margin',
+            'aem_alert_description_margin',
             [
                 'label'      => __('Margin', AEM_TEXTDOMAIN),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -429,7 +429,7 @@ class AEM_Alert extends Widget_Base {
          * Alert Dismiss button style
          */
         $this->start_controls_section(
-            'goee_alert_dismiss_style',
+            'aem_alert_dismiss_style',
             [
                 'label' => esc_html__( 'Dismiss Button', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -437,7 +437,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_alert_dismiss_icon_size',
+            'aem_alert_dismiss_icon_size',
             [
                 'label'        => esc_html__( 'Size', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SLIDER,
@@ -458,7 +458,7 @@ class AEM_Alert extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_alert_dismiss_icon_color',
+            'aem_alert_dismiss_icon_color',
             [
                 'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -467,14 +467,14 @@ class AEM_Alert extends Widget_Base {
                   '{{WRAPPER}} .aem-alert-element .aem-alert-element-dismiss-icon svg path' => 'fill: {{VALUE}};'
                 ],
                 'condition' => [
-                    'goee_alert_close_button' => 'icon'
+                    'aem_alert_close_button' => 'icon'
                 ]
             ]
         );
 
         $dismiss_icon_spacing = is_rtl() ? 'left: {{SIZE}}{{UNIT}};' : 'right: {{SIZE}}{{UNIT}};';
         $this->add_responsive_control(
-            'goee_alert_dismiss_icon_pos_right',
+            'aem_alert_dismiss_icon_pos_right',
             [
                 'label'      => esc_html__( 'Offset-X', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -499,13 +499,13 @@ class AEM_Alert extends Widget_Base {
                     '{{WRAPPER}} .aem-alert-element .aem-alert-element-dismiss-icon' => $dismiss_icon_spacing
                 ],
                 'condition'  => [
-                  'goee_alert_close_button' => 'icon'
+                  'aem_alert_close_button' => 'icon'
                 ]
             ]
         );
 
         $this->add_responsive_control(
-          'goee_alert_dismiss_icon_pos_top',
+          'aem_alert_dismiss_icon_pos_top',
             [
                 'label'      => esc_html__( 'Offset-Y', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -530,26 +530,26 @@ class AEM_Alert extends Widget_Base {
                     '{{WRAPPER}} .aem-alert-element .aem-alert-element-dismiss-icon' => 'top: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'  => [
-                    'goee_alert_close_button' => 'icon'
+                    'aem_alert_close_button' => 'icon'
                 ]
             ]
         );
 
         $this->start_controls_tabs( 
-            'goee_alert_dismiss_button', 
+            'aem_alert_dismiss_button', 
             [
-                'condition' => ['goee_alert_close_button' => 'button']
+                'condition' => ['aem_alert_close_button' => 'button']
             ]
         );
 
-            $this->start_controls_tab( 'goee_alert_dismiss_primary_button', [ 'label' => esc_html__( 'Primary Button', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_alert_dismiss_primary_button', [ 'label' => esc_html__( 'Primary Button', AEM_TEXTDOMAIN ) ] );
 
             $this->add_control(
-                'goee_alert_dismiss_primary_button_background',
+                'aem_alert_dismiss_primary_button_background',
                 [
                     'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => $goee_primary_color,
+                    'default'   => $aem_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} .aem-alert-element-dismiss-button .aem-alert-element-dismiss-done' => 'background: {{VALUE}};'
                     ]
@@ -557,7 +557,7 @@ class AEM_Alert extends Widget_Base {
             );
 
             $this->add_control(
-                'goee_alert_dismiss_primary_button_text_color',
+                'aem_alert_dismiss_primary_button_text_color',
                 [
                     'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
                     'type'      => Controls_Manager::COLOR,
@@ -571,7 +571,7 @@ class AEM_Alert extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-                    'name'     => 'goee_alert_dismiss_primary_button_text',
+                    'name'     => 'aem_alert_dismiss_primary_button_text',
                     'selector' => '{{WRAPPER}} .aem-alert-element-dismiss-button .aem-alert-element-dismiss-done'
                 ]
             );
@@ -579,13 +579,13 @@ class AEM_Alert extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Border::get_type(),
                 [
-                    'name'     => 'goee_alert_dismiss_primary_button_border',
+                    'name'     => 'aem_alert_dismiss_primary_button_border',
                     'selector' => '{{WRAPPER}} .aem-alert-element-dismiss-button .aem-alert-element-dismiss-done'
                 ]
             );
 
             $this->add_responsive_control(
-                'goee_alert_dismiss_primary_button_padding',
+                'aem_alert_dismiss_primary_button_padding',
                 [
                     'label'        => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
                     'type'         => Controls_Manager::DIMENSIONS,
@@ -604,7 +604,7 @@ class AEM_Alert extends Widget_Base {
             );
 
             $this->add_responsive_control(
-              'goee_alert_dismiss_primary_button_ border_radius',
+              'aem_alert_dismiss_primary_button_ border_radius',
                 [
                     'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                     'type'       => Controls_Manager::DIMENSIONS,
@@ -623,25 +623,25 @@ class AEM_Alert extends Widget_Base {
             $this->end_controls_tab();
             
 
-            $this->start_controls_tab( 'goee_alert_dismiss_secondary_button', [ 'label' => esc_html__( 'Secondary Button', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_alert_dismiss_secondary_button', [ 'label' => esc_html__( 'Secondary Button', AEM_TEXTDOMAIN ) ] );
           
             $this->add_control(
-                'goee_alert_dismiss_secondary_button_background',
+                'aem_alert_dismiss_secondary_button_background',
                 [
                     'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => $goee_secondary_color,
+                    'default'   => $aem_secondary_color,
                     'selectors' => [
                     '{{WRAPPER}} .aem-alert-element-dismiss-button .aem-alert-element-dismiss-cancel' => 'background: {{VALUE}};'
                 ],
                 'condition' => [
-                        'goee_alert_close_button' => 'button'
+                        'aem_alert_close_button' => 'button'
                     ]
                 ]
             );
 
             $this->add_control(
-                'goee_alert_dismiss_secondary_button_text_color',
+                'aem_alert_dismiss_secondary_button_text_color',
                 [
                     'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
                     'type'      => Controls_Manager::COLOR,
@@ -655,7 +655,7 @@ class AEM_Alert extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
-                    'name'     => 'goee_alert_dismiss_secondary_button_text',
+                    'name'     => 'aem_alert_dismiss_secondary_button_text',
                     'selector' => '{{WRAPPER}} .aem-alert-element-dismiss-button .aem-alert-element-dismiss-cancel'
                 ]
             );
@@ -663,13 +663,13 @@ class AEM_Alert extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Border::get_type(),
                 [
-                    'name'     => 'goee_alert_dismiss_secondary_button_border',
+                    'name'     => 'aem_alert_dismiss_secondary_button_border',
                     'selector' => '{{WRAPPER}} .aem-alert-element-dismiss-button .aem-alert-element-dismiss-cancel'
                 ]
             );
 
             $this->add_responsive_control(
-                'goee_alert_dismiss_secondary_button_padding',
+                'aem_alert_dismiss_secondary_button_padding',
                 [
                     'label'        => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
                     'type'         => Controls_Manager::DIMENSIONS,
@@ -688,7 +688,7 @@ class AEM_Alert extends Widget_Base {
             );
 
             $this->add_responsive_control(
-              'goee_alert_dismiss_secondary_button_radius',
+              'aem_alert_dismiss_secondary_button_radius',
                 [
                     'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                     'type'       => Controls_Manager::DIMENSIONS,
@@ -713,37 +713,37 @@ class AEM_Alert extends Widget_Base {
 
     protected function render() {
         $settings     = $this->get_settings_for_display();
-        $title        = $settings['goee_alert_content_title'];
-        $description  = $settings['goee_alert_content_description'];
-        $primary_btn  = $settings['goee_alert_close_primary_button'];
-        $seconday_btn = $settings['goee_alert_close_secondary_button'];
+        $title        = $settings['aem_alert_content_title'];
+        $description  = $settings['aem_alert_content_description'];
+        $primary_btn  = $settings['aem_alert_close_primary_button'];
+        $seconday_btn = $settings['aem_alert_close_secondary_button'];
 
-        $this->add_render_attribute( 'goee_alert_content_title', 'class', 'aem-alert-title' );
-        $this->add_inline_editing_attributes( 'goee_alert_content_title', 'basic' );
+        $this->add_render_attribute( 'aem_alert_content_title', 'class', 'aem-alert-title' );
+        $this->add_inline_editing_attributes( 'aem_alert_content_title', 'basic' );
 
-        $this->add_render_attribute( 'goee_alert_content_description', 'class', 'aem-alert-desc' );
-        $this->add_inline_editing_attributes( 'goee_alert_content_description', 'basic' );
+        $this->add_render_attribute( 'aem_alert_content_description', 'class', 'aem-alert-desc' );
+        $this->add_inline_editing_attributes( 'aem_alert_content_description', 'basic' );
 
-        $this->add_render_attribute( 'goee_alert_close_primary_button', 'class', 'aem-alert-element-dismiss-done' );
-        $this->add_inline_editing_attributes( 'goee_alert_close_primary_button', 'none' );
+        $this->add_render_attribute( 'aem_alert_close_primary_button', 'class', 'aem-alert-element-dismiss-done' );
+        $this->add_inline_editing_attributes( 'aem_alert_close_primary_button', 'none' );
 
-        $this->add_render_attribute( 'goee_alert_close_secondary_button', 'class', 'aem-alert-element-dismiss-cancel' );
-        $this->add_inline_editing_attributes( 'goee_alert_close_secondary_button', 'none' );
+        $this->add_render_attribute( 'aem_alert_close_secondary_button', 'class', 'aem-alert-element-dismiss-cancel' );
+        $this->add_inline_editing_attributes( 'aem_alert_close_secondary_button', 'none' );
 
-        do_action( 'goee_alert_wrapper_before' );
+        do_action( 'aem_alert_wrapper_before' );
         ?>
 
         <div class="aem-alert">
             <div class="aem-alert-wrapper" data-alert>
                 <div class="aem-alert-element">
                 <?php
-                    do_action( 'goee_alert_content_wrapper_before' );
+                    do_action( 'aem_alert_content_wrapper_before' );
 
-                    if ( 'yes' === $settings['goee_alert_content_icon_show'] && !empty($settings['goee_alert_content_icon']['value']) ) {
+                    if ( 'yes' === $settings['aem_alert_content_icon_show'] && !empty($settings['aem_alert_content_icon']['value']) ) {
                     ?>    
                         <div class="aem-alert-element-icon">
                             <span>
-                                <?php Icons_Manager::render_icon( $settings['goee_alert_content_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                                <?php Icons_Manager::render_icon( $settings['aem_alert_content_icon'], [ 'aria-hidden' => 'true' ] ); ?>
                             </span>
                         </div>
                     <?php    
@@ -752,15 +752,15 @@ class AEM_Alert extends Widget_Base {
 
                     <div class="aem-alert-element-content">
                         <?php                    
-                            if ( !empty( $title ) && 'yes' === $settings['goee_alert_content_title_show'] ) {
-                                printf( '<h5 '.$this->get_render_attribute_string( 'goee_alert_content_title' ).'>%s</h5>', wp_kses_post( $title ) );
+                            if ( !empty( $title ) && 'yes' === $settings['aem_alert_content_title_show'] ) {
+                                printf( '<h5 '.$this->get_render_attribute_string( 'aem_alert_content_title' ).'>%s</h5>', wp_kses_post( $title ) );
                             } 
-                            $description ? printf( '<div '.$this->get_render_attribute_string( 'goee_alert_content_description' ).'>%s</div>', wp_kses_post( $description ) ) : '';
+                            $description ? printf( '<div '.$this->get_render_attribute_string( 'aem_alert_content_description' ).'>%s</div>', wp_kses_post( $description ) ) : '';
                         ?>    
                     </div>
 
                     <?php        
-                    if( 'icon' === $settings['goee_alert_close_button'] ) { ?>    
+                    if( 'icon' === $settings['aem_alert_close_button'] ) { ?>    
                         <div class="aem-alert-element-dismiss-icon">
                             <svg viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M2.343 15.071L.929 13.656 6.586 8 .929 2.343 2.343.929 8 6.585 13.657.929l1.414 1.414L9.414 8l5.657 5.656-1.414 1.415L8 9.414l-5.657 5.657z" />
@@ -769,22 +769,22 @@ class AEM_Alert extends Widget_Base {
                     <?php    
                     }
 
-                    do_action( 'goee_alert_content_wrapper_after' ); ?>
+                    do_action( 'aem_alert_content_wrapper_after' ); ?>
                 </div>
 
                 <?php    
-                if( 'button' === $settings['goee_alert_close_button'] ) { ?>
+                if( 'button' === $settings['aem_alert_close_button'] ) { ?>
                     <div class="aem-alert-element-dismiss-button">
                     <?php
-                        $primary_btn ? printf( '<button '.$this->get_render_attribute_string( 'goee_alert_close_primary_button' ).'>%s</button>', esc_html( $primary_btn ) ) : '';
-                        $seconday_btn ? printf( '<button '.$this->get_render_attribute_string( 'goee_alert_close_secondary_button' ).'>%s</button>', esc_html( $seconday_btn ) ) : '';
+                        $primary_btn ? printf( '<button '.$this->get_render_attribute_string( 'aem_alert_close_primary_button' ).'>%s</button>', esc_html( $primary_btn ) ) : '';
+                        $seconday_btn ? printf( '<button '.$this->get_render_attribute_string( 'aem_alert_close_secondary_button' ).'>%s</button>', esc_html( $seconday_btn ) ) : '';
                     ?>
                     </div>
                 <?php } ?>
             </div>
         </div>
 
-        <?php do_action( 'goee_alert_wrapper_after' );
+        <?php do_action( 'aem_alert_wrapper_after' );
     }
 
 }

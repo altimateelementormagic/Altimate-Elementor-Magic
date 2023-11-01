@@ -19,10 +19,10 @@
     }
     var exclusiveNewsTicker = function( $scope, $ ) {
 
-        var goee_news_ticker = $scope.find( '.aem-news-ticker' );
+        var aem_news_ticker = $scope.find( '.aem-news-ticker' );
     
         if ( $.isFunction( $.fn.breakingNews ) ) {  
-            goee_news_ticker.each( function() {
+            aem_news_ticker.each( function() {
                 var t            = $(this),
                 auto             = t.data( 'autoplay' ) ? !0 : !1,
                 animationEffect  = t.data( 'animation' ) ? t.data( 'animation' ) : '',                                   

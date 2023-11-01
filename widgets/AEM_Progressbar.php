@@ -45,17 +45,17 @@ class AEM_Progressbar extends Widget_Base {
 	}
 
 	protected function register_controls() {
-		$goee_primary_color = get_option( 'goee_primary_color_option', '#7a56ff' );
+		$aem_primary_color = get_option( 'aem_primary_color_option', '#7a56ff' );
 
 		$this->start_controls_section(
-			'goee_progress_bar_section_content',
+			'aem_progress_bar_section_content',
 			[
 				'label' => __('Content', 'go-essential-elementor')
 			]
 		);
 					
 		$this->add_control(
-			'goee_progress_bar_title',
+			'aem_progress_bar_title',
 			[
 				'label'     => __('Title', 'go-essential-elementor'),
 				'type'      => Controls_Manager::TEXT,
@@ -68,7 +68,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_progress_bar_value',
+			'aem_progress_bar_value',
 			[
 				'label'   => __( 'Percentage Value', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
@@ -82,7 +82,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->end_controls_section();
 				
 		$this->start_controls_section(
-			'goee_section_progress_bar_styles_preset',
+			'aem_section_progress_bar_styles_preset',
 			[
 				'label' => __('General Styles', 'go-essential-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -90,7 +90,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_progress_bar_preset',
+			'aem_progress_bar_preset',
 			[
 				'label'   => __('Style Presets', 'go-essential-elementor'),
 				'type'    => Controls_Manager::SELECT,
@@ -107,7 +107,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_progress_bar_title_styles',
+			'aem_progress_bar_title_styles',
 			[
 				'label' => __('Title', 'go-essential-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -115,7 +115,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_progress_bar_title_color',
+			'aem_progress_bar_title_color',
 			[
 				'label'     => __( 'Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -129,7 +129,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'goee_progress_bar_title_typography',
+					'name'     => 'aem_progress_bar_title_typography',
 					'fields_options'   => [
 			            'font_size'    => [
 			                'default'  => [
@@ -146,7 +146,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-            'goee_progress_bar_title_margin',
+            'aem_progress_bar_title_margin',
             [
                 'label'        => __('Margin', 'go-essential-elementor'),
                 'type'         => Controls_Manager::DIMENSIONS,
@@ -168,7 +168,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_progress_bar_front_style',
+			'aem_progress_bar_front_style',
 			[
 				'label' => __('Front Bar', 'go-essential-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -176,17 +176,17 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_progress_bar_stroke_color',
+			'aem_progress_bar_stroke_color',
 			[
 				'label'   => __( 'Color', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::COLOR,
 				'alpha'	  => false,
-				'default' => $this->hexToRGB($goee_primary_color)
+				'default' => $this->hexToRGB($aem_primary_color)
 			]
 		);
 
 		$this->add_control(
-			'goee_progress_bar_stroke_width',
+			'aem_progress_bar_stroke_width',
 			[
 				'label'   => __( 'Width', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
@@ -200,7 +200,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_progress_bar_back_style',
+			'aem_progress_bar_back_style',
 			[
 				'label' => __('Back Bar', 'go-essential-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -208,7 +208,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_progress_bar_trail_color',
+			'aem_progress_bar_trail_color',
 			[
 				'label'   => __( 'Color', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::COLOR,
@@ -217,7 +217,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_progress_bar_trail_width',
+			'aem_progress_bar_trail_width',
 			[
 				'label'   => __( 'Width', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
@@ -231,7 +231,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_progress_bar_value_styles',
+			'aem_progress_bar_value_styles',
 			[
 				'label' => __('Percentage Value', 'go-essential-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -239,7 +239,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_progress_bar_value_width',
+			'aem_progress_bar_value_width',
 			[
 				'label'      => __( 'Width', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
@@ -255,13 +255,13 @@ class AEM_Progressbar extends Widget_Base {
 					'{{WRAPPER}} [class*="aem-progress-bar-"] .ldBar-label' => 'width: {{SIZE}}{{UNIT}};'
 				],
 				'condition'  => [
-					'goee_progress_bar_preset' => [ 'line-bubble' ]
+					'aem_progress_bar_preset' => [ 'line-bubble' ]
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_progress_bar_value_height',
+			'aem_progress_bar_value_height',
 			[
 				'label'      => __( 'height', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
@@ -277,13 +277,13 @@ class AEM_Progressbar extends Widget_Base {
 					'{{WRAPPER}} [class*="aem-progress-bar-"] .ldBar-label' => 'height: {{SIZE}}{{UNIT}};'
 				],
 				'condition'  => [
-					'goee_progress_bar_preset' => [ 'line-bubble' ]
+					'aem_progress_bar_preset' => [ 'line-bubble' ]
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_progress_bar_value_position',
+			'aem_progress_bar_value_position',
 			[
 				'label'      => __( 'Position', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
@@ -303,13 +303,13 @@ class AEM_Progressbar extends Widget_Base {
 					'{{WRAPPER}} [class*="aem-progress-bar-"].fan .ldBar-label' => 'bottom: {{SIZE}}{{UNIT}};'
 				],
 				'condition'  => [
-					'goee_progress_bar_preset' => 'fan'
+					'aem_progress_bar_preset' => 'fan'
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_progress_bar_value_position_top',
+			'aem_progress_bar_value_position_top',
 			[
 				'label'      => __( 'Top Position', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
@@ -325,13 +325,13 @@ class AEM_Progressbar extends Widget_Base {
 					'{{WRAPPER}} [class*="aem-progress-bar-"] .ldBar-label' => 'top: {{SIZE}}{{UNIT}};'
 				],
 				'condition'  => [
-					'goee_progress_bar_preset' => [ 'line', 'line-bubble' ]
+					'aem_progress_bar_preset' => [ 'line', 'line-bubble' ]
 				]
 			]
 		);
 
 		$this->add_control(
-			'goee_progress_bar_value_color',
+			'aem_progress_bar_value_color',
 			[
 				'label'     => __( 'Text Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -345,7 +345,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'goee_progress_bar_value_value_typography',
+					'name'     => 'aem_progress_bar_value_value_typography',
 					'selector' => '{{WRAPPER}} .aem-progress-bar .ldBar-label'
 				]
 		);
@@ -353,7 +353,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'goee_progress_bar_background',
+				'name'     => 'aem_progress_bar_background',
 				'types'    => [ 'classic', 'gradient'],
 				'selector' => '{{WRAPPER}} .aem-progress-bar .ldBar-label'
 			]
@@ -362,13 +362,13 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'goee_progress_bar_border',
+				'name'     => 'aem_progress_bar_border',
 				'selector' => '{{WRAPPER}} .aem-progress-bar .ldBar-label'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_progress_bar_radius',
+			'aem_progress_bar_radius',
 			[
 				'label'      => __( 'Border Radius', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -387,7 +387,7 @@ class AEM_Progressbar extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_progress_bar_padding_style',
+			'aem_progress_bar_padding_style',
 			[
 				'label'      => __( 'Padding', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -407,7 +407,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'goee_progress_bar_box_shadow',
+				'name'     => 'aem_progress_bar_box_shadow',
 				'selector' => '{{WRAPPER}} .aem-progress-bar .ldBar-label'
 			]
 		);
@@ -417,31 +417,31 @@ class AEM_Progressbar extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$title    = $settings['goee_progress_bar_title'];
+		$title    = $settings['aem_progress_bar_title'];
 		
 		$this->add_render_attribute( 
 			'aem-progress-bar', 
 			[ 
 				'class' => [ 
-					esc_attr( $settings['goee_progress_bar_preset'] ), 
+					esc_attr( $settings['aem_progress_bar_preset'] ), 
 					'aem-progress-bar', 
 					'aem-progress-bar-'.$this->get_id() 
 				],
 				'data-id'                              => $this->get_id(),
-				'data-type'                            => esc_attr( $settings['goee_progress_bar_preset'] ),
-				'data-progress-bar-value'              => esc_attr( $settings['goee_progress_bar_value'] ),
-				'data-stroke-color'                    => esc_attr( $settings['goee_progress_bar_stroke_color'] ),
-				'data-progress-bar-stroke-width'       => esc_attr( $settings['goee_progress_bar_stroke_width'] ),
-				'data-stroke-trail-color'              => esc_attr( $settings['goee_progress_bar_trail_color'] ),
-				'data-progress-bar-stroke-trail-width' => esc_attr( $settings['goee_progress_bar_trail_width'] ),
+				'data-type'                            => esc_attr( $settings['aem_progress_bar_preset'] ),
+				'data-progress-bar-value'              => esc_attr( $settings['aem_progress_bar_value'] ),
+				'data-stroke-color'                    => esc_attr( $settings['aem_progress_bar_stroke_color'] ),
+				'data-progress-bar-stroke-width'       => esc_attr( $settings['aem_progress_bar_stroke_width'] ),
+				'data-stroke-trail-color'              => esc_attr( $settings['aem_progress_bar_trail_color'] ),
+				'data-progress-bar-stroke-trail-width' => esc_attr( $settings['aem_progress_bar_trail_width'] ),
 				'data-unit'							   => '%'
 			]
 		);
 
-		$this->add_render_attribute( 'goee_progress_bar_title', 'class', 'aem-progress-bar-title' );
-        $this->add_inline_editing_attributes( 'goee_progress_bar_title', 'basic' );
+		$this->add_render_attribute( 'aem_progress_bar_title', 'class', 'aem-progress-bar-title' );
+        $this->add_inline_editing_attributes( 'aem_progress_bar_title', 'basic' );
 
-		if ( 'line' === $settings['goee_progress_bar_preset'] || 'line-bubble' === $settings['goee_progress_bar_preset'] ) {
+		if ( 'line' === $settings['aem_progress_bar_preset'] || 'line-bubble' === $settings['aem_progress_bar_preset'] ) {
 			$this->add_render_attribute(
 				'aem-progress-bar',
 				[
@@ -451,7 +451,7 @@ class AEM_Progressbar extends Widget_Base {
 			);
 		}
 
-		if ( 'circle' === $settings['goee_progress_bar_preset'] ) {
+		if ( 'circle' === $settings['aem_progress_bar_preset'] ) {
 			$this->add_render_attribute(
 				'aem-progress-bar',
 				[
@@ -461,7 +461,7 @@ class AEM_Progressbar extends Widget_Base {
 			);
 		}
 
-		if ( 'fan' === $settings['goee_progress_bar_preset'] ) {
+		if ( 'fan' === $settings['aem_progress_bar_preset'] ) {
 			$this->add_render_attribute(
 				'aem-progress-bar',
 				[
@@ -474,7 +474,7 @@ class AEM_Progressbar extends Widget_Base {
 		?>
 		
 		<div <?php echo $this->get_render_attribute_string('aem-progress-bar'); ?> data-progress-bar>
-			<?php echo $title ? '<h6 '.$this->get_render_attribute_string( 'goee_progress_bar_title' ).'>'.Helper::goee_wp_kses( $title ).'</h6>' : ''; ?>
+			<?php echo $title ? '<h6 '.$this->get_render_attribute_string( 'aem_progress_bar_title' ).'>'.Helper::aem_wp_kses( $title ).'</h6>' : ''; ?>
 		</div>
 		<?php
 	}

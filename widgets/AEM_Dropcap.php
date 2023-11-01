@@ -41,7 +41,7 @@ class AEM_Dropcap extends Widget_Base {
         );
             
             $this->add_control(
-                'goee_dropcap_text',
+                'aem_dropcap_text',
                 [
                     'label'         => esc_html__( 'Content', AEM_TEXTDOMAIN ),
                     'type'          => Controls_Manager::TEXTAREA,
@@ -217,8 +217,8 @@ class AEM_Dropcap extends Widget_Base {
         ?>                
         <div <?php echo $this->get_render_attribute_string( 'area_attr' ); ?> >
             <?php
-                if( !empty( $settings['goee_dropcap_text'] ) ){
-                    echo '<p>'.esc_html__( $settings['goee_dropcap_text'], AEM_TEXTDOMAIN ).'</p>';
+                if( !empty( $settings['aem_dropcap_text'] ) ){
+                    echo '<p>'.esc_html__( $settings['aem_dropcap_text'], AEM_TEXTDOMAIN ).'</p>';
                 }
             ?>
         </div>

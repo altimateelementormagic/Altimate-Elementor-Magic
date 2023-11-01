@@ -38,20 +38,20 @@ class AEM_Iconbox extends Widget_Base {
 	}
 
 	protected function register_controls() {
-		$goee_primary_color = get_option( 'goee_primary_color_option', '#7a56ff' );
+		$aem_primary_color = get_option( 'aem_primary_color_option', '#7a56ff' );
 		
 		/*
 		* Infobox Image
 		*/
 		$this->start_controls_section(
-			'goee_section_infobox_content',
+			'aem_section_infobox_content',
 			[
 				'label' => esc_html__( 'Content', 'go-essential-elementor' )
 			]
 		);
 		
 		$this->add_control(
-			'goee_infobox_img_or_icon',
+			'aem_infobox_img_or_icon',
 			[
 				'label'         => esc_html__( 'Image or Icon', 'go-essential-elementor' ),
 				'type'          => Controls_Manager::CHOOSE,
@@ -76,7 +76,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 		
 		$this->add_control(
-			'goee_infobox_image',
+			'aem_infobox_image',
 			[
 				'label'     => esc_html__( 'Image', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::MEDIA,
@@ -87,7 +87,7 @@ class AEM_Iconbox extends Widget_Base {
 					'active' => true,
 				],
 				'condition' => [
-					'goee_infobox_img_or_icon' => 'img'
+					'aem_infobox_img_or_icon' => 'img'
 				]
 			]
 		);
@@ -97,13 +97,13 @@ class AEM_Iconbox extends Widget_Base {
 				'name'      => 'thumbnail',
 				'default'   => 'medium_large',
 				'condition' => [
-					'goee_infobox_img_or_icon' => 'img'
+					'aem_infobox_img_or_icon' => 'img'
 				]
 			]
 		);
 
 		$this->add_control(
-			'goee_infobox_icon',
+			'aem_infobox_icon',
 			[
 				'label'       => esc_html__( 'Icon', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::ICONS,
@@ -112,14 +112,14 @@ class AEM_Iconbox extends Widget_Base {
 					'library' => 'fa-solid'
 				],
 				'condition'   => [
-					'goee_infobox_img_or_icon' => 'icon'
+					'aem_infobox_img_or_icon' => 'icon'
 				]
 			]
 		);
 
 		
 		$this->add_control(
-			'goee_infobox_title',
+			'aem_infobox_title',
 			[
 				'label'       => esc_html__( 'Title', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::TEXT,
@@ -132,17 +132,17 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-            'goee_infobox_title_html_tag',
+            'aem_infobox_title_html_tag',
             [
                 'label'   => __('Title HTML Tag', 'go-essential-elementor'),
                 'type'    => Controls_Manager::SELECT,
-                'options' => Helper::goee_title_tags(),
+                'options' => Helper::aem_title_tags(),
                 'default' => 'h3',
             ]
 		);
 
 		$this->add_control(
-			'goee_infobox_title_link',
+			'aem_infobox_title_link',
 			[
 				'label'       => __( 'Title URL', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::URL,
@@ -152,7 +152,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 		
 		$this->add_control(
-			'goee_infobox_description',
+			'aem_infobox_description',
 			[
 				'label'   => esc_html__( 'Description', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
@@ -170,7 +170,7 @@ class AEM_Iconbox extends Widget_Base {
 		* Infobox Styling Section
 		*/
 		$this->start_controls_section(
-			'goee_section_infobox_styles_preset',
+			'aem_section_infobox_styles_preset',
 			[
 				'label' => esc_html__( 'Container', 'go-essential-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -178,7 +178,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_container_min_height',
+			'aem_infobox_container_min_height',
 			[
 				'label'       => esc_html__( 'Min Height', 'go-essential-elementor' ),
 				'type'    	  => Controls_Manager::SLIDER,
@@ -194,7 +194,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_infobox_alignment',
+			'aem_infobox_alignment',
             [
 				'label'   => __( 'Alignment', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
@@ -220,7 +220,7 @@ class AEM_Iconbox extends Widget_Base {
         // $this->add_group_control(
 		// 	Group_Control_Background::get_type(),
 		// 	[
-		// 		'name'      => 'goee_infobox_background',
+		// 		'name'      => 'aem_infobox_background',
 		// 		'types'     => [ 'classic', 'gradient' ],
 		// 		'separator' => 'before',
 		// 		'selector'  => '{{WRAPPER}} .aem-infobox .aem-infobox-item',
@@ -229,7 +229,7 @@ class AEM_Iconbox extends Widget_Base {
 		// );
 
 		$this->add_responsive_control(
-			'goee_infobox_padding',
+			'aem_infobox_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -247,7 +247,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_border_radius',
+			'aem_infobox_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -264,14 +264,14 @@ class AEM_Iconbox extends Widget_Base {
 			]
 		);
 
-		$this->start_controls_tabs( 'goee_infobox_container_tabs' );
+		$this->start_controls_tabs( 'aem_infobox_container_tabs' );
 
-			$this->start_controls_tab( 'goee_infobox_container_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_container_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
 
 				$this->add_group_control(
 					Group_Control_Background::get_type(),
 					[
-						'name'      => 'goee_infobox_background_normal',
+						'name'      => 'aem_infobox_background_normal',
 						'types'     => [ 'classic', 'gradient' ],
 						'selector'  => '{{WRAPPER}} .aem-infobox .aem-infobox-item',
 					]
@@ -280,7 +280,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'     => 'goee_infobox_border_normal',
+						'name'     => 'aem_infobox_border_normal',
 						'selector' => '{{WRAPPER}} .aem-infobox-item'
 					]
 				);
@@ -288,19 +288,19 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Box_Shadow::get_type(),
 					[
-						'name'     => 'goee_infobox_box_shadow_normal',
+						'name'     => 'aem_infobox_box_shadow_normal',
 						'selector' => '{{WRAPPER}} .aem-infobox-item'
 					]
 				);
 
 			$this->end_controls_tab();
 		
-			$this->start_controls_tab( 'goee_infobox_container_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_container_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
 
 				$this->add_group_control(
 					Group_Control_Background::get_type(),
 					[
-						'name'      => 'goee_infobox_background_hover',
+						'name'      => 'aem_infobox_background_hover',
 						'types'     => [ 'classic', 'gradient' ],
 						'separator' => 'before',
 						'selector'  => '{{WRAPPER}} .aem-infobox .aem-infobox-item:hover',
@@ -308,7 +308,7 @@ class AEM_Iconbox extends Widget_Base {
 				);
 
 				$this->add_control(
-					'goee_infobox_background_hover_title_color',
+					'aem_infobox_background_hover_title_color',
 					[
 						'label'     => esc_html__( 'Title Color', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
@@ -319,7 +319,7 @@ class AEM_Iconbox extends Widget_Base {
 				);
 
 				$this->add_control(
-					'goee_infobox_background_hover_description_color',
+					'aem_infobox_background_hover_description_color',
 					[
 						'label'     => esc_html__( 'Description Color', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
@@ -332,7 +332,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'     => 'goee_infobox_border_hover',
+						'name'     => 'aem_infobox_border_hover',
 						'selector' => '{{WRAPPER}} .aem-infobox-item:hover'
 					]
 				);
@@ -340,7 +340,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Box_Shadow::get_type(),
 					[
-						'name'     => 'goee_infobox_box_shadow_hover',
+						'name'     => 'aem_infobox_box_shadow_hover',
 						'selector' => '{{WRAPPER}} .aem-infobox-item:hover'
 					]
 				);
@@ -363,7 +363,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_infobox_transition_top',
+			'aem_infobox_transition_top',
             [
 				'label'        => __( 'Transition Top', 'go-essential-elementor' ),
 				'type'         =>  Controls_Manager::SWITCHER,
@@ -374,7 +374,7 @@ class AEM_Iconbox extends Widget_Base {
 			]
         );
 		$this->add_control(
-			'goee_infobox_transition_zoom',
+			'aem_infobox_transition_zoom',
             [
 				'label'        => __( 'Transition Zoom', 'go-essential-elementor' ),
 				'type'         =>  Controls_Manager::SWITCHER,
@@ -388,17 +388,17 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'      => 'goee_infobox_transition_zoom_background',
+				'name'      => 'aem_infobox_transition_zoom_background',
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .zoom-transition::before',
 				'condition' => [
-					'goee_infobox_transition_zoom' => 'yes'
+					'aem_infobox_transition_zoom' => 'yes'
 				]
 			]
 		);
 		
 		$this->add_control(
-			'goee_infobox_transition_zoom_title_color',
+			'aem_infobox_transition_zoom_title_color',
 			[
 				'label'     => esc_html__( 'Title Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -407,13 +407,13 @@ class AEM_Iconbox extends Widget_Base {
 				  	'{{WRAPPER}} .aem-infobox-item:hover .aem-infobox-content-title' => 'color: {{VALUE}};'
 			  	],
 			  	'condition' => [
-					'goee_infobox_transition_zoom' => 'yes'
+					'aem_infobox_transition_zoom' => 'yes'
 				]
 			]
 		);
 
 		$this->add_control(
-			'goee_infobox_transition_zoom_description_color',
+			'aem_infobox_transition_zoom_description_color',
 			[
 				'label'     => esc_html__( 'Description Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -422,7 +422,7 @@ class AEM_Iconbox extends Widget_Base {
 				  	'{{WRAPPER}} .aem-infobox-item:hover .aem-infobox-content-description' => 'color: {{VALUE}};'
 		  		],
 		  		'condition' => [
-					'goee_infobox_transition_zoom' => 'yes'
+					'aem_infobox_transition_zoom' => 'yes'
 				]
 			]
 		);
@@ -439,7 +439,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_infobox_icon_position',
+			'aem_infobox_icon_position',
 			[
 				'label'   => __( 'Position', 'go-essential-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
@@ -463,7 +463,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_infobox_enable_box',
+			'aem_infobox_enable_box',
             [
 				'label'        => __( 'Enable Box', 'go-essential-elementor' ),
 				'type'         =>  Controls_Manager::SWITCHER,
@@ -475,7 +475,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_height',
+			'aem_infobox_icon_height',
 			[
 				'label'       => esc_html__( 'Height', 'go-essential-elementor' ),
 				'type'    	  => Controls_Manager::SLIDER,
@@ -491,13 +491,13 @@ class AEM_Iconbox extends Widget_Base {
 				  	'{{WRAPPER}} .aem-infobox-item .aem-infobox-icon' => 'height: {{SIZE}}px;'
 				],
 				'condition' => [
-					'goee_infobox_enable_box' => 'yes' 
+					'aem_infobox_enable_box' => 'yes' 
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_width',
+			'aem_infobox_icon_width',
 			[
 				'label'       => esc_html__( 'Width', 'go-essential-elementor' ),
 				'type'    	  => Controls_Manager::SLIDER,
@@ -515,13 +515,13 @@ class AEM_Iconbox extends Widget_Base {
 				  	'{{WRAPPER}} .aem-infobox-icon-position-right .aem-infobox-content' => 'flex-basis: calc( 100% - {{SIZE}}px );'
 				],
 				'condition' => [
-					'goee_infobox_enable_box' => 'yes' 
+					'aem_infobox_enable_box' => 'yes' 
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_font_size',
+			'aem_infobox_icon_font_size',
 			[
 				'label'       => esc_html__( 'Icon Size', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -538,14 +538,14 @@ class AEM_Iconbox extends Widget_Base {
 					'{{WRAPPER}} .aem-infobox-item .aem-infobox-icon svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;'
 			  	],
 				'condition'   => [
-					'goee_infobox_img_or_icon'  => 'icon',
-					'goee_infobox_icon[value]!' => ''
+					'aem_infobox_img_or_icon'  => 'icon',
+					'aem_infobox_icon[value]!' => ''
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_image_size',
+			'aem_infobox_icon_image_size',
 			[
 				'label'       => esc_html__( 'Image Size', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -561,14 +561,14 @@ class AEM_Iconbox extends Widget_Base {
 					'{{WRAPPER}} .aem-infobox-item .aem-infobox-icon img' => 'height: {{SIZE}}px; width: {{SIZE}}px;'
 			  	],
 				'condition'   => [
-					'goee_infobox_img_or_icon'  => 'img',
-					'goee_infobox_icon[value]!' => ''
+					'aem_infobox_img_or_icon'  => 'img',
+					'aem_infobox_icon[value]!' => ''
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_border_radius',
+			'aem_infobox_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -589,7 +589,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'goee_infobox_icon_box_shadow',
+				'name'     => 'aem_infobox_icon_box_shadow',
 				'selector' => '{{WRAPPER}} .aem-infobox-item .aem-infobox-icon'
 			]
 		);
@@ -597,17 +597,17 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Css_Filter::get_type(),
 			[
-				'name' => 'goee_infobox_image_css_filter',
+				'name' => 'aem_infobox_image_css_filter',
 				'selector' => '{{WRAPPER}} .aem-infobox-item .aem-infobox-icon img',
 				'condition'   => [
-					'goee_infobox_img_or_icon'  => 'img',
-					'goee_infobox_icon[value]!' => ''
+					'aem_infobox_img_or_icon'  => 'img',
+					'aem_infobox_icon[value]!' => ''
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_margin_top',
+			'aem_infobox_icon_margin_top',
 			[
 				'label'       => esc_html__( 'Top Spacing', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -629,7 +629,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_infobox_icon_margin_bottom',
+			'aem_infobox_icon_margin_bottom',
 			[
 				'label'       => esc_html__( 'Bottom Spacing', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -650,16 +650,16 @@ class AEM_Iconbox extends Widget_Base {
 			]
 		);
 
-		$this->start_controls_tabs( 'goee_infobox_icon_tabs' );
+		$this->start_controls_tabs( 'aem_infobox_icon_tabs' );
 			// Normal State Tab
-			$this->start_controls_tab( 'goee_infobox_icon_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_icon_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
 
 				$this->add_control(
-					'goee_infobox_icon_background_color_normal',
+					'aem_infobox_icon_background_color_normal',
 					[
 						'label'     => esc_html__( 'Background', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => $goee_primary_color,
+						'default'   => $aem_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .aem-infobox-item .aem-infobox-icon' => 'background: {{VALUE}}'
 						]
@@ -667,7 +667,7 @@ class AEM_Iconbox extends Widget_Base {
 				);
 
 				$this->add_control(
-					'goee_infobox_icon_color_normal',
+					'aem_infobox_icon_color_normal',
 					[
 						'label'     => esc_html__( 'Icon Color', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
@@ -676,8 +676,8 @@ class AEM_Iconbox extends Widget_Base {
 							'{{WRAPPER}} .aem-infobox-item .aem-infobox-icon i' => 'color: {{VALUE}}'
 						],
 						'condition' => [
-							'goee_infobox_img_or_icon'  => 'icon',
-							'goee_infobox_icon[value]!' => ''
+							'aem_infobox_img_or_icon'  => 'icon',
+							'aem_infobox_icon[value]!' => ''
 						]
 					]
 				);
@@ -685,7 +685,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'     => 'goee_infobox_icon_border_normal',
+						'name'     => 'aem_infobox_icon_border_normal',
 						'selector' => '{{WRAPPER}} .aem-infobox-item .aem-infobox-icon'
 					]
 				);
@@ -693,10 +693,10 @@ class AEM_Iconbox extends Widget_Base {
 			$this->end_controls_tab();
 
 			// Hover State Tab
-			$this->start_controls_tab( 'goee_infobox_icon_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_icon_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
 
 				$this->add_control(
-					'goee_infobox_icon_background_color_hover',
+					'aem_infobox_icon_background_color_hover',
 					[
 						'label'     => esc_html__( 'Background', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
@@ -708,17 +708,17 @@ class AEM_Iconbox extends Widget_Base {
 				);
 
 				$this->add_control(
-					'goee_infobox_icon_color_hover',
+					'aem_infobox_icon_color_hover',
 					[
 						'label'     => esc_html__( 'Icon Color', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => $goee_primary_color,
+						'default'   => $aem_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .aem-infobox-item:hover .aem-infobox-icon i' => 'color: {{VALUE}}'
 						],
 						'condition' => [
-							'goee_infobox_img_or_icon'  => 'icon',
-							'goee_infobox_icon[value]!' => ''
+							'aem_infobox_img_or_icon'  => 'icon',
+							'aem_infobox_icon[value]!' => ''
 						]
 					]
 				);
@@ -726,7 +726,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'     => 'goee_infobox_icon_border_hover',
+						'name'     => 'aem_infobox_icon_border_hover',
 						'selector' => '{{WRAPPER}} .aem-infobox-item:hover .aem-infobox-icon'
 					]
 				);
@@ -766,7 +766,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 		
 		$this->add_responsive_control(
-			'goee_infobox_title_margin',
+			'aem_infobox_title_margin',
 			[
 				'label'      => __( 'Margin', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -785,12 +785,12 @@ class AEM_Iconbox extends Widget_Base {
 			]
 		);
 
-		$this->start_controls_tabs( 'goee_infobox_title_tabs' );
+		$this->start_controls_tabs( 'aem_infobox_title_tabs' );
 
-			$this->start_controls_tab( 'goee_infobox_title_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_title_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
 
 				$this->add_control(
-					'goee_title_color_normal',
+					'aem_title_color_normal',
 					[
 						'label'     => __('Color', 'go-essential-elementor'),
 						'type'      => Controls_Manager::COLOR,
@@ -803,10 +803,10 @@ class AEM_Iconbox extends Widget_Base {
 
 			$this->end_controls_tab();
 		
-			$this->start_controls_tab( 'goee_infobox_title_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_title_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
 
 				$this->add_control(
-					'goee_title_color_hover',
+					'aem_title_color_hover',
 					[
 						'label'     => esc_html__( 'Title Color', 'go-essential-elementor' ),
 						'type'      => Controls_Manager::COLOR,
@@ -831,7 +831,7 @@ class AEM_Iconbox extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_description_color',
+            'aem_description_color',
             [
 				'label'     => __('Color', 'go-essential-elementor'),
 				'type'      => Controls_Manager::COLOR,
@@ -845,13 +845,13 @@ class AEM_Iconbox extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-				'name'     => 'goee_description_typography',
+				'name'     => 'aem_description_typography',
 				'selector' => '{{WRAPPER}} .aem-infobox-content-description'
             ]
 		);
 		
 		$this->add_responsive_control(
-			'goee_infobox_description_margin',
+			'aem_infobox_description_margin',
 			[
 				'label'      => __( 'Margin', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -877,7 +877,7 @@ class AEM_Iconbox extends Widget_Base {
 		*/
 		
 		$this->start_controls_section(
-			'goee_section_infobox_animating_mask',
+			'aem_section_infobox_animating_mask',
 			[
 				'label' 	=> esc_html__( 'Animating Mask', 'go-essential-elementor' ),
 				'tab'   	=> Controls_Manager::TAB_STYLE,
@@ -885,7 +885,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_infobox_animating_mask_switcher',
+			'aem_infobox_animating_mask_switcher',
 			[
 				'label' 		=> __( 'Enable Animating Mask', 'go-essential-elementor' ),
 				'type' 			=> Controls_Manager::SWITCHER,
@@ -897,7 +897,7 @@ class AEM_Iconbox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_infobox_animating_mask_style',
+			'aem_infobox_animating_mask_style',
 			[
 				'label'        => __( 'Animating Mask Style', 'go-essential-elementor' ),
 				'type'         => Controls_Manager::SELECT,
@@ -908,7 +908,7 @@ class AEM_Iconbox extends Widget_Base {
 					'style_3'  => __( 'Style 3', 'go-essential-elementor' ),
 				],
 				'condition'		=> [
-					'goee_infobox_animating_mask_switcher' => 'yes'
+					'aem_infobox_animating_mask_switcher' => 'yes'
 				]
 			]
 		);
@@ -919,72 +919,72 @@ class AEM_Iconbox extends Widget_Base {
 
 	protected function render() {
 		$settings                  = $this->get_settings_for_display();		
-		$title                     = $settings['goee_infobox_title'];
-		$details                   = $settings['goee_infobox_description'];
+		$title                     = $settings['aem_infobox_title'];
+		$details                   = $settings['aem_infobox_description'];
 
-		if ( $settings['goee_infobox_img_or_icon'] == 'img' ) {
+		if ( $settings['aem_infobox_img_or_icon'] == 'img' ) {
 
-			$infobox_image_url_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'goee_infobox_image' );
+			$infobox_image_url_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'aem_infobox_image' );
 		}
 
-		$this->add_render_attribute( 'goee_infobox_transition',[
+		$this->add_render_attribute( 'aem_infobox_transition',[
 			'class' => [
 				'aem-infobox-item', 
-				esc_attr( $settings['goee_infobox_alignment'] ), 
-				esc_attr( $settings['goee_infobox_icon_position'] ),
-				'aem-infobox-enable-box-'.esc_attr( $settings['goee_infobox_enable_box'] )
+				esc_attr( $settings['aem_infobox_alignment'] ), 
+				esc_attr( $settings['aem_infobox_icon_position'] ),
+				'aem-infobox-enable-box-'.esc_attr( $settings['aem_infobox_enable_box'] )
 			]
 		]);
 
-		if( 'yes' === $settings['goee_infobox_transition_top'] ){
-			$this->add_render_attribute( 'goee_infobox_transition', 'class', 'simple-transition' );
+		if( 'yes' === $settings['aem_infobox_transition_top'] ){
+			$this->add_render_attribute( 'aem_infobox_transition', 'class', 'simple-transition' );
 		}
 
-		if( 'yes' === $settings['goee_infobox_transition_zoom'] ){
-			$this->add_render_attribute( 'goee_infobox_transition', 'class', 'zoom-transition' );
+		if( 'yes' === $settings['aem_infobox_transition_zoom'] ){
+			$this->add_render_attribute( 'aem_infobox_transition', 'class', 'zoom-transition' );
 		}
 
-		if( isset( $settings['goee_infobox_title_link']['url'] ) ) {
-            $this->add_render_attribute( 'goee_infobox_title_link', 'href', esc_url( $settings['goee_infobox_title_link']['url'] ) );
-		    if( $settings['goee_infobox_title_link']['is_external'] ) {
-		        $this->add_render_attribute( 'goee_infobox_title_link', 'target', '_blank' );
+		if( isset( $settings['aem_infobox_title_link']['url'] ) ) {
+            $this->add_render_attribute( 'aem_infobox_title_link', 'href', esc_url( $settings['aem_infobox_title_link']['url'] ) );
+		    if( $settings['aem_infobox_title_link']['is_external'] ) {
+		        $this->add_render_attribute( 'aem_infobox_title_link', 'target', '_blank' );
 		    }
-		    if( $settings['goee_infobox_title_link']['nofollow'] ) {
-		        $this->add_render_attribute( 'goee_infobox_title_link', 'rel', 'nofollow' );
+		    if( $settings['aem_infobox_title_link']['nofollow'] ) {
+		        $this->add_render_attribute( 'aem_infobox_title_link', 'rel', 'nofollow' );
 		    }
         }
 
-        $this->add_render_attribute( 'goee_infobox_title', 'class', 'aem-infobox-content-title' );
-		$this->add_inline_editing_attributes( 'goee_infobox_title', 'none' );
+        $this->add_render_attribute( 'aem_infobox_title', 'class', 'aem-infobox-content-title' );
+		$this->add_inline_editing_attributes( 'aem_infobox_title', 'none' );
 
-        $this->add_render_attribute( 'goee_infobox_description', 'class', 'aem-infobox-content-description' );
-		$this->add_inline_editing_attributes( 'goee_infobox_description' );
+        $this->add_render_attribute( 'aem_infobox_description', 'class', 'aem-infobox-content-description' );
+		$this->add_inline_editing_attributes( 'aem_infobox_description' );
 
 		?>
 
 		<div class="aem-infobox">
-			<div <?php echo $this->get_render_attribute_string( 'goee_infobox_transition' ); ?>>
-			  	<?php if( 'none' !== $settings['goee_infobox_img_or_icon'] ) { ?>
-					<div class="aem-infobox-icon<?php echo ( 'yes' === $settings['goee_infobox_animating_mask_switcher'] ) ? ' '.$settings['goee_infobox_animating_mask_style'] : ''; ?>">
-						<?php if( 'icon' === $settings['goee_infobox_img_or_icon'] && $settings['goee_infobox_icon']['value'] ) : ?>
-							<?php Icons_Manager::render_icon( $settings['goee_infobox_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+			<div <?php echo $this->get_render_attribute_string( 'aem_infobox_transition' ); ?>>
+			  	<?php if( 'none' !== $settings['aem_infobox_img_or_icon'] ) { ?>
+					<div class="aem-infobox-icon<?php echo ( 'yes' === $settings['aem_infobox_animating_mask_switcher'] ) ? ' '.$settings['aem_infobox_animating_mask_style'] : ''; ?>">
+						<?php if( 'icon' === $settings['aem_infobox_img_or_icon'] && $settings['aem_infobox_icon']['value'] ) : ?>
+							<?php Icons_Manager::render_icon( $settings['aem_infobox_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 						<?php endif; ?>
 
-						<?php if( 'img' === $settings['goee_infobox_img_or_icon'] ) :
-							echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'goee_infobox_image' );
+						<?php if( 'img' === $settings['aem_infobox_img_or_icon'] ) :
+							echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'aem_infobox_image' );
 						endif; ?>	
 					</div>
 			  	<?php } ?>
 	            <div class="aem-infobox-content">
-	            	<?php if( !empty( $settings['goee_infobox_title_link']['url'] ) ) { ?>
-                        <a <?php echo $this->get_render_attribute_string( 'goee_infobox_title_link' ); ?>>
+	            	<?php if( !empty( $settings['aem_infobox_title_link']['url'] ) ) { ?>
+                        <a <?php echo $this->get_render_attribute_string( 'aem_infobox_title_link' ); ?>>
                     <?php } ?>
-	            	<?php $title ? printf( '<'. Utils::validate_html_tag( $settings['goee_infobox_title_html_tag'] ) . ' ' .$this->get_render_attribute_string( 'goee_infobox_title' ).'>%s</'.Utils::validate_html_tag( $settings['goee_infobox_title_html_tag'] ).'>', Helper::goee_wp_kses( $title ) ) : ''; ?>
-	            	<?php if( !empty( $settings['goee_infobox_title_link']['url'] ) ) { ?>
+	            	<?php $title ? printf( '<'. Utils::validate_html_tag( $settings['aem_infobox_title_html_tag'] ) . ' ' .$this->get_render_attribute_string( 'aem_infobox_title' ).'>%s</'.Utils::validate_html_tag( $settings['aem_infobox_title_html_tag'] ).'>', Helper::aem_wp_kses( $title ) ) : ''; ?>
+	            	<?php if( !empty( $settings['aem_infobox_title_link']['url'] ) ) { ?>
                         </a>
                     <?php } ?>
 
-	            	<?php $details ? printf( '<div '.$this->get_render_attribute_string( 'goee_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : ''; ?>
+	            	<?php $details ? printf( '<div '.$this->get_render_attribute_string( 'aem_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : ''; ?>
 	            </div>
           	</div>
         </div>
@@ -1002,19 +1002,19 @@ class AEM_Iconbox extends Widget_Base {
 	protected function content_template() {
 		?>
 		<#
-			view.addRenderAttribute( 'goee_infobox_transition', {
+			view.addRenderAttribute( 'aem_infobox_transition', {
 				'class': [ 
 					'aem-infobox-item', 
-					settings.goee_infobox_alignment,
-					settings.goee_infobox_icon_position,
-					'aem-infobox-enable-box-'+settings.goee_infobox_enable_box
+					settings.aem_infobox_alignment,
+					settings.aem_infobox_icon_position,
+					'aem-infobox-enable-box-'+settings.aem_infobox_enable_box
 				]
 			} );
 
-			if ( settings.goee_infobox_image.url || settings.goee_infobox_image.id ) {
+			if ( settings.aem_infobox_image.url || settings.aem_infobox_image.id ) {
 				var image = {
-					id: settings.goee_infobox_image.id,
-					url: settings.goee_infobox_image.url,
+					id: settings.aem_infobox_image.id,
+					url: settings.aem_infobox_image.url,
 					size: settings.thumbnail_size,
 					dimension: settings.thumbnail_custom_dimension,
 					class: 'aem-infobox-img',
@@ -1024,52 +1024,52 @@ class AEM_Iconbox extends Widget_Base {
 				var image_url = elementor.imagesManager.getImageUrl( image );
 			}
 
-			if ( 'yes' === settings.goee_infobox_transition_top ){
-				view.addRenderAttribute( 'goee_infobox_transition', 'class', 'simple-transition' );
+			if ( 'yes' === settings.aem_infobox_transition_top ){
+				view.addRenderAttribute( 'aem_infobox_transition', 'class', 'simple-transition' );
 			}
 
-			if ( 'yes' === settings.goee_infobox_transition_zoom ){
-				view.addRenderAttribute( 'goee_infobox_transition', 'class', 'zoom-transition' );
+			if ( 'yes' === settings.aem_infobox_transition_zoom ){
+				view.addRenderAttribute( 'aem_infobox_transition', 'class', 'zoom-transition' );
 			}
 
-			var iconHTML     = elementor.helpers.renderIcon( view, settings.goee_infobox_icon, { 'aria-hidden': true }, 'i' , 'object' );
+			var iconHTML     = elementor.helpers.renderIcon( view, settings.aem_infobox_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
-			view.addRenderAttribute( 'goee_infobox_title', 'class', 'aem-infobox-content-title' );
-			view.addInlineEditingAttributes( 'goee_infobox_title', 'none' );
+			view.addRenderAttribute( 'aem_infobox_title', 'class', 'aem-infobox-content-title' );
+			view.addInlineEditingAttributes( 'aem_infobox_title', 'none' );
 
-	        view.addRenderAttribute( 'goee_infobox_description', 'class', 'aem-infobox-content-description' );
-			view.addInlineEditingAttributes( 'goee_infobox_description' );
+	        view.addRenderAttribute( 'aem_infobox_description', 'class', 'aem-infobox-content-description' );
+			view.addInlineEditingAttributes( 'aem_infobox_description' );
 
-			var target = settings.goee_infobox_title_link.is_external ? ' target="_blank"' : '';
-            var nofollow = settings.goee_infobox_title_link.nofollow ? ' rel="nofollow"' : '';
+			var target = settings.aem_infobox_title_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.aem_infobox_title_link.nofollow ? ' rel="nofollow"' : '';
 
-			var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.goee_infobox_title_html_tag );
+			var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.aem_infobox_title_html_tag );
 
 		#>
 		<div class="aem-infobox">
-			<div {{{ view.getRenderAttributeString( 'goee_infobox_transition' ) }}}>
-				<# if( 'none' !== settings.goee_infobox_img_or_icon ) { #>
-					<# if( 'yes' === settings.goee_infobox_animating_mask_switcher ) { #>
-						<div class="aem-infobox-icon {{ settings.goee_infobox_animating_mask_style }}">
-							<# if ( 'icon' === settings.goee_infobox_img_or_icon && iconHTML.value ) { #>
+			<div {{{ view.getRenderAttributeString( 'aem_infobox_transition' ) }}}>
+				<# if( 'none' !== settings.aem_infobox_img_or_icon ) { #>
+					<# if( 'yes' === settings.aem_infobox_animating_mask_switcher ) { #>
+						<div class="aem-infobox-icon {{ settings.aem_infobox_animating_mask_style }}">
+							<# if ( 'icon' === settings.aem_infobox_img_or_icon && iconHTML.value ) { #>
 								<div class="aem-flip-box-front-image">
 									{{{ iconHTML.value }}}
 								</div>
 							<# } #>
 
-							<# if ( 'img' === settings.goee_infobox_img_or_icon && image_url ) { #>
+							<# if ( 'img' === settings.aem_infobox_img_or_icon && image_url ) { #>
 								<img src="{{{ image_url }}}">
 							<# } #>
 						</div>
 					<# } else { #>
 						<div class="aem-infobox-icon">
-							<# if ( 'icon' === settings.goee_infobox_img_or_icon && iconHTML.value ) { #>
+							<# if ( 'icon' === settings.aem_infobox_img_or_icon && iconHTML.value ) { #>
 								<div class="aem-flip-box-front-image">
 									{{{ iconHTML.value }}}
 								</div>
 							<# } #>
 
-							<# if ( 'img' === settings.goee_infobox_img_or_icon && image_url ) { #>
+							<# if ( 'img' === settings.aem_infobox_img_or_icon && image_url ) { #>
 								<img src="{{{ image_url }}}">
 							<# } #>
 						</div>
@@ -1077,23 +1077,23 @@ class AEM_Iconbox extends Widget_Base {
 				<# } #>
 
 				<div class="aem-infobox-content">
-					<# if(  settings.goee_infobox_title_link.url ) { #>
-						<a href="{{{ settings.goee_infobox_title_link.url }}}" {{{ view.getRenderAttributeString( 'goee_infobox_title_link' ) }}}{{{ target }}}{{{ nofollow }}}>
+					<# if(  settings.aem_infobox_title_link.url ) { #>
+						<a href="{{{ settings.aem_infobox_title_link.url }}}" {{{ view.getRenderAttributeString( 'aem_infobox_title_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 					<# } #>
 
-					<# if ( settings.goee_infobox_title ) { #>
-			        	<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString( 'goee_infobox_title' ) }}}>
-			        		{{{ settings.goee_infobox_title }}}
+					<# if ( settings.aem_infobox_title ) { #>
+			        	<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString( 'aem_infobox_title' ) }}}>
+			        		{{{ settings.aem_infobox_title }}}
 			        	</{{{ titleHTMLTag }}}>
 			    	<# } #>
 
-					<# if ( settings.goee_infobox_description ) { #>
-			        	<div {{{ view.getRenderAttributeString( 'goee_infobox_description' ) }}}>
-			        		{{{ settings.goee_infobox_description }}}
+					<# if ( settings.aem_infobox_description ) { #>
+			        	<div {{{ view.getRenderAttributeString( 'aem_infobox_description' ) }}}>
+			        		{{{ settings.aem_infobox_description }}}
 			        	</div>
 			    	<# } #>
 
-					<# if(  settings.goee_infobox_title_link.url ) { #>
+					<# if(  settings.aem_infobox_title_link.url ) { #>
 						</a>
 					<# } #>
 

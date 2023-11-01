@@ -7,7 +7,7 @@ class Helper {
      * @return array
      */
 
-    public static function goee_get_post_types() {
+    public static function aem_get_post_types() {
         $post_type_args = array(
             'public'            => true,
             'show_in_nav_menus' => true
@@ -27,7 +27,7 @@ class Helper {
      * @param string
      * @return array
      */
-    public static function goee_wp_kses( $string ) {
+    public static function aem_wp_kses( $string ) {
         $allowed_html = [
             'b' => [],
             's' => [],
@@ -71,7 +71,7 @@ class Helper {
      * Retrive the list of Contact Form 7 Forms [ if plugin activated ]
      */
     
-    public static function goee_retrive_contact_form() {
+    public static function aem_retrive_contact_form() {
         // if ( function_exists( 'wpcf7' ) ) {
             $wpcf7_form_list = get_posts(array(
                 'post_type' => 'wpcf7_contact_form',
@@ -96,7 +96,7 @@ class Helper {
      * @return array
      */
 
-    public static function goee_get_all_categories() {
+    public static function aem_get_all_categories() {
         $cat_array = array();
         $categories = get_categories('orderby=name&hide_empty=0');
         foreach ($categories as $category):
@@ -112,7 +112,7 @@ class Helper {
      * @return array
      */
 
-    public static function goee_get_all_tags() {
+    public static function aem_get_all_tags() {
         $tag_array = array();
         $tags = get_tags();
         foreach ( $tags as $tag ) {
@@ -127,7 +127,7 @@ class Helper {
      * All Author with published post
      * @return array
      */
-    public static function goee_get_authors() {
+    public static function aem_get_authors() {
         $user_query = new \WP_User_Query(
             [
                 // 'who' => 'authors', //who is deprecated Use capability instead
@@ -152,7 +152,7 @@ class Helper {
      * All post title
      * @return array
      */
-    public static function goee_get_all_posts() {
+    public static function aem_get_all_posts() {
 		
 		$posts = [];
         $args = array(
@@ -183,7 +183,7 @@ class Helper {
      * @return string
      *
      */
-    public static function goee_get_post_excerpt( $post_id, $length ){
+    public static function aem_get_post_excerpt( $post_id, $length ){
         $the_post = get_post($post_id);
 
         $the_excerpt = '';
@@ -213,7 +213,7 @@ class Helper {
      *
      */
 
-    public static function goee_get_post_arguments( $settings, $prefix ) {
+    public static function aem_get_post_arguments( $settings, $prefix ) {
 
         $author_ids = implode( ", ", $settings[ $prefix . '_authors'] );
 
@@ -224,9 +224,9 @@ class Helper {
         }
 
         if ( 'yes' === $settings[ $prefix . '_ignore_sticky'] ) {
-            $goee_ignore_sticky = true;
+            $aem_ignore_sticky = true;
         } else {
-            $goee_ignore_sticky = false;
+            $aem_ignore_sticky = false;
         }
 
         $post_args = array(
@@ -235,7 +235,7 @@ class Helper {
             'offset'           => $settings[ $prefix . '_offset'],
             'cat'              => $category_ids,
             'category_name'    => '',
-            'ignore_sticky_posts' => $goee_ignore_sticky,
+            'ignore_sticky_posts' => $aem_ignore_sticky,
             'orderby'          => $settings[ $prefix . '_order_by' ],
             'order'            => $settings[ $prefix . '_order'],
             'include'          => '',
@@ -261,7 +261,7 @@ class Helper {
      * Get the categories as list
      *
      */
-    public static function goee_get_categories_for_post() {
+    public static function aem_get_categories_for_post() {
 
         $categories = get_the_category();
         $separator = ' ';
@@ -282,7 +282,7 @@ class Helper {
      * @param  string $content The content to be measured.
      * @return  integer Reading-time in seconds.
      */
-    public static function goee_reading_time( $content ) {
+    public static function aem_reading_time( $content ) {
         
         $word_count = str_word_count( strip_tags( $content ) );
         $readingtime = ceil($word_count / 200);
@@ -302,7 +302,7 @@ class Helper {
      * @return array of content and found posts count without AJAX call.
      */
 
-    public static function goee_get_posts( $settings ) {
+    public static function aem_get_posts( $settings ) {
         
         $posts = new \WP_Query( $settings['post_args'] );
 
@@ -325,7 +325,7 @@ class Helper {
      * @param $element
      * @return array
      */
-    public static function goee_masking_shape_list( $element ) {
+    public static function aem_masking_shape_list( $element ) {
         $dir = AEM_ASSETS_URL . 'img/masking/';
         $shape_name = 'shape-';
         $extension = '.svg';
@@ -350,7 +350,7 @@ class Helper {
      * @param $element
      * @return array class name to filterable Post control items
      */
-    public static function goee_get_categories_name_for_class( ) {
+    public static function aem_get_categories_name_for_class( ) {
         $separator = ' ';
         $cat_name_as_class = '';
         $post_type = get_post_type(get_the_ID());   
@@ -369,7 +369,7 @@ class Helper {
      * @param $element
      * @return array terms name and terms links
      */
-    public static function goee_get_terms_custom_post( ) {
+    public static function aem_get_terms_custom_post( ) {
         $separator = ' ';
         $cat_name_as_class = '';
         $post_type = get_post_type( get_the_ID() );   
@@ -387,7 +387,7 @@ class Helper {
 	/**
 	** Get Terms of Taxonomy
 	*/
-	public static function goee_get_terms_by_taxonomy( $slug ) {
+	public static function aem_get_terms_by_taxonomy( $slug ) {
 		if ( ( 'product_cat' === $slug || 'product_tag' === $slug ) && ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
@@ -407,7 +407,7 @@ class Helper {
     /**
 	** Get Available Custom Post Types or Taxonomies
 	*/
-	public static function goee_get_custom_types_of( $query, $exclude_defaults = true ) {
+	public static function aem_get_custom_types_of( $query, $exclude_defaults = true ) {
 		// Taxonomies
 		if ( 'tax' === $query ) {
 			$custom_types = get_taxonomies( [ 'show_in_nav_menus' => true ], 'objects' );
@@ -435,7 +435,7 @@ class Helper {
     /**
 	** Get Posts of Post Type for exclude
 	*/
-	public static function goee_get_posts_by_post_type( $slug ) {
+	public static function aem_get_posts_by_post_type( $slug ) {
 		
 		$query_args = [
 			'post_type' => $slug,
@@ -468,7 +468,7 @@ class Helper {
      *
      */
 
-    public static function goee_get_post_carousel_arguments( $settings, $prefix ) {
+    public static function aem_get_post_carousel_arguments( $settings, $prefix ) {
 
         $author_ids = implode( ", ", $settings[ $prefix . '_authors'] );
 
@@ -479,15 +479,15 @@ class Helper {
         }
 
         if ( 'yes' === $settings[ $prefix . '_ignore_sticky'] ) {
-            $goee_ignore_sticky = true;
+            $aem_ignore_sticky = true;
         } else {
-            $goee_ignore_sticky = false;
+            $aem_ignore_sticky = false;
         }
 
         if ( ! empty ( $settings[ $prefix . '_type'] && 'post' === $settings[ $prefix . '_type'] ) ) {
             $post_not_in = $settings[ $prefix . '_exclude_post' ] ? $settings[ $prefix . '_exclude_post' ] : null;
         } else {
-            $post_not_in = $settings[  'goee_query_exclude_' . $settings[ $prefix . '_type' ] ] ? $settings[  'goee_query_exclude_' . $settings[ $prefix . '_type' ] ] : null; 
+            $post_not_in = $settings[  'aem_query_exclude_' . $settings[ $prefix . '_type' ] ] ? $settings[  'aem_query_exclude_' . $settings[ $prefix . '_type' ] ] : null; 
         }
 
         $post_args = array(
@@ -497,7 +497,7 @@ class Helper {
             'offset'           => $settings[ $prefix . '_offset'],
             'cat'              => $category_ids,
             'category_name'    => '',
-            'ignore_sticky_posts' => $goee_ignore_sticky,
+            'ignore_sticky_posts' => $aem_ignore_sticky,
             'orderby'          => $settings[ $prefix . '_order_by' ],
             'order'            => $settings[ $prefix . '_order'],
             'include'          => '',
@@ -524,25 +524,25 @@ class Helper {
 		$tax_query = [];
         $exclude_terms = [];
 
-        foreach ( get_object_taxonomies( $settings[ 'goee_post_carousel_type' ] ) as $tax ) {
-            if ( ! empty( $settings[ 'goee_query_taxonomy_'. $tax  ] ) ) {
+        foreach ( get_object_taxonomies( $settings[ 'aem_post_carousel_type' ] ) as $tax ) {
+            if ( ! empty( $settings[ 'aem_query_taxonomy_'. $tax  ] ) ) {
                 array_push( $tax_query, [
                     'taxonomy' => $tax,
                     'field' => 'id',
-                    'terms' => $settings[ 'goee_query_taxonomy_'. $tax ]
+                    'terms' => $settings[ 'aem_query_taxonomy_'. $tax ]
                 ] );
             }
 
            
-            if ( ( 'post' !== $settings[ 'goee_post_carousel_type' ] ) && ( 'product' !== $settings[ 'goee_post_carousel_type' ] ) ) {
+            if ( ( 'post' !== $settings[ 'aem_post_carousel_type' ] ) && ( 'product' !== $settings[ 'aem_post_carousel_type' ] ) ) {
         
-                $exclude_terms = $settings[ 'goee_query_exclude_terms_'. $tax ] ;
+                $exclude_terms = $settings[ 'aem_query_exclude_terms_'. $tax ] ;
        
                 if ( ! empty( $exclude_terms ) ) {
                     array_push( $tax_query, [
                         'taxonomy' => $tax,
                         'field'    => 'term_id',
-                        'terms'    => $settings[ 'goee_query_exclude_terms_'. $tax ],
+                        'terms'    => $settings[ 'aem_query_exclude_terms_'. $tax ],
                         'operator' => 'NOT IN',
                     ] );
                 }
@@ -556,7 +556,7 @@ class Helper {
 
 
     // Title Tags
-    public static function goee_title_tags() {
+    public static function aem_title_tags() {
         
         $title_tags = [
             'h1'   => 'H1',
@@ -574,7 +574,7 @@ class Helper {
     }
 
     // To Get the local plugin basic data
-    public static function goee_get_local_plugin_data( $basename = '' ) {
+    public static function aem_get_local_plugin_data( $basename = '' ) {
         if ( empty( $basename ) ) {
             return false;
         }

@@ -32,25 +32,25 @@ class AEM_Dual_Button extends Widget_Base {
     }
 
 	protected function register_controls() {
-        $goee_primary_color   = get_option( 'goee_primary_color_option', '#7a56ff' );
-        $goee_secondary_color = get_option( 'goee_secondary_color_option', '#00d8d8' );
+        $aem_primary_color   = get_option( 'aem_primary_color_option', '#7a56ff' );
+        $aem_secondary_color = get_option( 'aem_secondary_color_option', '#00d8d8' );
 
         /*
-        * Exad Dual Button Content
+        * Aem Dual Button Content
         */
         $this->start_controls_section(
-            'goee_content_section',
+            'aem_content_section',
             [
                 'label' => esc_html__( 'Content', AEM_TEXTDOMAIN )
             ]
         );
 
-        $this->start_controls_tabs( 'goee_dual_button_content_tabs' );
+        $this->start_controls_tabs( 'aem_dual_button_content_tabs' );
 
-            $this->start_controls_tab( 'goee_dual_button_primary_button_content', [ 'label' => esc_html__( 'Primary', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_primary_button_content', [ 'label' => esc_html__( 'Primary', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_text',
+                    'aem_dual_button_primary_button_text',
                     [
                         'label'       => esc_html__( 'Text', AEM_TEXTDOMAIN ),
                         'type'        => Controls_Manager::TEXT,
@@ -63,7 +63,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_url',
+                    'aem_dual_button_primary_button_url',
                     [
                         'label'         => esc_html__( 'Link', AEM_TEXTDOMAIN ),
                         'type'          => Controls_Manager::URL,
@@ -78,7 +78,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_icon',
+                    'aem_dual_button_primary_button_icon',
                     [
                         'label'   => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
                         'type'    => Controls_Manager::ICONS,
@@ -90,7 +90,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_icon_position',
+                    'aem_dual_button_primary_button_icon_position',
                     [
                         'label'     => __( 'Icon Position', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::CHOOSE,
@@ -107,17 +107,17 @@ class AEM_Dual_Button extends Widget_Base {
                         ],
                         'default'   => 'aem-icon-pos-left',
                         'condition' => [
-                            'goee_dual_button_primary_button_icon[value]!' => ''
+                            'aem_dual_button_primary_button_icon[value]!' => ''
                         ]
                     ]
                 );
 
             $this->end_controls_tab();
 
-            $this->start_controls_tab( 'goee_dual_button_connector_content', [ 'label' => esc_html__( 'Connector', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_connector_content', [ 'label' => esc_html__( 'Connector', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_connector_switch',
+                    'aem_dual_button_connector_switch',
                     [
                         'label'        => esc_html__( 'Connector Show/Hide', AEM_TEXTDOMAIN ),
                         'type'         => Controls_Manager::SWITCHER,
@@ -129,7 +129,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_connector_type',
+                    'aem_dual_button_connector_type',
                     [
                         'label'     => esc_html__( 'Type', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::SELECT,
@@ -139,20 +139,20 @@ class AEM_Dual_Button extends Widget_Base {
                             'text'  => __( 'Text', AEM_TEXTDOMAIN )
                         ],
                         'condition' => [
-                            'goee_dual_button_connector_switch' => 'yes'
+                            'aem_dual_button_connector_switch' => 'yes'
                         ]
                     ]
                 );
 
                 $this->add_control(
-                    'goee_dual_button_connector_text',
+                    'aem_dual_button_connector_text',
                     [
                         'label'     => esc_html__( 'Text', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::TEXT,
                         'default'   => esc_html__( 'OR', AEM_TEXTDOMAIN ),
                         'condition' => [
-                            'goee_dual_button_connector_switch' => 'yes',
-                            'goee_dual_button_connector_type'   => 'text'
+                            'aem_dual_button_connector_switch' => 'yes',
+                            'aem_dual_button_connector_type'   => 'text'
                         ],
                         'dynamic' => [
                             'active' => true,
@@ -161,7 +161,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_connector_icon',
+                    'aem_dual_button_connector_icon',
                     [
                         'label'       => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
                         'type'        => Controls_Manager::ICONS,
@@ -170,18 +170,18 @@ class AEM_Dual_Button extends Widget_Base {
                             'library' => 'fa-solid'
                         ],
                         'condition'   => [
-                            'goee_dual_button_connector_switch' => 'yes',
-                            'goee_dual_button_connector_type'   => 'icon'
+                            'aem_dual_button_connector_switch' => 'yes',
+                            'aem_dual_button_connector_type'   => 'icon'
                         ]
                     ]
                 );
 
             $this->end_controls_tab();
 
-            $this->start_controls_tab( 'goee_dual_button_secondary_button_content', [ 'label' => esc_html__( 'Secondary', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_secondary_button_content', [ 'label' => esc_html__( 'Secondary', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_text',
+                    'aem_dual_button_secondary_button_text',
                     [
                         'label'       => esc_html__( 'Text', AEM_TEXTDOMAIN ),
                         'type'        => Controls_Manager::TEXT,
@@ -194,7 +194,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_url',
+                    'aem_dual_button_secondary_button_url',
                     [
                         'label'         => esc_html__( 'Link', AEM_TEXTDOMAIN ),
                         'type'          => Controls_Manager::URL,
@@ -209,7 +209,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_icon',
+                    'aem_dual_button_secondary_button_icon',
                     [
                         'label'   => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
                         'type'    => Controls_Manager::ICONS,
@@ -221,7 +221,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_icon_position',
+                    'aem_dual_button_secondary_button_icon_position',
                     [
                         'label'     => __( 'Icon Position', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::CHOOSE,
@@ -238,7 +238,7 @@ class AEM_Dual_Button extends Widget_Base {
                         ],
                         'default'   => 'aem-icon-pos-left',
                         'condition' => [
-                            'goee_dual_button_secondary_button_icon[value]!' => ''
+                            'aem_dual_button_secondary_button_icon[value]!' => ''
                         ]
                     ]
                 );
@@ -250,10 +250,10 @@ class AEM_Dual_Button extends Widget_Base {
         $this->end_controls_section();
 
         /*
-        * Exad Dual Button Container Style
+        * Aem Dual Button Container Style
         */
         $this->start_controls_section(
-            'goee_container_style_section',
+            'aem_container_style_section',
             [
                 'label' => esc_html__( 'Container', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -261,7 +261,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_control(
-			'goee_dual_button_container_alignment',
+			'aem_dual_button_container_alignment',
 			[
                 'label'   => __( 'Alignment', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::CHOOSE,
@@ -285,7 +285,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_dual_button_padding',
+			'aem_dual_button_padding',
 			[
                 'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -305,7 +305,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
         
         $this->add_responsive_control(
-			'goee_dual_button_container_button_margin',
+			'aem_dual_button_container_button_margin',
 			[
                 'label'      => __( 'Space Between Buttons', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -331,10 +331,10 @@ class AEM_Dual_Button extends Widget_Base {
         $this->end_controls_section();
 
         /*
-        * Exad Dual Button Primary Button Style
+        * Aem Dual Button Primary Button Style
         */
         $this->start_controls_section(
-            'goee_container_primary_button_style',
+            'aem_container_primary_button_style',
             [
                 'label' => esc_html__( 'Primary Button', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -342,7 +342,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_container_primary_button_padding',
+			'aem_container_primary_button_padding',
 			[
                 'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -362,7 +362,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_container_primary_button_margin',
+			'aem_container_primary_button_margin',
 			[
                 'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -384,13 +384,13 @@ class AEM_Dual_Button extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-                'name'     => 'goee_container_primary_button_typography',
+                'name'     => 'aem_container_primary_button_typography',
                 'selector' => '{{WRAPPER}} .aem-dual-button-primary span'
 			]
         );
         
         $this->add_responsive_control(
-			'goee_dual_button_primary_button_radius',
+			'aem_dual_button_primary_button_radius',
 			[
                 'label'      => __( 'Border radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -414,7 +414,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_dual_button_primary_button_icon_margin',
+			'aem_dual_button_primary_button_icon_margin',
 			[
                 'label'       => __( 'Icon Space', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::SLIDER,
@@ -434,13 +434,13 @@ class AEM_Dual_Button extends Widget_Base {
                     '{{WRAPPER}} .aem-dual-button-primary .aem-icon-pos-right i' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
                 'condition'   => [
-                    'goee_dual_button_primary_button_icon[value]!' => ''
+                    'aem_dual_button_primary_button_icon[value]!' => ''
                 ]
 			]
         );
         
         $this->add_control(
-            'goee_dual_button_primary_button_animation',
+            'aem_dual_button_primary_button_animation',
             [
                 'label'   => esc_html__( 'Hover Effect', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::SELECT,
@@ -456,12 +456,12 @@ class AEM_Dual_Button extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs( 'goee_dual_button_primary_button_tabs' );
+        $this->start_controls_tabs( 'aem_dual_button_primary_button_tabs' );
 
-            $this->start_controls_tab( 'goee_dual_button_primary_button_noemal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_primary_button_noemal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_normal_text_color',
+                    'aem_dual_button_primary_button_normal_text_color',
                     [
                         'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -473,11 +473,11 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_normal_bg',
+                    'aem_dual_button_primary_button_normal_bg',
                     [
                         'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => $goee_primary_color,
+                        'default'   => $aem_primary_color,
                         'selectors' => [
                             '{{WRAPPER}} .aem-dual-button-primary.effect-1' => 'background: {{VALUE}};',
                             '{{WRAPPER}} .aem-dual-button-primary.effect-2' => 'background: {{VALUE}};',
@@ -492,7 +492,7 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'     => 'goee_dual_button_primary_button_normal_border',
+                        'name'     => 'aem_dual_button_primary_button_normal_border',
                         'selector' => '{{WRAPPER}} .aem-dual-button-primary'
                     ]
                 );
@@ -500,17 +500,17 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'goee_dual_button_primary_button_normal_box_shadow',
+                        'name'     => 'aem_dual_button_primary_button_normal_box_shadow',
                         'selector' => '{{WRAPPER}} .aem-dual-button-primary'
                     ]
                 );
 
             $this->end_controls_tab();
 
-            $this->start_controls_tab( 'goee_dual_button_primary_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_primary_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_hover_text_color',
+                    'aem_dual_button_primary_button_hover_text_color',
                     [
                         'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -522,7 +522,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_primary_button_hover_bg',
+                    'aem_dual_button_primary_button_hover_bg',
                     [
                         'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -541,7 +541,7 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'     => 'goee_dual_button_primary_button_hover_border',
+                        'name'     => 'aem_dual_button_primary_button_hover_border',
                         'selector' => '{{WRAPPER}} .aem-dual-button-primary:hover'
                     ]
                 );
@@ -549,7 +549,7 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'goee_dual_button_primary_button_hover_box_shadow',
+                        'name'     => 'aem_dual_button_primary_button_hover_box_shadow',
                         'selector' => '{{WRAPPER}} .aem-dual-button-primary:hover'
                     ]
                 );
@@ -561,21 +561,21 @@ class AEM_Dual_Button extends Widget_Base {
         $this->end_controls_section();
 
         /*
-        * Exad Dual Button Connector Style
+        * Aem Dual Button Connector Style
         */
         $this->start_controls_section(
-            'goee_dual_button_connector_style',
+            'aem_dual_button_connector_style',
             [
                 'label'     => esc_html__( 'Connector', AEM_TEXTDOMAIN ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'goee_dual_button_connector_switch' => 'yes'
+                    'aem_dual_button_connector_switch' => 'yes'
                 ]
             ]
         );
 
         $this->add_responsive_control(
-			'goee_dual_button_connector_height',
+			'aem_dual_button_connector_height',
 			[
                 'label'      => __( 'Height', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -597,7 +597,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
         
         $this->add_responsive_control(
-			'goee_dual_button_connector_width',
+			'aem_dual_button_connector_width',
 			[
                 'label'      => __( 'Width', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -621,16 +621,16 @@ class AEM_Dual_Button extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-                'name'      => 'goee_dual_button_connector_typoghrphy',
+                'name'      => 'aem_dual_button_connector_typoghrphy',
                 'selector'  => '{{WRAPPER}} .aem-dual-button-connector span',
                 'condition' => [
-                    'goee_dual_button_connector_type' => 'text'
+                    'aem_dual_button_connector_type' => 'text'
                 ]
 			]
         );
         
         $this->add_responsive_control(
-			'goee_dual_button_connector_icon_size',
+			'aem_dual_button_connector_icon_size',
 			[
                 'label'      => __( 'Icon Size', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -649,14 +649,14 @@ class AEM_Dual_Button extends Widget_Base {
 					'{{WRAPPER}} .aem-dual-button-connector span' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'  => [
-                    'goee_dual_button_connector_type'         => 'icon',
-                    'goee_dual_button_connector_icon[value]!' => ''
+                    'aem_dual_button_connector_type'         => 'icon',
+                    'aem_dual_button_connector_icon[value]!' => ''
                 ]
 			]
 		);
 
         $this->add_control(
-            'goee_dual_button_connector_background',
+            'aem_dual_button_connector_background',
             [
                 'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -668,7 +668,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_dual_button_connector_color',
+            'aem_dual_button_connector_color',
             [
                 'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -680,7 +680,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_dual_button_connector_radius',
+			'aem_dual_button_connector_radius',
 			[
                 'label'      => __( 'Border radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -701,7 +701,7 @@ class AEM_Dual_Button extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-                'name'     => 'goee_dual_button_connector_border',
+                'name'     => 'aem_dual_button_connector_border',
                 'selector' => '{{WRAPPER}} .aem-dual-button-connector'
 			]
         );
@@ -709,7 +709,7 @@ class AEM_Dual_Button extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-                'name'     => 'goee_dual_button_connector_box_shadow',
+                'name'     => 'aem_dual_button_connector_box_shadow',
                 'selector' => '{{WRAPPER}} .aem-dual-button-connector'
 			]
 		);
@@ -717,10 +717,10 @@ class AEM_Dual_Button extends Widget_Base {
         $this->end_controls_section();
 
         /*
-        * Exad Dual Button secondary Button Style
+        * Aem Dual Button secondary Button Style
         */
         $this->start_controls_section(
-            'goee_container_secondary_button_style',
+            'aem_container_secondary_button_style',
             [
                 'label' => esc_html__( 'Secondary Button', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -728,7 +728,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_container_secondary_button_padding',
+			'aem_container_secondary_button_padding',
 			[
                 'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -748,7 +748,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_container_secondary_button_margin',
+			'aem_container_secondary_button_margin',
 			[
                 'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -770,13 +770,13 @@ class AEM_Dual_Button extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-                'name'     => 'goee_container_secondary_button_typography',
+                'name'     => 'aem_container_secondary_button_typography',
                 'selector' => '{{WRAPPER}} .aem-dual-button-secondary span'
 			]
         );
         
         $this->add_responsive_control(
-			'goee_dual_button_secondary_button_radius',
+			'aem_dual_button_secondary_button_radius',
 			[
                 'label'      => __( 'Border radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -795,7 +795,7 @@ class AEM_Dual_Button extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_dual_button_secondary_button_icon_margin',
+			'aem_dual_button_secondary_button_icon_margin',
 			[
                 'label'       => __( 'Icon Space', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::SLIDER,
@@ -815,13 +815,13 @@ class AEM_Dual_Button extends Widget_Base {
                     '{{WRAPPER}} .aem-dual-button-secondary .aem-icon-pos-right i' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
                 'condition'   => [
-                    'goee_dual_button_secondary_button_icon[value]!' => ''
+                    'aem_dual_button_secondary_button_icon[value]!' => ''
                 ]
 			]
         );
         
         $this->add_control(
-            'goee_dual_button_secondary_button_animation',
+            'aem_dual_button_secondary_button_animation',
             [
                 'label'   => esc_html__( 'Hover Effect', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::SELECT,
@@ -837,12 +837,12 @@ class AEM_Dual_Button extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tabs( 'goee_dual_button_secondary_button_tabs' );
+        $this->start_controls_tabs( 'aem_dual_button_secondary_button_tabs' );
 
-            $this->start_controls_tab( 'goee_dual_button_secondary_button_noemal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_secondary_button_noemal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_normal_text_color',
+                    'aem_dual_button_secondary_button_normal_text_color',
                     [
                         'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -854,11 +854,11 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_normal_bg',
+                    'aem_dual_button_secondary_button_normal_bg',
                     [
                         'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => $goee_secondary_color,
+                        'default'   => $aem_secondary_color,
                         'selectors' => [
                             '{{WRAPPER}} .aem-dual-button-secondary.effect-1' => 'background: {{VALUE}};',
                             '{{WRAPPER}} .aem-dual-button-secondary.effect-2' => 'background: {{VALUE}};',
@@ -873,7 +873,7 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'     => 'goee_dual_button_secondary_button_normal_border',
+                        'name'     => 'aem_dual_button_secondary_button_normal_border',
                         'selector' => '{{WRAPPER}} .aem-dual-button-secondary'
                     ]
                 );
@@ -881,17 +881,17 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'goee_dual_button_secondary_button_normal_box_shadow',
+                        'name'     => 'aem_dual_button_secondary_button_normal_box_shadow',
                         'selector' => '{{WRAPPER}} .aem-dual-button-secondary'
                     ]
                 );
 
             $this->end_controls_tab();
 
-            $this->start_controls_tab( 'goee_dual_button_secondary_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
+            $this->start_controls_tab( 'aem_dual_button_secondary_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_hover_text_color',
+                    'aem_dual_button_secondary_button_hover_text_color',
                     [
                         'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -903,7 +903,7 @@ class AEM_Dual_Button extends Widget_Base {
                 );
 
                 $this->add_control(
-                    'goee_dual_button_secondary_button_hover_bg',
+                    'aem_dual_button_secondary_button_hover_bg',
                     [
                         'label'     => esc_html__( 'Background Color', AEM_TEXTDOMAIN ),
                         'type'      => Controls_Manager::COLOR,
@@ -922,7 +922,7 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'     => 'goee_dual_button_secondary_button_hover_border',
+                        'name'     => 'aem_dual_button_secondary_button_hover_border',
                         'selector' => '{{WRAPPER}} .aem-dual-button-secondary:hover'
                     ]
                 );
@@ -930,7 +930,7 @@ class AEM_Dual_Button extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Box_Shadow::get_type(),
                     [
-                        'name'     => 'goee_dual_button_secondary_button_hover_box_shadow',
+                        'name'     => 'aem_dual_button_secondary_button_hover_box_shadow',
                         'selector' => '{{WRAPPER}} .aem-dual-button-secondary:hover'
                     ]
                 );

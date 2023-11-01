@@ -41,18 +41,18 @@ class AEM_Button extends Widget_Base
 
     protected function register_controls()
     {
-        $goee_primary_color = get_option('goee_primary_color_option', '#7a56ff');
+        $aem_primary_color = get_option('aem_primary_color_option', '#7a56ff');
 
         // content controls
         $this->start_controls_section(
-            'goee_section_button_content',
+            'aem_section_button_content',
             [
                 'label' => esc_html__('Contents', 'aem-essential-elementor')
             ]
         );
 
         $this->add_control(
-            'goee_button_text',
+            'aem_button_text',
             [
                 'label' => __('Button Text', 'go-essential-elementor'),
                 'type' => Controls_Manager::TEXT,
@@ -66,7 +66,7 @@ class AEM_Button extends Widget_Base
         );
 
         $this->add_control(
-            'goee_button_link_url',
+            'aem_button_link_url',
             [
                 'label' => esc_html__('Link Url', 'go-essential-elementor'),
                 'type' => Controls_Manager::URL,
@@ -80,7 +80,7 @@ class AEM_Button extends Widget_Base
         );
 
         $this->add_control(
-            'goee_button_icon',
+            'aem_button_icon',
             [
                 'label' => esc_html__('Icon', 'go-essential-elementor'),
                 'type' => Controls_Manager::ICONS,
@@ -92,7 +92,7 @@ class AEM_Button extends Widget_Base
         );
 
         $this->add_control(
-            'goee_button_icon_position',
+            'aem_button_icon_position',
             [
                 'label' => esc_html__("Button Icon Position", 'go-essential-elementor'),
                 'type' => Controls_Manager::SELECT,
@@ -106,7 +106,7 @@ class AEM_Button extends Widget_Base
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'goee_section_button_settings',
+            'aem_section_button_settings',
             [
                 'label' => esc_html__( 'Styles & Effects', 'go-essential-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
@@ -114,7 +114,7 @@ class AEM_Button extends Widget_Base
         );
 
         $this->add_control(
-            'goee_button_effect',
+            'aem_button_effect',
             [
                 'label' => esc_html__( "Button Effect", 'go-essential-elementor' ),
                 'type' => Controls_Manager::SELECT,
@@ -138,12 +138,12 @@ class AEM_Button extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'goee_button_typography',
+                'name' => 'aem_button_typography',
                 'selector' => '{{WRAPPER}} .aem-button-wrapper .aem-button-action'
             ]
         );
         $this->add_control(
-            'goee_button_enable_fixed_width',
+            'aem_button_enable_fixed_width',
             [
                 'label' => __( 'Enable fixed Height & Width?', AEM_TEXTDOMAIN ),
                 'type' => Controls_Manager::SWITCHER,
@@ -154,7 +154,7 @@ class AEM_Button extends Widget_Base
             ]
         );
         $this->add_control(
-            'goee_button_fixed_width_height',
+            'aem_button_fixed_width_height',
             [
                 'label' => __( 'Fixed Height & Width', AEM_TEXTDOMAIN ),
                 'type' => Controls_Manager::POPOVER_TOGGLE,
@@ -163,7 +163,7 @@ class AEM_Button extends Widget_Base
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
-                    'goee_button_enable_fixed_width' => 'yes'
+                    'aem_button_enable_fixed_width' => 'yes'
                 ]
             ]
         );
@@ -171,7 +171,7 @@ class AEM_Button extends Widget_Base
         $this->start_popover();
 
 			$this->add_responsive_control(
-				'goee_button_fixed_width',
+				'aem_button_fixed_width',
 				[
 					'label'      => esc_html__( 'Width', AEM_TEXTDOMAIN ),
 					'type'       => Controls_Manager::SLIDER,
@@ -195,13 +195,13 @@ class AEM_Button extends Widget_Base
 						'{{WRAPPER}} .aem-button-wrapper .aem-button-action' => 'width: {{SIZE}}{{UNIT}};'
 					],
 					'condition' => [
-						'goee_button_enable_fixed_width' => 'yes'
+						'aem_button_enable_fixed_width' => 'yes'
 					]
 				]
 			);
 
             $this->add_responsive_control(
-				'goee_button_fixed_height',
+				'aem_button_fixed_height',
 				[
 					'label'      => esc_html__( 'Height', AEM_TEXTDOMAIN ),
 					'type'       => Controls_Manager::SLIDER,
@@ -225,7 +225,7 @@ class AEM_Button extends Widget_Base
 						'{{WRAPPER}} .aem-button-wrapper .aem-button-action' => 'height: {{SIZE}}{{UNIT}};'
 					],
 					'condition' => [
-						'goee_button_enable_fixed_width' => 'yes'
+						'aem_button_enable_fixed_width' => 'yes'
 					]
 				]
 			);
@@ -233,7 +233,7 @@ class AEM_Button extends Widget_Base
         $this->end_popover();
 
 		$this->add_responsive_control(
-			'goee_button_width',
+			'aem_button_width',
 			[
 				'label'      => esc_html__( 'Width', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -257,7 +257,7 @@ class AEM_Button extends Widget_Base
 					'{{WRAPPER}} .aem-button-wrapper .aem-button-action' => 'width: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
-					'goee_button_enable_fixed_width!' => 'yes'
+					'aem_button_enable_fixed_width!' => 'yes'
 				]
 			]
 		);
@@ -265,7 +265,7 @@ class AEM_Button extends Widget_Base
 		// $icon_gap = is_rtl() ? 'left' : 'right';
 
 		$this->add_responsive_control(
-			'goee_button_icon_space',
+			'aem_button_icon_space',
 			[
                 'label'       => __( 'Icon Space', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::SLIDER,
@@ -285,13 +285,13 @@ class AEM_Button extends Widget_Base
                     '{{WRAPPER}} .aem-button-wrapper.aem-button-incon-after-text .aem-button-action i'  => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
                 'condition'   => [
-                    'goee_button_icon[value]!' => ''
+                    'aem_button_icon[value]!' => ''
                 ]
 			]
         );
 		
 		$this->add_responsive_control(
-			'goee_button_alignment',
+			'aem_button_alignment',
 			[
 				'label'       => esc_html__( 'Alignment', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::CHOOSE,
@@ -326,7 +326,7 @@ class AEM_Button extends Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'goee_button_padding',
+			'aem_button_padding',
 			[
 				'label'      => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -346,7 +346,7 @@ class AEM_Button extends Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'goee_button_border_radius',
+			'aem_button_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -358,23 +358,23 @@ class AEM_Button extends Widget_Base
 		);
 
 		$this->add_control(
-			'goee_button_separator',
+			'aem_button_separator',
 			[
 				'type'  => Controls_Manager::DIVIDER,
 				'style' => 'default'
 			]
 		);
 
-		$this->start_controls_tabs( 'goee_button_tabs' );
+		$this->start_controls_tabs( 'aem_button_tabs' );
 
 		$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
 		$this->add_control(
-			'goee_button_text_color',
+			'aem_button_text_color',
 			[
 				'label'		=> esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
 				'type'		=> Controls_Manager::COLOR,
-				'default'	=> $goee_primary_color,
+				'default'	=> $aem_primary_color,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-button-wrapper .aem-button-action'                     => 'color: {{VALUE}};',
 					'{{WRAPPER}} .aem-button.aem-button--tamaya::before' => 'color: {{VALUE}};',
@@ -386,7 +386,7 @@ class AEM_Button extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'goee_button_background',
+				'name'     => 'aem_button_background',
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .aem-button-wrapper .aem-button-action'
 			]
@@ -395,7 +395,7 @@ class AEM_Button extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'            => 'goee_button_border',
+				'name'            => 'aem_button_border',
 				'fields_options'  => [
                     'border' 	  => [
                         'default' => 'solid'
@@ -409,7 +409,7 @@ class AEM_Button extends Widget_Base
                         ]
                     ],
                     'color' 	  => [
-                        'default' => $goee_primary_color
+                        'default' => $aem_primary_color
                     ]
                 ],
 				'selector'        => '{{WRAPPER}} .aem-button-wrapper .aem-button-action'
@@ -419,17 +419,17 @@ class AEM_Button extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'goee_button_box_shadow',
+				'name'     => 'aem_button_box_shadow',
 				'selector' => '{{WRAPPER}} .aem-button-wrapper .aem-button-action'
 			]
 		);
 
 		$this->end_controls_tab();
 		
-		$this->start_controls_tab( 'goee_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
+		$this->start_controls_tab( 'aem_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
 		$this->add_control(
-			'goee_button_hover_text_color',
+			'aem_button_hover_text_color',
 			[
 				'label'     => esc_html__( 'Text Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
@@ -443,7 +443,7 @@ class AEM_Button extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'goee_button_hover_background',
+				'name'     => 'aem_button_hover_background',
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .aem-button-wrapper.effect-1 .aem-button-action::before, {{WRAPPER}} .aem-button-wrapper.effect-2 .aem-button-action:before, {{WRAPPER}} .aem-button-wrapper.effect-2 .aem-button-action:after, {{WRAPPER}} .aem-button-wrapper.effect-3 .aem-button-action::before, {{WRAPPER}} .aem-button-wrapper.effect-4 .aem-button-action::after, {{WRAPPER}} .aem-button-wrapper.effect-5 .aem-button-action::before, {{WRAPPER}} .aem-button-wrapper.effect-7 .aem-button-action::before, {{WRAPPER}} .aem-button-wrapper.effect-8 .aem-button-action span.effect-8-position, {{WRAPPER}} .aem-button-wrapper.effect-10 .aem-button-action::before, {{WRAPPER}} .aem-button-wrapper.effect-11 .aem-button-action:hover, {{WRAPPER}} .aem-button-wrapper.effect-12 .aem-button-action:hover',
 				'fields_options'  => [
@@ -451,7 +451,7 @@ class AEM_Button extends Widget_Base
 						'default' => 'classic'
 					],
 					'color'       => [
-						'default' => $goee_primary_color
+						'default' => $aem_primary_color
 					]
 				]
 			]
@@ -460,7 +460,7 @@ class AEM_Button extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'            => 'goee_button_border_hover',
+				'name'            => 'aem_button_border_hover',
 				'selector'        => '{{WRAPPER}} .aem-button-wrapper .aem-button-action:hover'
 			]
 		);
@@ -468,7 +468,7 @@ class AEM_Button extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'goee_button_box_shadow_hover',
+				'name'     => 'aem_button_box_shadow_hover',
 				'selector' => '{{WRAPPER}} .aem-button-wrapper .aem-button-action:hover'
 			]
 		);
@@ -483,82 +483,82 @@ class AEM_Button extends Widget_Base
     protected function render() {
 		$settings = $this->get_settings_for_display();
 
-        $goee_button_text = $settings['goee_button_text'];
-        $goee_button_icon = $settings['goee_button_icon'];
-        $goee_button_link_url = $settings['goee_button_link_url'];
-        $goee_button_icon_position = $settings['goee_button_icon_position'];
-        $goee_button_effect = $settings['goee_button_effect'];
-        $goee_button_enable_fixed_width = $settings['goee_button_enable_fixed_width'];
+        $aem_button_text = $settings['aem_button_text'];
+        $aem_button_icon = $settings['aem_button_icon'];
+        $aem_button_link_url = $settings['aem_button_link_url'];
+        $aem_button_icon_position = $settings['aem_button_icon_position'];
+        $aem_button_effect = $settings['aem_button_effect'];
+        $aem_button_enable_fixed_width = $settings['aem_button_enable_fixed_width'];
 		
 		$this->add_render_attribute( 
-			'goee_button', 
+			'aem_button', 
 			[
 				'class'	=> [ 
 					'aem-button-wrapper', 
-					esc_attr( $goee_button_effect ) ,
-					esc_attr( $goee_button_icon_position ),
-					'aem-button-fixed-height-'.esc_attr( $goee_button_enable_fixed_width )
+					esc_attr( $aem_button_effect ) ,
+					esc_attr( $aem_button_icon_position ),
+					'aem-button-fixed-height-'.esc_attr( $aem_button_enable_fixed_width )
 				]
 			]
 		);
 
-		if ( 'effect-8' === $goee_button_effect ) {
-			$this->add_render_attribute( 'goee_button', 'class', 'mouse-hover-effect' );
+		if ( 'effect-8' === $aem_button_effect ) {
+			$this->add_render_attribute( 'aem_button', 'class', 'mouse-hover-effect' );
 		}
 
 		$this->add_inline_editing_attributes( 'exclusive_button_text', 'none' );
-		$this->add_render_attribute( 'goee_button_link_url', 'class', 'aem-button-action' );
+		$this->add_render_attribute( 'aem_button_link_url', 'class', 'aem-button-action' );
 
-		if( $goee_button_link_url['url'] ) {
-			$this->add_render_attribute( 'goee_button_link_url', 'href', esc_url( $goee_button_link_url['url'] ) );
-			if( $goee_button_link_url['is_external'] ) {
-				$this->add_render_attribute( 'goee_button_link_url', 'target', '_blank' );
+		if( $aem_button_link_url['url'] ) {
+			$this->add_render_attribute( 'aem_button_link_url', 'href', esc_url( $aem_button_link_url['url'] ) );
+			if( $aem_button_link_url['is_external'] ) {
+				$this->add_render_attribute( 'aem_button_link_url', 'target', '_blank' );
 			}
-			if( $goee_button_link_url['nofollow'] ) {
-				$this->add_render_attribute( 'goee_button_link_url', 'rel', 'nofollow' );
+			if( $aem_button_link_url['nofollow'] ) {
+				$this->add_render_attribute( 'aem_button_link_url', 'rel', 'nofollow' );
 			}
 		}
 		?>
 
-		<div <?php echo $this->get_render_attribute_string( 'goee_button' ); ?>>
+		<div <?php echo $this->get_render_attribute_string( 'aem_button' ); ?>>
 
-			<?php do_action( 'goee_button_wrapper_before' ); ?>
+			<?php do_action( 'aem_button_wrapper_before' ); ?>
 
-			<a <?php echo $this->get_render_attribute_string( 'goee_button_link_url' ); ?>>
-				<?php do_action( 'goee_button_begin_anchor_tag' );
+			<a <?php echo $this->get_render_attribute_string( 'aem_button_link_url' ); ?>>
+				<?php do_action( 'aem_button_begin_anchor_tag' );
 
-				if ( ! empty( $goee_button_icon['value'] ) ) :
-					if( 'aem-button-incon-before-text' === $goee_button_icon_position ) : ?>
+				if ( ! empty( $aem_button_icon['value'] ) ) :
+					if( 'aem-button-incon-before-text' === $aem_button_icon_position ) : ?>
 						<span>
-							<?php Icons_Manager::render_icon( $goee_button_icon, [ 'aria-hidden' => 'true' ] ); ?>
+							<?php Icons_Manager::render_icon( $aem_button_icon, [ 'aria-hidden' => 'true' ] ); ?>
 						</span>
 					<?php	
 					endif;
 				endif;
 				?>
 
-				<span <?php echo $this->get_render_attribute_string( 'goee_button_text' ); ?>>
-					<?php echo esc_html( $goee_button_text ); ?>
+				<span <?php echo $this->get_render_attribute_string( 'aem_button_text' ); ?>>
+					<?php echo esc_html( $aem_button_text ); ?>
 				</span>
 
 				<?php
-				if ( ! empty( $goee_button_icon['value'] ) ) :
-					if( 'aem-button-incon-after-text' === $goee_button_icon_position ) : ?>
+				if ( ! empty( $aem_button_icon['value'] ) ) :
+					if( 'aem-button-incon-after-text' === $aem_button_icon_position ) : ?>
 						<span>
-							<?php Icons_Manager::render_icon( $goee_button_icon, [ 'aria-hidden' => 'true' ] ); ?>
+							<?php Icons_Manager::render_icon( $aem_button_icon, [ 'aria-hidden' => 'true' ] ); ?>
 						</span>
 					<?php	
 					endif;
 				endif;
 
-				if ( 'effect-8' === $goee_button_effect ) {
+				if ( 'effect-8' === $aem_button_effect ) {
 					echo '<span class="effect-8-position"></span>';
 				}
 
-				do_action( 'goee_button_end_anchor_tag' ); ?>
+				do_action( 'aem_button_end_anchor_tag' ); ?>
 			</a>
 
-			<?php do_action( 'goee_button_wrapper_after' ); ?>
+			<?php do_action( 'aem_button_wrapper_after' ); ?>
 		</div>
 		<?php	
 	}

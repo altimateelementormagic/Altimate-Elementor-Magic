@@ -73,18 +73,18 @@ class AEM_Contact_Form_7 extends Widget_Base {
 	 * @access protected
 	 */
     protected function register_controls() {
-        $goee_primary_color = get_option( 'goee_primary_color_option', '#7a56ff' );
+        $aem_primary_color = get_option( 'aem_primary_color_option', '#7a56ff' );
 
         if( ! class_exists( 'WPCF7_ContactForm' ) ) {
             $this->start_controls_section(
-                'goee_contact_from_panel_notice',
+                'aem_contact_from_panel_notice',
                 [
                     'label' => __('Notice!', AEM_TEXTDOMAIN),
                 ]
             );
 
             $this->add_control(
-                'goee_contact_from_panel_notice_text',
+                'aem_contact_from_panel_notice_text',
                 [
                     'type'            => Controls_Manager::RAW_HTML,
                     'raw'             => __('<strong>contact Form 7</strong> is not installed/activated on your site. Please install and activate <a href="plugin-install.php?s=contact+form+7&tab=search&type=term" target="_blank">Contact Form 7</a> first.',
@@ -102,25 +102,25 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * -------------------------------------------------
          */
         $this->start_controls_section(
-            'goee_section_contact_intro',
+            'aem_section_contact_intro',
             [
                 'label'  => __( 'Contact Form', AEM_TEXTDOMAIN ),
             ]
         );
 		
 		$this->add_control(
-			'goee_contact_form_list',
+			'aem_contact_form_list',
 			[
                 'label'       => esc_html__( 'Select Form', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::SELECT,
                 'label_block' => true,
-                'options'     => Helper::goee_retrive_contact_form(),
+                'options'     => Helper::aem_retrive_contact_form(),
                 'default'     => '0'
 			]
 		);
         
 		$this->add_control(
-			'goee_contact_form_title_text',
+			'aem_contact_form_title_text',
 			[
                 'label'       => esc_html__( 'Title', AEM_TEXTDOMAIN ),
                 'type'        => Controls_Manager::TEXT,
@@ -132,11 +132,11 @@ class AEM_Contact_Form_7 extends Widget_Base {
 		);
 
         $this->add_control(
-            'goee_contact_form_title_tag',
+            'aem_contact_form_title_tag',
             [
                 'label'   => __('Title HTML Tag', AEM_TEXTDOMAIN),
                 'type'    => Controls_Manager::SELECT,
-                'options' => Helper::goee_title_tags(),
+                'options' => Helper::aem_title_tags(),
                 'default' => 'h3',
             ]
 		);
@@ -148,14 +148,14 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * -------------------------------------------------
          */
         $this->start_controls_section(
-            'goee_section_errors',
+            'aem_section_errors',
             [
                 'label'   => __( 'Errors', AEM_TEXTDOMAIN )
             ]
         );
         
         $this->add_control(
-            'goee_error_messages',
+            'aem_error_messages',
             [
                 'label'   => __( 'Error Messages', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::SELECT,
@@ -175,7 +175,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_validation_errors',
+            'aem_validation_errors',
             [
                 'label'   => __( 'Validation Errors', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::SELECT,
@@ -201,7 +201,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * -------------------------------------------------
          */
         $this->start_controls_section(
-            'goee_section_container_style',
+            'aem_section_container_style',
             [
                 'label' => __( 'Form Container', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -211,14 +211,14 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name'     => 'goee_contact_form_background',
+                'name'     => 'aem_contact_form_background',
                 'types'    => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .aem-contact-form'
             ]
         );
 
   		$this->add_responsive_control(
-  			'goee_contact_form_width',
+  			'aem_contact_form_width',
   			[
                 'label'      => esc_html__( 'Form Width', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::SLIDER,
@@ -244,7 +244,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
   		);
 		
 		$this->add_responsive_control(
-			'goee_contact_form_padding',
+			'aem_contact_form_padding',
 			[
                 'label'      => esc_html__( 'Form Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -263,7 +263,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_responsive_control(
-			'goee_cf7_container_margin',
+			'aem_cf7_container_margin',
 			[
                 'label'      => esc_html__( 'Form Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -285,13 +285,13 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-                'name'     => 'goee_cf7_container_border',
+                'name'     => 'aem_cf7_container_border',
                 'selector' => '{{WRAPPER}} .aem-contact-form'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_cf7_container_border_radius',
+			'aem_cf7_container_border_radius',
 			[
                 'label'      => __( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -311,7 +311,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-                'name'     => 'goee_cf7_container_shadow',
+                'name'     => 'aem_cf7_container_shadow',
                 'selector' => '{{WRAPPER}} .aem-contact-form'
 			]
 		);
@@ -323,7 +323,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * -------------------------------------------------
          */
         $this->start_controls_section(
-            'goee_contact_section_title',
+            'aem_contact_section_title',
             [
                 'label' => __( 'Title', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -342,7 +342,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
         
         $this->add_responsive_control(
-            'goee_contact_heading_alignment',
+            'aem_contact_heading_alignment',
             [
                 'label'   => __( 'Alignment', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::CHOOSE,
@@ -370,13 +370,13 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'goee_contact_title_typography',
+                'name'     => 'aem_contact_title_typography',
                 'selector' => '{{WRAPPER}} .aem-contact-form-7 .aem-contact-form-7-title'
             ]
         ); 
 
         $this->add_responsive_control(
-			'goee_contact_title_margin',
+			'aem_contact_title_margin',
 			[
                 'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -402,7 +402,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_contact_field_bg',
+            'aem_contact_field_bg',
             [
                 'label'     => __( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -414,7 +414,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_contact_field_text_color',
+            'aem_contact_field_text_color',
             [
                 'label'     => __( 'Text Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -425,7 +425,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_contact_field_placeholder_color',
+            'aem_contact_field_placeholder_color',
             [
                 'label'     => __( 'Placeholher Text Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -453,7 +453,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'goee_contact_field_typography',
+                'name'     => 'aem_contact_field_typography',
                 'selector' => '{{WRAPPER}} .aem-contact-form-7 input[type="text"],
                         {{WRAPPER}} .aem-contact-form-7 input[type="email"],
                         {{WRAPPER}} .aem-contact-form-7 input[type="url"],
@@ -474,7 +474,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
         
         $this->add_responsive_control(
-            'goee_contact_input_field_height',
+            'aem_contact_input_field_height',
             [
                 'label'        => esc_html__( 'Input Field Height', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SLIDER,
@@ -510,7 +510,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_contact_textarea_field_height',
+            'aem_contact_textarea_field_height',
             [
                 'label'        => esc_html__( 'Textarea Height', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SLIDER,
@@ -532,7 +532,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
 		$this->add_responsive_control(
-			'goee_contact_field_padding',
+			'aem_contact_field_padding',
 			[
                 'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -548,7 +548,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
 		);
 
         $this->add_responsive_control(
-            'goee_contact_field_margin',
+            'aem_contact_field_margin',
             [
                 'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -567,7 +567,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_contact_field_width',
+            'aem_contact_field_width',
             [
                 'label'         => __( 'Field Width', AEM_TEXTDOMAIN ),
                 'type'          => Controls_Manager::SLIDER,
@@ -590,7 +590,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_contact_input_field_bottom_spacing',
+            'aem_contact_input_field_bottom_spacing',
             [
                 'label'        => esc_html__( 'Field Bottom Spacing', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SLIDER,
@@ -629,13 +629,13 @@ class AEM_Contact_Form_7 extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-                'name'        => 'goee_contact_field_border',
+                'name'        => 'aem_contact_field_border',
                 'selector'    => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .aem-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .aem-contact-form-7 .wpcf7-form-control.wpcf7-select'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_contact_field_radius',
+			'aem_contact_field_radius',
 			[
                 'label'      => __( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -652,7 +652,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * Style Tab: Label Section
          */
         $this->start_controls_section(
-            'goee_contact_section_label_style',
+            'aem_contact_section_label_style',
             [
                 'label' => __( 'Labels', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -673,7 +673,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'goee_contact_typography_label',
+                'name'     => 'aem_contact_typography_label',
                 'selector' => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form label'
             ]
         );
@@ -684,7 +684,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * Style Tab: Submit Button
          */
         $this->start_controls_section(
-            'goee_contact_section_submit_button_style',
+            'aem_contact_section_submit_button_style',
             [
                 'label' => __( 'Submit Button', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -692,7 +692,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_contact_section_submit_button_alignment',
+            'aem_contact_section_submit_button_alignment',
             [
                 'label'   => __( 'Alignment', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::SELECT,
@@ -720,14 +720,14 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'goee_contact_button_typography',
+                'name'     => 'aem_contact_button_typography',
                 'label'    => __( 'Button Typography', AEM_TEXTDOMAIN ),
                 'selector' => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]'
             ]
         );
 
         $this->add_responsive_control(
-            'goee_contact_button_border_radius',
+            'aem_contact_button_border_radius',
             [
                 'label'      => __( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -766,7 +766,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'goee_contact_button_spacing',
+            'aem_contact_button_spacing',
             [
                 'label'         => __( 'Top Spacing', AEM_TEXTDOMAIN ),
                 'type'          => Controls_Manager::SLIDER,
@@ -791,7 +791,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'           => 'goee_cf7_button_shadow',
+                'name'           => 'aem_cf7_button_shadow',
                 'selector'       => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]',
                 'fields_options' => [
                     'box_shadow_type' => [ 
@@ -813,14 +813,14 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->start_controls_tabs( 'tabs_button_style' );
 
         $this->start_controls_tab(
-            'goee_contact_tab_button_normal',
+            'aem_contact_tab_button_normal',
             [
                 'label' => __( 'Normal', AEM_TEXTDOMAIN )
             ]
         );
 
         $this->add_control(
-            'goee_contact_button_text_color_normal',
+            'aem_contact_button_text_color_normal',
             [
                 'label'     => __( 'Text Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -832,11 +832,11 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_contact_button_bg_color_normal',
+            'aem_contact_button_bg_color_normal',
             [
                 'label'     => __( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => $goee_primary_color,
+                'default'   => $aem_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]' => 'background-color: {{VALUE}}'
                 ]
@@ -846,7 +846,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'               => 'goee_contact_button_border',
+                'name'               => 'aem_contact_button_border',
                 'fields_options'     => [
                     'border'         => [
                         'default'    => 'solid'
@@ -860,7 +860,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
                         ]
                     ],
                     'color'          => [
-                        'default'    => $goee_primary_color
+                        'default'    => $aem_primary_color
                     ]
                 ],
                 'selector'           => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]'
@@ -870,7 +870,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'           => 'goee_contact_button_box_shadow_normal',
+                'name'           => 'aem_contact_button_box_shadow_normal',
                 'label'          => __( 'Box Shadow', AEM_TEXTDOMAIN ),
                 'selector'       => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]',
                 'fields_options' => [
@@ -900,11 +900,11 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_contact_button_text_color_hover',
+            'aem_contact_button_text_color_hover',
             [
                 'label'     => __( 'Text Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => $goee_primary_color,
+                'default'   => $aem_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]:hover' => 'color: {{VALUE}}'
                 ]
@@ -912,7 +912,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_contact_button_bg_color_hover',
+            'aem_contact_button_bg_color_hover',
             [
                 'label'     => __( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -926,7 +926,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'     => 'goee_contact_button_border_hover',
+                'name'     => 'aem_contact_button_border_hover',
                 'selector' => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]:hover'
             ]
         );
@@ -934,7 +934,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'           => 'goee_contact_button_box_shadow_hover',
+                'name'           => 'aem_contact_button_box_shadow_hover',
                 'label'          => __( 'Box Shadow', AEM_TEXTDOMAIN ),
                 'selector'       => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-form input[type="submit"]:hover'
             ]
@@ -950,7 +950,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
          * Style Tab: Errors
          */
         $this->start_controls_section(
-            'goee_section_error_style',
+            'aem_section_error_style',
             [
                 'label' => __( 'Errors', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -958,18 +958,18 @@ class AEM_Contact_Form_7 extends Widget_Base {
         );
         
         $this->add_control(
-            'goee_contact_error_messages_heading',
+            'aem_contact_error_messages_heading',
             [
                 'label'     => __( 'Error Messages', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::HEADING,
                 'condition' => [
-					'goee_error_messages' => 'show'
+					'aem_error_messages' => 'show'
 				]
             ]
         );
 
         $this->add_control(
-            'goee_contact_error_alert_text_color',
+            'aem_contact_error_alert_text_color',
             [
                 'label'     => __( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -978,13 +978,13 @@ class AEM_Contact_Form_7 extends Widget_Base {
                     '{{WRAPPER}} .aem-contact-form-7 .wpcf7-not-valid-tip' => 'color: {{VALUE}}'
                 ],
 				'condition' => [
-					'goee_error_messages' => 'show'
+					'aem_error_messages' => 'show'
 				]
             ]
         );
 
         $this->add_control(
-            'goee_contact_error_field_bg_color',
+            'aem_contact_error_field_bg_color',
             [
                 'label'     => __( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -993,7 +993,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
                     '{{WRAPPER}} .aem-contact-form-7 .wpcf7-not-valid-tip' => 'background: {{VALUE}}',
                 ],
 				'condition' => [
-					'goee_error_messages' => 'show'
+					'aem_error_messages' => 'show'
 				]
             ]
         );
@@ -1001,28 +1001,28 @@ class AEM_Contact_Form_7 extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-                'name'        => 'goee_contact_error_field_border',
+                'name'        => 'aem_contact_error_field_border',
                 'selector'    => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-not-valid-tip',
                 'condition'   => [
-					'goee_error_messages' => 'show'
+					'aem_error_messages' => 'show'
 				]
 			]
 		);
         
         $this->add_control(
-            'goee_contact_validation_errors_heading',
+            'aem_contact_validation_errors_heading',
             [
                 'label'     => __( 'Validation Errors', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
                 'condition' => [
-					'goee_validation_errors' => 'show'
+					'aem_validation_errors' => 'show'
 				]
             ]
         );
 
         $this->add_control(
-            'goee_contact_validation_errors_color',
+            'aem_contact_validation_errors_color',
             [
                 'label'     => __( 'Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -1031,13 +1031,13 @@ class AEM_Contact_Form_7 extends Widget_Base {
                     '{{WRAPPER}} .aem-contact-form-7 .wpcf7-validation-errors' => 'color: {{VALUE}}'
                 ],
                 'condition' => [
-                    'goee_validation_errors' => 'show'
+                    'aem_validation_errors' => 'show'
                 ]
             ]
         );
 
         $this->add_control(
-            'goee_contact_validation_errors_bg_color',
+            'aem_contact_validation_errors_bg_color',
             [
                 'label'     => __( 'Background Color', AEM_TEXTDOMAIN ),
                 'type'      => Controls_Manager::COLOR,
@@ -1046,7 +1046,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
                     '{{WRAPPER}} .aem-contact-form-7 .wpcf7-validation-errors' => 'background: {{VALUE}}'
                 ],
 				'condition' => [
-					'goee_validation_errors' => 'show'
+					'aem_validation_errors' => 'show'
 				]
             ]
         );
@@ -1057,7 +1057,7 @@ class AEM_Contact_Form_7 extends Widget_Base {
                 'name'        => 'validation_errors_border',
                 'selector'    => '{{WRAPPER}} .aem-contact-form-7 .wpcf7-validation-errors',
                 'condition'   => [
-					'goee_validation_errors' => 'show'
+					'aem_validation_errors' => 'show'
 				]
 			]
 		);
@@ -1083,16 +1083,16 @@ class AEM_Contact_Form_7 extends Widget_Base {
 			]
 		);
         
-        if ( ! empty( $settings['goee_contact_form_list'] ) ) { ?>
+        if ( ! empty( $settings['aem_contact_form_list'] ) ) { ?>
             <div <?php echo $this->get_render_attribute_string( 'aem-contact-form' ); ?>>
                     
-                <?php if ( '' != $settings['goee_contact_form_title_text'] ) { ?>
-                    <<?php echo Utils::validate_html_tag( $settings['goee_contact_form_title_tag'] ); ?> class="aem-contact-form-title aem-contact-form-7-title">
-                        <?php echo esc_html( $settings['goee_contact_form_title_text'] ); ?>
-                    </<?php echo Utils::validate_html_tag( $settings['goee_contact_form_title_tag'] ); ?>>
+                <?php if ( '' != $settings['aem_contact_form_title_text'] ) { ?>
+                    <<?php echo Utils::validate_html_tag( $settings['aem_contact_form_title_tag'] ); ?> class="aem-contact-form-title aem-contact-form-7-title">
+                        <?php echo esc_html( $settings['aem_contact_form_title_text'] ); ?>
+                    </<?php echo Utils::validate_html_tag( $settings['aem_contact_form_title_tag'] ); ?>>
                 <?php } ?>
                         
-                <?php echo do_shortcode( '[contact-form-7 id="' . $settings['goee_contact_form_list'] . '" ]' ); ?>
+                <?php echo do_shortcode( '[contact-form-7 id="' . $settings['aem_contact_form_list'] . '" ]' ); ?>
             </div>
             
             <?php

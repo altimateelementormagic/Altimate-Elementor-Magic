@@ -36,20 +36,20 @@ class AEM_Business_Hours extends \Elementor\Widget_Base
         );
 
         $this->add_control(
-            'goee_business_hours',
+            'aem_business_hours',
             [
                 'label' => esc_html__('Business Days & Timings', AEM_TEXTDOMAIN),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => [
                     [
-                        'name' => 'goee_bh_day',
+                        'name' => 'aem_bh_day',
                         'label' => esc_html__('Enter Day', AEM_TEXTDOMAIN),
                         'type' => Controls_Manager::TEXT,
                         'placeholder' => 'Sunday',
 
                     ],
                     [
-                        'name' => 'goee_bh_time',
+                        'name' => 'aem_bh_time',
                         'label' => esc_html__('Enter Time', AEM_TEXTDOMAIN),
                         'type' => Controls_Manager::TEXT,
                         'placeholder' => '9:00 AM to 6:00 PM',
@@ -57,15 +57,15 @@ class AEM_Business_Hours extends \Elementor\Widget_Base
                 ],
                 'default' => [
                     [
-                        'goee_bh_day' => esc_html__('Sunday', AEM_TEXTDOMAIN),
-                        'goee_bh_time' => esc_html__('9:00 AM to 6:00 PM ', AEM_TEXTDOMAIN),
+                        'aem_bh_day' => esc_html__('Sunday', AEM_TEXTDOMAIN),
+                        'aem_bh_time' => esc_html__('9:00 AM to 6:00 PM ', AEM_TEXTDOMAIN),
                     ],
                     [
-                        'goee_bh_day' => esc_html__('Monday', AEM_TEXTDOMAIN),
-                        'goee_bh_time' => esc_html__('9:00 AM to 6:00 PM', AEM_TEXTDOMAIN),
+                        'aem_bh_day' => esc_html__('Monday', AEM_TEXTDOMAIN),
+                        'aem_bh_time' => esc_html__('9:00 AM to 6:00 PM', AEM_TEXTDOMAIN),
                     ],
                 ],
-                'title_field' => '{{{goee_bh_day}}}',
+                'title_field' => '{{{aem_bh_day}}}',
             ],
 
 
@@ -149,13 +149,13 @@ class AEM_Business_Hours extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $goee_business_hours = $settings['goee_business_hours'];
+        $aem_business_hours = $settings['aem_business_hours'];
         
-        if ($goee_business_hours) {
+        if ($aem_business_hours) {
             echo '<dl class="aem-business-hours">';
-            foreach ($goee_business_hours as $item) {
-                echo '<dt class="goee_bh_days goee_bh_days-' . esc_attr($item['_id']) . '">' . $item['goee_bh_day'] . '</dt>';
-                echo '<dd class="goee_bh_time goee_bh_time-'.esc_attr($item['_id']) . '">' . $item['goee_bh_time'] . '</dd>';
+            foreach ($aem_business_hours as $item) {
+                echo '<dt class="aem_bh_days aem_bh_days-' . esc_attr($item['_id']) . '">' . $item['aem_bh_day'] . '</dt>';
+                echo '<dd class="aem_bh_time aem_bh_time-'.esc_attr($item['_id']) . '">' . $item['aem_bh_time'] . '</dd>';
             }
             echo '</dl>';
         }

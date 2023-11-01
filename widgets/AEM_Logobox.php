@@ -38,14 +38,14 @@ class AEM_Logobox extends Widget_Base {
         * Logo Image
         */
         $this->start_controls_section(
-            'goee_section_logo_image',
+            'aem_section_logo_image',
             [
                 'label' => esc_html__( 'Content', AEM_TEXTDOMAIN )
             ]
         );
         
         $this->add_control(
-            'goee_logo_image',
+            'aem_logo_image',
             [
                 'label'   => esc_html__( 'Logo Image', AEM_TEXTDOMAIN ),
                 'type'    => Controls_Manager::MEDIA,
@@ -64,13 +64,13 @@ class AEM_Logobox extends Widget_Base {
                 'name'      => 'thumbnail',
                 'default'   => 'full',
                 'condition' => [
-                    'goee_logo_image[url]!' => ''
+                    'aem_logo_image[url]!' => ''
                 ]
             ]
         );
 
         $this->add_control(
-            'goee_logo_box_enable_link',
+            'aem_logo_box_enable_link',
             [
                 'label'        => __( 'Enable Link', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SWITCHER,
@@ -82,7 +82,7 @@ class AEM_Logobox extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_logo_box_link',
+            'aem_logo_box_link',
             [
                 'label'         => __( 'Link', AEM_TEXTDOMAIN ),
                 'type'          => Controls_Manager::URL,
@@ -93,13 +93,13 @@ class AEM_Logobox extends Widget_Base {
                     'is_external' => true
                 ],
                 'condition'     => [
-                    'goee_logo_box_enable_link' => 'yes'
+                    'aem_logo_box_enable_link' => 'yes'
                 ]
             ]
         );
 
         $this->add_control(
-            'goee_logo_box_max_height_enable',
+            'aem_logo_box_max_height_enable',
             [
                 'label'        => __( 'Minimum Height', AEM_TEXTDOMAIN ),
                 'type'         => Controls_Manager::SWITCHER,
@@ -111,7 +111,7 @@ class AEM_Logobox extends Widget_Base {
         );
 
         $this->add_control(
-			'goee_logo_box_max_height',
+			'aem_logo_box_max_height',
 			[
 				'label' => __( 'Height', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::SLIDER,
@@ -130,7 +130,7 @@ class AEM_Logobox extends Widget_Base {
 					'{{WRAPPER}} .aem-logo-item.aem-logo-item-max-height-yes' => 'min-height: {{SIZE}}{{UNIT}};',
                 ],
                 'condition' => [
-                    'goee_logo_box_max_height_enable' => 'yes'
+                    'aem_logo_box_max_height_enable' => 'yes'
                 ]
 			]
 		);
@@ -142,7 +142,7 @@ class AEM_Logobox extends Widget_Base {
         *
         */
     	$this->start_controls_section(
-    		'goee_section_logo_style',
+    		'aem_section_logo_style',
     		[
                 'label' => esc_html__( 'Style', AEM_TEXTDOMAIN ),
                 'tab'   => Controls_Manager::TAB_STYLE
@@ -150,7 +150,7 @@ class AEM_Logobox extends Widget_Base {
         );
 
         $this->add_control(
-			'goee_section_logo_alignment',
+			'aem_section_logo_alignment',
 			[
 				'label' => __( 'Alignment', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::CHOOSE,
@@ -173,13 +173,13 @@ class AEM_Logobox extends Widget_Base {
 			]
 		);
 
-        $this->start_controls_tabs( 'goee_logo_tabs' );
+        $this->start_controls_tabs( 'aem_logo_tabs' );
 
     	# Normal tab
         $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
             $this->add_control(
-        		'goee_logo_background_style',
+        		'aem_logo_background_style',
         			[
                     'label' => __( 'Background Style', AEM_TEXTDOMAIN ),
                     'type'  => Controls_Manager::HEADING
@@ -189,7 +189,7 @@ class AEM_Logobox extends Widget_Base {
             $this->add_group_control(
         		Group_Control_Background::get_type(),
     			[
-                    'name'      => 'goee_logo_background',
+                    'name'      => 'aem_logo_background',
                     'types'     => [ 'classic', 'gradient' ],
                     'separator' => 'before',
                     'selector'  => '{{WRAPPER}} .aem-logo-box .aem-logo-item'
@@ -197,7 +197,7 @@ class AEM_Logobox extends Widget_Base {
             );
 
             $this->add_control(
-        		'goee_logo_opacity_style',
+        		'aem_logo_opacity_style',
         		[
                     'label' => __( 'Opacity', AEM_TEXTDOMAIN ),
                     'type'  => Controls_Manager::HEADING
@@ -205,7 +205,7 @@ class AEM_Logobox extends Widget_Base {
             );
 
             $this->add_control(
-                'goee_logo_opacity',
+                'aem_logo_opacity',
                 [
                     'label' => __('Opacity', AEM_TEXTDOMAIN),
                     'type'  => Controls_Manager::NUMBER,
@@ -220,7 +220,7 @@ class AEM_Logobox extends Widget_Base {
             );
 
             $this->add_control(
-    			'goee_logo_shadow_style',
+    			'aem_logo_shadow_style',
     			[
                     'label' => __( 'Box Shadow', AEM_TEXTDOMAIN ),
                     'type'  => Controls_Manager::HEADING
@@ -230,7 +230,7 @@ class AEM_Logobox extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
-                    'name'     => 'goee_logo_box_shadow',
+                    'name'     => 'aem_logo_box_shadow',
                     'selector' => '{{WRAPPER}} .aem-logo-box .aem-logo-item'
                 ]
             );
@@ -238,10 +238,10 @@ class AEM_Logobox extends Widget_Base {
         $this->end_controls_tab();
 
     	# Hover tab
-        $this->start_controls_tab( 'goee_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
+        $this->start_controls_tab( 'aem_button_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
             $this->add_control(
-    			'goee_logo_hover_background',
+    			'aem_logo_hover_background',
     			[
                     'label' => __( 'Background Style', AEM_TEXTDOMAIN ),
                     'type'  => Controls_Manager::HEADING
@@ -251,7 +251,7 @@ class AEM_Logobox extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Background::get_type(),
                 [
-                    'name'      => 'goee_logo_hover_background_hover',
+                    'name'      => 'aem_logo_hover_background_hover',
                     'types'     => [ 'classic', 'gradient' ],
                     'separator' => 'before',
                     'selector'  => '{{WRAPPER}} .aem-logo-box .aem-logo-item:hover'
@@ -259,7 +259,7 @@ class AEM_Logobox extends Widget_Base {
             );
 
             $this->add_control(
-        		'goee_logo_opacity_hover_style',
+        		'aem_logo_opacity_hover_style',
         		[
                     'label' => __( 'Opacity', AEM_TEXTDOMAIN ),
                     'type'  => Controls_Manager::HEADING
@@ -267,7 +267,7 @@ class AEM_Logobox extends Widget_Base {
             );
 
             $this->add_control(
-                'goee_logo_hover_opacity',
+                'aem_logo_hover_opacity',
                 [
                     'label'     => __('Opacity', AEM_TEXTDOMAIN),
                     'type'      => Controls_Manager::NUMBER,
@@ -283,7 +283,7 @@ class AEM_Logobox extends Widget_Base {
             );
         		
             $this->add_control(
-                'goee_logo_shadow_hover_style',
+                'aem_logo_shadow_hover_style',
                 [
                     'label' => __( 'Box Shadow', AEM_TEXTDOMAIN ),
                     'type'  => Controls_Manager::HEADING
@@ -293,7 +293,7 @@ class AEM_Logobox extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
-                    'name'     => 'goee_logo_box_hover_shadow',
+                    'name'     => 'aem_logo_box_hover_shadow',
                     'selector' => '{{WRAPPER}} .aem-logo-box .aem-logo-item:hover'
                 ]
             );
@@ -303,7 +303,7 @@ class AEM_Logobox extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_responsive_control(
-            'goee_logo_padding',
+            'aem_logo_padding',
             [
                 'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -330,7 +330,7 @@ class AEM_Logobox extends Widget_Base {
             ]
         );
         $this->add_responsive_control(
-    		'goee_logo_border_radius',
+    		'aem_logo_border_radius',
             [
                 'label'      => __( 'Border Radius', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -345,29 +345,29 @@ class AEM_Logobox extends Widget_Base {
 	}
 	protected function render() {
         $settings       = $this->get_settings_for_display();
-        $goee_logo_link = $settings['goee_logo_box_link'];
+        $aem_logo_link = $settings['aem_logo_box_link'];
 
-        if( 'yes' === $settings['goee_logo_box_enable_link'] && $goee_logo_link ) {
-            $this->add_render_attribute( 'goee_logo_box_link', 'href', esc_url( $settings['goee_logo_box_link']['url'] ) );
-            if( $settings['goee_logo_box_link']['is_external'] ) {
-                $this->add_render_attribute( 'goee_logo_box_link', 'target', '_blank' );
+        if( 'yes' === $settings['aem_logo_box_enable_link'] && $aem_logo_link ) {
+            $this->add_render_attribute( 'aem_logo_box_link', 'href', esc_url( $settings['aem_logo_box_link']['url'] ) );
+            if( $settings['aem_logo_box_link']['is_external'] ) {
+                $this->add_render_attribute( 'aem_logo_box_link', 'target', '_blank' );
             }
-            if( $settings['goee_logo_box_link']['nofollow'] ) {
-                $this->add_render_attribute( 'goee_logo_box_link', 'rel', 'nofollow' );
+            if( $settings['aem_logo_box_link']['nofollow'] ) {
+                $this->add_render_attribute( 'aem_logo_box_link', 'rel', 'nofollow' );
             }
         }
         ?>
 
-        <div class="aem-logo-box one <?php echo $settings['goee_section_logo_alignment']; ?>">
-            <div class="aem-logo-item aem-logo-item-max-height-<?php echo $settings['goee_logo_box_max_height_enable']; ?>">
+        <div class="aem-logo-box one <?php echo $settings['aem_section_logo_alignment']; ?>">
+            <div class="aem-logo-item aem-logo-item-max-height-<?php echo $settings['aem_logo_box_max_height_enable']; ?>">
             <?php
-                if( ! empty( $settings['goee_logo_image'] ) ) :
+                if( ! empty( $settings['aem_logo_image'] ) ) :
 
-                    if( !empty( $goee_logo_link ) && 'yes' === $settings['goee_logo_box_enable_link'] ) :
-                        echo '<a '.$this->get_render_attribute_string( 'goee_logo_box_link' ).'>';
+                    if( !empty( $aem_logo_link ) && 'yes' === $settings['aem_logo_box_enable_link'] ) :
+                        echo '<a '.$this->get_render_attribute_string( 'aem_logo_box_link' ).'>';
                     endif;
-                    echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'goee_logo_image' );
-                    if( !empty( $goee_logo_link ) && 'yes' === $settings['goee_logo_box_enable_link'] ) :
+                    echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'aem_logo_image' );
+                    if( !empty( $aem_logo_link ) && 'yes' === $settings['aem_logo_box_enable_link'] ) :
                         echo '</a>';
                     endif;
                 endif;

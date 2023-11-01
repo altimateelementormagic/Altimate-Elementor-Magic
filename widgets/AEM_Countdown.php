@@ -35,20 +35,20 @@ class AEM_Countdown extends Widget_Base {
 	}
 
 	protected function register_controls() {
-		$goee_primary_color = get_option( 'goee_primary_color_option', '#7a56ff' );
+		$aem_primary_color = get_option( 'aem_primary_color_option', '#7a56ff' );
 
 		/**
 		 * Countdown Timer Settings
 		 */
 		$this->start_controls_section(
-  			'goee_section_countdown_settings_general',
+  			'aem_section_countdown_settings_general',
   			[
   				'label' => esc_html__( 'Timer Settings', 'go-essential-elementor' )
   			]
   		);
 		
 		$this->add_control(
-			'goee_countdown_time',
+			'aem_countdown_time',
 			[
 				'label'       => esc_html__( 'Countdown Date', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::DATE_TIME,
@@ -58,7 +58,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_countdown_expired_text',
+			'aem_countdown_expired_text',
 			[
 				'label'       => __( 'Countdown Expired Title', 'go-essential-elementor' ),
 				'type'        => Controls_Manager::TEXT,
@@ -74,7 +74,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_section_countdown_container_style',
+			'aem_section_countdown_container_style',
 			[
 				'label' => esc_html__( 'Container', 'go-essential-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -84,14 +84,14 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'goee_countdown_container_bg_color',
+				'name'     => 'aem_countdown_container_bg_color',
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .aem-countdown'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_countdown_container_padding',
+			'aem_countdown_container_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -111,13 +111,13 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'goee_countdown_border',
+				'name'     => 'aem_countdown_border',
 				'selector' => '{{WRAPPER}} .aem-countdown'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_countdown_container_border_radius',
+			'aem_countdown_container_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -137,7 +137,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_section_countdown_box_style',
+			'aem_section_countdown_box_style',
 			[
 				'label' => esc_html__( 'Counter Box', 'go-essential-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -145,7 +145,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_section_countdown_show_box',
+			'aem_section_countdown_show_box',
 			[
 				'label' => __( 'Enable Box', 'go-essential-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -157,7 +157,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_section_countdown_box_width',
+			'aem_section_countdown_box_width',
 			[
 				'label' => __( 'Width', 'go-essential-elementor' ),
 				'type' => Controls_Manager::SLIDER,
@@ -181,13 +181,13 @@ class AEM_Countdown extends Widget_Base {
 					'{{WRAPPER}} .aem-countdown .aem-countdown-container' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'goee_section_countdown_show_box' => 'yes'
+					'aem_section_countdown_show_box' => 'yes'
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_section_countdown_box_height',
+			'aem_section_countdown_box_height',
 			[
 				'label' => __( 'Height', 'go-essential-elementor' ),
 				'type' => Controls_Manager::SLIDER,
@@ -211,7 +211,7 @@ class AEM_Countdown extends Widget_Base {
 					'{{WRAPPER}} .aem-countdown .aem-countdown-container' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'goee_section_countdown_show_box' => 'yes'
+					'aem_section_countdown_show_box' => 'yes'
 				]
 			]
 		);
@@ -219,7 +219,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'goee_countdown_box_background',
+				'name'     => 'aem_countdown_box_background',
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .aem-countdown .aem-countdown-container'
 			]
@@ -228,13 +228,13 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'goee_countdown_box_shadow',
+				'name'     => 'aem_countdown_box_shadow',
 				'selector' => '{{WRAPPER}} .aem-countdown-container'
 			]
 		);
 
 		$this->add_control(
-			'goee_before_border',
+			'aem_before_border',
 			[
 				'type'  => Controls_Manager::DIVIDER,
 				'style' => 'thin'
@@ -244,13 +244,13 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'goee_countdown_box_border',
+				'name'     => 'aem_countdown_box_border',
 				'selector' => '{{WRAPPER}} .aem-countdown .aem-countdown-container'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_countdown_box_border_radius',
+			'aem_countdown_box_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -270,7 +270,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_section_countdown_divider_style',
+			'aem_section_countdown_divider_style',
 			[
 				'label' => esc_html__( 'Divider', 'go-essential-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -278,7 +278,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_countdown_divider_enable',
+			'aem_countdown_divider_enable',
 			[
 				'label'        => __( 'Enable Divider', 'go-essential-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
@@ -290,7 +290,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_countdown_divider_color',
+			'aem_countdown_divider_color',
 			[
 				'label'     => __( 'Divider Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -299,13 +299,13 @@ class AEM_Countdown extends Widget_Base {
 					'{{WRAPPER}} .aem-countdown.aem-countdown-divider .aem-countdown-container::after' => 'color: {{VALUE}};'
 				],
 				'condition' => [
-					'goee_countdown_divider_enable' => 'yes'
+					'aem_countdown_divider_enable' => 'yes'
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_countdown_divider_size',
+			'aem_countdown_divider_size',
 			[
 				'label'        => __( 'Size', 'go-essential-elementor' ),
 				'type'         => Controls_Manager::SLIDER,
@@ -330,13 +330,13 @@ class AEM_Countdown extends Widget_Base {
 					'{{WRAPPER}} .aem-countdown.aem-countdown-divider .aem-countdown-container::after' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 				'condition'    => [
-					'goee_countdown_divider_enable' => 'yes'
+					'aem_countdown_divider_enable' => 'yes'
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_countdown_divider_position_right',
+			'aem_countdown_divider_position_right',
 			[
 				'label'        => __( 'Offset X', 'go-essential-elementor' ),
 				'type'         => Controls_Manager::SLIDER,
@@ -362,13 +362,13 @@ class AEM_Countdown extends Widget_Base {
 					'{{WRAPPER}} .aem-countdown.aem-countdown-divider .aem-countdown-container::after' => 'right: {{SIZE}}{{UNIT}};'
 				],
 				'condition'    => [
-					'goee_countdown_divider_enable' => 'yes'
+					'aem_countdown_divider_enable' => 'yes'
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_countdown_divider_position_left',
+			'aem_countdown_divider_position_left',
 			[
 				'label'        => __( 'Offset Y', 'go-essential-elementor' ),
 				'type'         => Controls_Manager::SLIDER,
@@ -394,7 +394,7 @@ class AEM_Countdown extends Widget_Base {
 					'{{WRAPPER}} .aem-countdown.aem-countdown-divider .aem-countdown-container::after' => 'top: {{SIZE}}{{UNIT}};'
 				],
 				'condition'    => [
-					'goee_countdown_divider_enable' => 'yes'
+					'aem_countdown_divider_enable' => 'yes'
 				]
 			]
 		);
@@ -403,7 +403,7 @@ class AEM_Countdown extends Widget_Base {
 		
 		// Counter Styles
 		$this->start_controls_section(
-			'goee_section_countdown_styles_counter',
+			'aem_section_countdown_styles_counter',
 			[
 				'label' => esc_html__( 'Counter', 'go-essential-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -419,7 +419,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_countdown_number_color',
+			'aem_countdown_number_color',
 			[
 				'label'     => __( 'Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -431,7 +431,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-            'goee_countdown_number_margin',
+            'aem_countdown_number_margin',
             [
                 'label'      => esc_html__( 'Margin', 'go-essential-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -446,7 +446,7 @@ class AEM_Countdown extends Widget_Base {
 		
 		// Title Styles
 		$this->start_controls_section(
-			'goee_countdown_styles_title',
+			'aem_countdown_styles_title',
 			[
 				'label' => esc_html__( 'Title', 'go-essential-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -456,13 +456,13 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'goee_countdown_title_typography',
+					'name'     => 'aem_countdown_title_typography',
 					'selector' => '{{WRAPPER}} .aem-countdown-title'
 				]
 		);
 
 		$this->add_control(
-			'goee_countdown_title_color',
+			'aem_countdown_title_color',
 			[
 				'label'     => __( 'Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -474,7 +474,7 @@ class AEM_Countdown extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-            'goee_countdown_title_margin',
+            'aem_countdown_title_margin',
             [
                 'label'      => esc_html__( 'Margin', 'go-essential-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -488,12 +488,12 @@ class AEM_Countdown extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'goee_countdown_expired_title_style',
+			'aem_countdown_expired_title_style',
 			[
 				'label'     => esc_html__( 'Expired Title', 'go-essential-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'goee_countdown_expired_text!' => ''
+					'aem_countdown_expired_text!' => ''
 				]
 			]
 		);
@@ -501,13 +501,13 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'goee_countdown_expired_title_typography',
+					'name'     => 'aem_countdown_expired_title_typography',
 					'selector' => '{{WRAPPER}} .aem-countdown-content-container .aem-countdown p.message'
 				]
 		);
 
 		$this->add_control(
-			'goee_countdown_expired_title_color',
+			'aem_countdown_expired_title_color',
 			[
 				'label'     => __( 'Color', 'go-essential-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -533,12 +533,12 @@ class AEM_Countdown extends Widget_Base {
 				'data-minutes'      => esc_attr__( 'Minutes', 'go-essential-elementor' ),
 				'data-hours'        => esc_attr__( 'Hours', 'go-essential-elementor' ),
 				'data-seconds'      => esc_attr__( 'Seconds', 'go-essential-elementor' ),
-				'data-countdown'    => esc_attr( $settings['goee_countdown_time'] ),
-				'data-expired-text' => esc_attr( $settings['goee_countdown_expired_text'] )
+				'data-countdown'    => esc_attr( $settings['aem_countdown_time'] ),
+				'data-expired-text' => esc_attr( $settings['aem_countdown_expired_text'] )
 			]
 		);
 		
-		if ( 'yes' === $settings['goee_countdown_divider_enable'] ) {
+		if ( 'yes' === $settings['aem_countdown_divider_enable'] ) {
 			$this->add_render_attribute(
 				'aem-countdown-timer-attribute',
 				[
@@ -548,7 +548,7 @@ class AEM_Countdown extends Widget_Base {
 		}
 		?>
 
-		<div class="aem-countdown-content-container <?php echo $settings['goee_section_countdown_show_box']; ?>">
+		<div class="aem-countdown-content-container <?php echo $settings['aem_section_countdown_show_box']; ?>">
 			<div <?php echo $this->get_render_attribute_string('aem-countdown-timer-attribute'); ?>></div>
 		</div>
 		

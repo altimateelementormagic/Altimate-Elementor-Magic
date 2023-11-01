@@ -33,20 +33,20 @@ class AEM_Heading extends Widget_Base {
     }
     
 	protected function register_controls() {
-		$goee_secondary_color = get_option( 'goee_secondary_color_option', '#00d8d8' );
+		$aem_secondary_color = get_option( 'aem_secondary_color_option', '#00d8d8' );
 		
 		/**
 		* Heading Content Section
 		*/
 		$this->start_controls_section(
-			'goee_heading_content',
+			'aem_heading_content',
 			[
 				'label' => esc_html__( 'Content', AEM_TEXTDOMAIN )
 			]
 		);
 
 		$this->add_control(
-			'goee_heading_title',
+			'aem_heading_title',
 			[
 				'label'       => esc_html__( 'Heading', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::TEXT,
@@ -60,7 +60,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_heading_title_link',
+			'aem_heading_title_link',
 			[
 				'label'       => __( 'Heading URL', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::URL,
@@ -71,7 +71,7 @@ class AEM_Heading extends Widget_Base {
 
 		
 		$this->add_control(
-			'goee_heading_subheading',
+			'aem_heading_subheading',
 			[
 				'label'   => esc_html__( 'Sub Heading', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::TEXTAREA,
@@ -83,7 +83,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_control(
-            'goee_heading_icon_show',
+            'aem_heading_icon_show',
             [
 				'label'        => esc_html__( 'Enable Icon', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SWITCHER,
@@ -95,7 +95,7 @@ class AEM_Heading extends Widget_Base {
         );
 
         $this->add_control(
-            'goee_heading_icon',
+            'aem_heading_icon',
             [
                 'label'       => __( 'Icon', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::ICONS,
@@ -104,13 +104,13 @@ class AEM_Heading extends Widget_Base {
                     'library' => 'fa-brands'
                 ],
 				'condition'   => [
-					'goee_heading_icon_show' => 'yes'
+					'aem_heading_icon_show' => 'yes'
                 ]
             ]
         );
 
 		$this->add_control(
-            'goee_heading_divider',
+            'aem_heading_divider',
             [
 				'label'        => esc_html__( 'Enable Divider', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SWITCHER,
@@ -124,12 +124,12 @@ class AEM_Heading extends Widget_Base {
 
 		
         $this->add_control(
-            'goee_heading_title_html_tag',
+            'aem_heading_title_html_tag',
             [
                 'label'   => __('Title HTML Tag', AEM_TEXTDOMAIN),
                 'type'    => Controls_Manager::SELECT,
 				'separator' => 'after',
-                'options' => Helper::goee_title_tags(),
+                'options' => Helper::aem_title_tags(),
                 'default' => 'h1',
             ]
 		);
@@ -141,7 +141,7 @@ class AEM_Heading extends Widget_Base {
 		* Heading Styling Section
 		*/
 		$this->start_controls_section(
-			'goee_section_heading_general_style',
+			'aem_section_heading_general_style',
 			[
 				'label' => esc_html__( 'General', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -149,7 +149,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
         $this->add_responsive_control(
-			'goee_heading_title_alignment',
+			'aem_heading_title_alignment',
 			[
 				'label'       => esc_html__( 'Alignment', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::CHOOSE,
@@ -193,19 +193,19 @@ class AEM_Heading extends Widget_Base {
 		* Icon Style
 		*/
 		$this->start_controls_section(
-			'goee_section_heading_icon_style',
+			'aem_section_heading_icon_style',
 			[
 				'label'     => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'goee_heading_icon_show'    => 'yes',
-					'goee_heading_icon[value]!' => ''
+					'aem_heading_icon_show'    => 'yes',
+					'aem_heading_icon[value]!' => ''
 				]
 			]
 		);
 
 		$this->add_control(
-            'goee_heading_icon_box',
+            'aem_heading_icon_box',
             [
 				'label'        => esc_html__( 'Icon Box', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SWITCHER,
@@ -215,7 +215,7 @@ class AEM_Heading extends Widget_Base {
 		);
 		
 		$this->add_responsive_control(
-			'goee_heading_icob_box_height',
+			'aem_heading_icob_box_height',
 			[
 				'label'     => esc_html__( 'Height', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::NUMBER,
@@ -224,12 +224,12 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-icon' => 'height: {{VALUE}}px;'
 				],
 				'condition' => [
-					'goee_heading_icon_box' => 'yes'
+					'aem_heading_icon_box' => 'yes'
 				]
 			]
 		);
 		$this->add_responsive_control(
-			'goee_heading_icon_box_width',
+			'aem_heading_icon_box_width',
 			[
 				'label'     => esc_html__( 'Width', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::NUMBER,
@@ -238,7 +238,7 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-icon' => 'width: {{VALUE}}px;'
 				],
 				'condition' => [
-					'goee_heading_icon_box' => 'yes'
+					'aem_heading_icon_box' => 'yes'
 				]
 			]
 		);
@@ -246,7 +246,7 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'            => 'goee_heading_icon_box_background',
+				'name'            => 'aem_heading_icon_box_background',
 				'types'           => [ 'classic', 'gradient' ],
 				'selector'        => '{{WRAPPER}} .aem-heading-icon',
 				'fields_options'  => [
@@ -254,14 +254,14 @@ class AEM_Heading extends Widget_Base {
 						'default' => 'classic'
 					],
 					'color'       => [
-						'default' => $goee_secondary_color
+						'default' => $aem_secondary_color
 					]
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_icon_box_padding',
+			'aem_heading_icon_box_padding',
 			[
 				'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -281,7 +281,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_icon_box_radius',
+			'aem_heading_icon_box_radius',
 			[
 				'label'        => __( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::DIMENSIONS,
@@ -302,13 +302,13 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'      => 'goee_heading_icon_box_border',
+				'name'      => 'aem_heading_icon_box_border',
 				'selector'  => '{{WRAPPER}} .aem-heading-icon'
 			]
 		);
 
 		$this->add_control(
-			'goee_heading_icon_color',
+			'aem_heading_icon_color',
 			[
 				'label'     => __('Icon Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
@@ -321,7 +321,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_icon_size',
+			'aem_heading_icon_size',
 			[
 				'label'      => __( 'Icon Size', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -345,7 +345,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_icon_margin_bottom',
+			'aem_heading_icon_margin_bottom',
 			[
 				'label'      => __( 'Bottom Spacing', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -373,7 +373,7 @@ class AEM_Heading extends Widget_Base {
 		* Heading Content Styling Section
 		*/
 		$this->start_controls_section(
-			'goee_section_heading_styles_heading',
+			'aem_section_heading_styles_heading',
 			[
 				'label' => esc_html__( 'Heading', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -381,7 +381,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_control(
-            'goee_heading_type',
+            'aem_heading_type',
             [
 				'label'   => esc_html__( 'Heading Type', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::SELECT,
@@ -395,7 +395,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_heading_outline_enable',
+			'aem_heading_outline_enable',
 			[
 				'label' => __( 'Enable Text Outline', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::SWITCHER,
@@ -407,7 +407,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_outline_width',
+			'aem_heading_outline_width',
 			[
 				'label'      => __( 'Outline Width', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -426,13 +426,13 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-title' => '-webkit-text-stroke-width: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
-					'goee_heading_outline_enable' => 'yes',
+					'aem_heading_outline_enable' => 'yes',
 				]
 			]
 		);
 
 		$this->add_control(
-			'goee_heading_outline_color',
+			'aem_heading_outline_color',
 			[
 				'label'     => __('Outline Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
@@ -441,7 +441,7 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-title' => '-webkit-text-stroke-color: {{VALUE}};'
 				],
 				'condition' => [
-					'goee_heading_outline_enable' => 'yes',
+					'aem_heading_outline_enable' => 'yes',
 				]
 			]
 		);
@@ -449,11 +449,11 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'      => 'goee_heading_background',
+				'name'      => 'aem_heading_background',
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .aem-heading-image-gradient .aem-heading-title',
 				'condition' => [
-					'goee_heading_type' => 'aem-heading-image-gradient'
+					'aem_heading_type' => 'aem-heading-image-gradient'
 				]
 			]
 		);
@@ -461,13 +461,13 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'goee_heading_typography',
+				'name'     => 'aem_heading_typography',
 				'selector' => '{{WRAPPER}} .aem-heading-title'
 			]
 		);
 
 		$this->add_control(
-			'goee_heading_color',
+			'aem_heading_color',
 			[
 				'label'     => __('Text Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
@@ -476,7 +476,7 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-title, {{WRAPPER}} a .aem-heading-title' => 'color: {{VALUE}};'
 				],
 				'condition' => [
-					'goee_heading_type' => ['aem-heading-simple', 'aem-heading-text-background']
+					'aem_heading_type' => ['aem-heading-simple', 'aem-heading-text-background']
 				]
 			]
 		);
@@ -484,14 +484,14 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Text_Shadow::get_type(),
 			[
-				'name' => 'goee_heading_text_shadow',
+				'name' => 'aem_heading_text_shadow',
 				'label' => __( 'Text Shadow', AEM_TEXTDOMAIN ),
 				'selector' => '{{WRAPPER}} .aem-heading-title',
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_heading_margin',
+			'aem_heading_heading_margin',
 			[
 				'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -509,12 +509,12 @@ class AEM_Heading extends Widget_Base {
 		 */
 
 		$this->start_controls_section(
-			'goee_section_heading_text_background_style',
+			'aem_section_heading_text_background_style',
 			[
 				'label'     => esc_html__( 'Text Background', AEM_TEXTDOMAIN ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'goee_heading_type' => 'aem-heading-text-background'
+					'aem_heading_type' => 'aem-heading-text-background'
 				]
 			]
 		);
@@ -522,13 +522,13 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'goee_heading_text_background_typography',
+				'name'     => 'aem_heading_text_background_typography',
 				'selector' => '{{WRAPPER}} .aem-heading-text-background .aem-heading-title::after'
 			]
 		);
 
 		$this->add_control(
-			'goee_heading_text_background_color',
+			'aem_heading_text_background_color',
 			[
 				'label'     => __('Text Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
@@ -540,7 +540,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_heading_text_background_outline_enable',
+			'aem_heading_text_background_outline_enable',
 			[
 				'label' => __( 'Enable Text Outline', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::SWITCHER,
@@ -552,7 +552,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_text_background_outline_width',
+			'aem_heading_text_background_outline_width',
 			[
 				'label'      => __( 'Outline Width', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -571,13 +571,13 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-text-background .aem-heading-title::after' => '-webkit-text-stroke-width: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
-					'goee_heading_text_background_outline_enable' => 'yes',
+					'aem_heading_text_background_outline_enable' => 'yes',
 				]
 			]
 		);
 
 		$this->add_control(
-			'goee_heading_text_background_outline_color',
+			'aem_heading_text_background_outline_color',
 			[
 				'label'     => __('Outline Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
@@ -586,7 +586,7 @@ class AEM_Heading extends Widget_Base {
 					'{{WRAPPER}} .aem-heading-text-background .aem-heading-title::after' => '-webkit-text-stroke-color: {{VALUE}};'
 				],
 				'condition' => [
-					'goee_heading_text_background_outline_enable' => 'yes',
+					'aem_heading_text_background_outline_enable' => 'yes',
 				]
 			]
 		);
@@ -598,18 +598,18 @@ class AEM_Heading extends Widget_Base {
 		 */
 
 		$this->start_controls_section(
-			'goee_section_heading_style_separator',
+			'aem_section_heading_style_separator',
 			[
 				'label'     => esc_html__( 'Divider', AEM_TEXTDOMAIN ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'goee_heading_divider' => 'yes'
+					'aem_heading_divider' => 'yes'
 				]
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_divider_height',
+			'aem_heading_divider_height',
 			[
 				'label'     => esc_html__( 'Height', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::NUMBER,
@@ -622,7 +622,7 @@ class AEM_Heading extends Widget_Base {
 		);
 		
 		$this->add_responsive_control(
-			'goee_heading_divider_width',
+			'aem_heading_divider_width',
 			[
 				'label'     => esc_html__( 'Width', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::NUMBER,
@@ -633,7 +633,7 @@ class AEM_Heading extends Widget_Base {
 			]
 		);
 		$this->add_control(
-			'goee_heading_divider_background',
+			'aem_heading_divider_background',
 			[
 				'label'     => esc_html__( 'Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
@@ -646,7 +646,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_divider_margin_top',
+			'aem_heading_divider_margin_top',
 			[
 				'label'      => __( 'Top Spacing', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -668,7 +668,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_divider_margin_bottom',
+			'aem_heading_divider_margin_bottom',
 			[
 				'label'      => __( 'Bottom Spacing', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
@@ -695,7 +695,7 @@ class AEM_Heading extends Widget_Base {
 		 * Subheading Style
 		 */
 		$this->start_controls_section(
-			'goee_section_heading_styles_subheading',
+			'aem_section_heading_styles_subheading',
 			[
 				'label' => esc_html__( 'Sub Heading', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -703,7 +703,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		$this->add_control(
-			'goee_heading_description_color',
+			'aem_heading_description_color',
 			[
 				'label'     => __('Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
@@ -717,13 +717,13 @@ class AEM_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-					'name'     => 'goee_heading_subheading_typography',
+					'name'     => 'aem_heading_subheading_typography',
 					'selector' => '{{WRAPPER}} .aem-heading-description'
 			]
 		);
 
 		$this->add_responsive_control(
-			'goee_heading_subheading_margin',
+			'aem_heading_subheading_margin',
 			[
 				'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -742,75 +742,75 @@ class AEM_Heading extends Widget_Base {
 		$settings          = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 
-			'goee_exclusive_heading_wrapper', 
+			'aem_exclusive_heading_wrapper', 
 			[ 
 				'class' => [ 
 					'aem-heading-wrapper', 
-					esc_attr( $settings['goee_heading_title_alignment'] ), 
-					esc_attr( $settings['goee_heading_type'] ) 
+					esc_attr( $settings['aem_heading_title_alignment'] ), 
+					esc_attr( $settings['aem_heading_type'] ) 
 				]
 			]
 		);
 
 		$this->add_render_attribute( 
-			'goee_heading_title', 
+			'aem_heading_title', 
 			[ 
-				'data-content' => esc_attr( $settings['goee_heading_title'] ),
+				'data-content' => esc_attr( $settings['aem_heading_title'] ),
 				'class'        => 'aem-heading-title'
 			]
 		);
 
-		if( 'yes' === $settings['goee_heading_icon_box'] ){
-			$this->add_render_attribute( 'goee_exclusive_heading_wrapper', 'class', 'aem-heading-icon-box-yes');
+		if( 'yes' === $settings['aem_heading_icon_box'] ){
+			$this->add_render_attribute( 'aem_exclusive_heading_wrapper', 'class', 'aem-heading-icon-box-yes');
 		}
 
-		if( $settings['goee_heading_title_link']['url'] ) {
-            $this->add_render_attribute( 'goee_heading_title_link', 'href', esc_url( $settings['goee_heading_title_link']['url'] ) );
-	        if( $settings['goee_heading_title_link']['is_external'] ) {
-	            $this->add_render_attribute( 'goee_heading_title_link', 'target', '_blank' );
+		if( $settings['aem_heading_title_link']['url'] ) {
+            $this->add_render_attribute( 'aem_heading_title_link', 'href', esc_url( $settings['aem_heading_title_link']['url'] ) );
+	        if( $settings['aem_heading_title_link']['is_external'] ) {
+	            $this->add_render_attribute( 'aem_heading_title_link', 'target', '_blank' );
 	        }
-	        if( $settings['goee_heading_title_link']['nofollow'] ) {
-	            $this->add_render_attribute( 'goee_heading_title_link', 'rel', 'nofollow' );
+	        if( $settings['aem_heading_title_link']['nofollow'] ) {
+	            $this->add_render_attribute( 'aem_heading_title_link', 'rel', 'nofollow' );
 	        }
         }
 
-		$this->add_inline_editing_attributes( 'goee_heading_title', 'basic' );
+		$this->add_inline_editing_attributes( 'aem_heading_title', 'basic' );
 
-		$this->add_render_attribute( 'goee_heading_subheading', 'class', 'aem-heading-description' );
-		$this->add_inline_editing_attributes( 'goee_heading_subheading', 'basic' );
+		$this->add_render_attribute( 'aem_heading_subheading', 'class', 'aem-heading-description' );
+		$this->add_inline_editing_attributes( 'aem_heading_subheading', 'basic' );
 		?>
 
         <div class="aem-heading">
-            <div <?php echo $this->get_render_attribute_string( 'goee_exclusive_heading_wrapper' ); ?>>
+            <div <?php echo $this->get_render_attribute_string( 'aem_exclusive_heading_wrapper' ); ?>>
 			<?php
-				if ( 'yes' === $settings['goee_heading_icon_show'] && !empty( $settings['goee_heading_icon']['value'] ) ) : ?>
+				if ( 'yes' === $settings['aem_heading_icon_show'] && !empty( $settings['aem_heading_icon']['value'] ) ) : ?>
           			<span class="aem-heading-icon">
-          				<?php Icons_Manager::render_icon( $settings['goee_heading_icon'] ); ?>
+          				<?php Icons_Manager::render_icon( $settings['aem_heading_icon'] ); ?>
           			</span>
 				<?php 	  
 				endif;
 
-            	if( !empty( $settings['goee_heading_title_link']['url'] ) ) : ?>
-            		<a <?php echo $this->get_render_attribute_string( 'goee_heading_title_link' ); ?>>
+            	if( !empty( $settings['aem_heading_title_link']['url'] ) ) : ?>
+            		<a <?php echo $this->get_render_attribute_string( 'aem_heading_title_link' ); ?>>
 				<?php endif; ?>
 
-                <<?php echo Utils::validate_html_tag( $settings['goee_heading_title_html_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'goee_heading_title' ); ?>>
-					<?php echo wp_kses_post( $settings['goee_heading_title'] ); ?>
-				</<?php echo Utils::validate_html_tag( $settings['goee_heading_title_html_tag'] ); ?>>
+                <<?php echo Utils::validate_html_tag( $settings['aem_heading_title_html_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'aem_heading_title' ); ?>>
+					<?php echo wp_kses_post( $settings['aem_heading_title'] ); ?>
+				</<?php echo Utils::validate_html_tag( $settings['aem_heading_title_html_tag'] ); ?>>
 	
-                <?php if( !empty( $settings['goee_heading_title_link']['url'] ) ) { ?>
+                <?php if( !empty( $settings['aem_heading_title_link']['url'] ) ) { ?>
                     </a>
 				<?php 
 				}
 
-				if ( 'yes' === $settings['goee_heading_divider'] ) : ?>
+				if ( 'yes' === $settings['aem_heading_divider'] ) : ?>
 					<div class="aem-heading-separator"></div>
 				<?php 	
 				endif;
                 
-                if ( !empty( $settings['goee_heading_subheading'] ) ) : ?>
-                    <p <?php echo $this->get_render_attribute_string( 'goee_heading_subheading' ); ?>>
-						<?php echo wp_kses_post( $settings['goee_heading_subheading'] ); ?>
+                if ( !empty( $settings['aem_heading_subheading'] ) ) : ?>
+                    <p <?php echo $this->get_render_attribute_string( 'aem_heading_subheading' ); ?>>
+						<?php echo wp_kses_post( $settings['aem_heading_subheading'] ); ?>
                     </p>
 				<?php endif; ?>
 
