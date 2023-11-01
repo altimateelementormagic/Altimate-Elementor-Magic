@@ -15,7 +15,7 @@ class AEM_Countdown extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Countdown Timer', 'go-essential-elementor' );
+		return esc_html__( 'Countdown Timer', AEM_TEXTDOMAIN );
 	}
 
 	public function get_icon() {
@@ -43,28 +43,28 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
   			'aem_section_countdown_settings_general',
   			[
-  				'label' => esc_html__( 'Timer Settings', 'go-essential-elementor' )
+  				'label' => esc_html__( 'Timer Settings', AEM_TEXTDOMAIN )
   			]
   		);
 		
 		$this->add_control(
 			'aem_countdown_time',
 			[
-				'label'       => esc_html__( 'Countdown Date', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Countdown Date', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::DATE_TIME,
 				'default'     => date("Y/m/d", strtotime("+ 1 week")),
-				'description' => esc_html__( 'Set the date and time here', 'go-essential-elementor' )
+				'description' => esc_html__( 'Set the date and time here', AEM_TEXTDOMAIN )
 			]
 		);
 
 		$this->add_control(
 			'aem_countdown_expired_text',
 			[
-				'label'       => __( 'Countdown Expired Title', 'go-essential-elementor' ),
+				'label'       => __( 'Countdown Expired Title', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => __( 'Hurray! This is the event day.', 'go-essential-elementor' ),
-				'description' => __( 'This text will show when the CountDown will over.', 'go-essential-elementor' ),
+				'default'     => __( 'Hurray! This is the event day.', AEM_TEXTDOMAIN ),
+				'description' => __( 'This text will show when the CountDown will over.', AEM_TEXTDOMAIN ),
 				'dynamic' => [
 					'active' => true,
 				]
@@ -76,7 +76,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_countdown_container_style',
 			[
-				'label' => esc_html__( 'Container', 'go-essential-elementor' ),
+				'label' => esc_html__( 'Container', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -93,7 +93,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_countdown_container_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'go-essential-elementor' ),
+				'label'      => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'default'    => [
 					'top'    => 0,
@@ -119,7 +119,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_countdown_container_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
+				'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'default'    => [
 					'top'    => 0,
@@ -139,7 +139,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_countdown_box_style',
 			[
-				'label' => esc_html__( 'Counter Box', 'go-essential-elementor' ),
+				'label' => esc_html__( 'Counter Box', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -147,10 +147,10 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_control(
 			'aem_section_countdown_show_box',
 			[
-				'label' => __( 'Enable Box', 'go-essential-elementor' ),
+				'label' => __( 'Enable Box', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'go-essential-elementor' ),
-				'label_off' => __( 'Hide', 'go-essential-elementor' ),
+				'label_on' => __( 'Show', AEM_TEXTDOMAIN ),
+				'label_off' => __( 'Hide', AEM_TEXTDOMAIN ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -159,7 +159,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_section_countdown_box_width',
 			[
-				'label' => __( 'Width', 'go-essential-elementor' ),
+				'label' => __( 'Width', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -189,7 +189,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_section_countdown_box_height',
 			[
-				'label' => __( 'Height', 'go-essential-elementor' ),
+				'label' => __( 'Height', AEM_TEXTDOMAIN ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -252,7 +252,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_countdown_box_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
+				'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'default'    => [
 					'top'    => 4,
@@ -272,7 +272,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_countdown_divider_style',
 			[
-				'label' => esc_html__( 'Divider', 'go-essential-elementor' ),
+				'label' => esc_html__( 'Divider', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -280,10 +280,10 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_control(
 			'aem_countdown_divider_enable',
 			[
-				'label'        => __( 'Enable Divider', 'go-essential-elementor' ),
+				'label'        => __( 'Enable Divider', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'On', 'go-essential-elementor' ),
-				'label_off'    => __( 'Off', 'go-essential-elementor' ),
+				'label_on'     => __( 'On', AEM_TEXTDOMAIN ),
+				'label_off'    => __( 'Off', AEM_TEXTDOMAIN ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -292,7 +292,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_control(
 			'aem_countdown_divider_color',
 			[
-				'label'     => __( 'Divider Color', 'go-essential-elementor' ),
+				'label'     => __( 'Divider Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -307,7 +307,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_countdown_divider_size',
 			[
-				'label'        => __( 'Size', 'go-essential-elementor' ),
+				'label'        => __( 'Size', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SLIDER,
 				'size_units'   => [ 'px', '%' ],
 				'devices'      => [ 'desktop', 'tablet' ],
@@ -338,7 +338,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_countdown_divider_position_right',
 			[
-				'label'        => __( 'Offset X', 'go-essential-elementor' ),
+				'label'        => __( 'Offset X', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SLIDER,
 				'size_units'   => [ 'px', '%' ],
 				'devices'      => [ 'desktop', 'tablet' ],
@@ -370,7 +370,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_countdown_divider_position_left',
 			[
-				'label'        => __( 'Offset Y', 'go-essential-elementor' ),
+				'label'        => __( 'Offset Y', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SLIDER,
 				'size_units'   => [ 'px', '%' ],
 				'devices'      => [ 'desktop', 'tablet' ],
@@ -405,7 +405,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_countdown_styles_counter',
 			[
-				'label' => esc_html__( 'Counter', 'go-essential-elementor' ),
+				'label' => esc_html__( 'Counter', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -421,7 +421,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_control(
 			'aem_countdown_number_color',
 			[
-				'label'     => __( 'Color', 'go-essential-elementor' ),
+				'label'     => __( 'Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -433,7 +433,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
             'aem_countdown_number_margin',
             [
-                'label'      => esc_html__( 'Margin', 'go-essential-elementor' ),
+                'label'      => esc_html__( 'Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],                
                 'selectors'  => [
@@ -448,7 +448,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'aem_countdown_styles_title',
 			[
-				'label' => esc_html__( 'Title', 'go-essential-elementor' ),
+				'label' => esc_html__( 'Title', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -464,7 +464,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_control(
 			'aem_countdown_title_color',
 			[
-				'label'     => __( 'Color', 'go-essential-elementor' ),
+				'label'     => __( 'Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -476,7 +476,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_responsive_control(
             'aem_countdown_title_margin',
             [
-                'label'      => esc_html__( 'Margin', 'go-essential-elementor' ),
+                'label'      => esc_html__( 'Margin', AEM_TEXTDOMAIN ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],                
                 'selectors'  => [
@@ -490,7 +490,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->start_controls_section(
 			'aem_countdown_expired_title_style',
 			[
-				'label'     => esc_html__( 'Expired Title', 'go-essential-elementor' ),
+				'label'     => esc_html__( 'Expired Title', AEM_TEXTDOMAIN ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'aem_countdown_expired_text!' => ''
@@ -509,7 +509,7 @@ class AEM_Countdown extends Widget_Base {
 		$this->add_control(
 			'aem_countdown_expired_title_color',
 			[
-				'label'     => __( 'Color', 'go-essential-elementor' ),
+				'label'     => __( 'Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
@@ -529,10 +529,10 @@ class AEM_Countdown extends Widget_Base {
 			'aem-countdown-timer-attribute',
 			[
 				'class'             => [ 'aem-countdown' ],
-				'data-day'          => esc_attr__( 'Days', 'go-essential-elementor' ),
-				'data-minutes'      => esc_attr__( 'Minutes', 'go-essential-elementor' ),
-				'data-hours'        => esc_attr__( 'Hours', 'go-essential-elementor' ),
-				'data-seconds'      => esc_attr__( 'Seconds', 'go-essential-elementor' ),
+				'data-day'          => esc_attr__( 'Days', AEM_TEXTDOMAIN ),
+				'data-minutes'      => esc_attr__( 'Minutes', AEM_TEXTDOMAIN ),
+				'data-hours'        => esc_attr__( 'Hours', AEM_TEXTDOMAIN ),
+				'data-seconds'      => esc_attr__( 'Seconds', AEM_TEXTDOMAIN ),
 				'data-countdown'    => esc_attr( $settings['aem_countdown_time'] ),
 				'data-expired-text' => esc_attr( $settings['aem_countdown_expired_text'] )
 			]

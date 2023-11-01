@@ -27,7 +27,7 @@ class AEM_Accordion extends Widget_Base
 
 	public function get_title()
 	{
-		return esc_html__('Accordion', 'go-essential-elementor');
+		return esc_html__('Accordion', AEM_TEXTDOMAIN);
 	}
 
 	public function get_icon()
@@ -54,14 +54,14 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_section_exclusive_accordion_content_settings',
 			[
-				'label' => esc_html__('Contents', 'go-essential-elementor')
+				'label' => esc_html__('Contents', AEM_TEXTDOMAIN)
 			]
 		);
 
 		$this->add_control(
 			'aem_accordion_title_html_tag',
 			[
-				'label' => __('Title HTML Tag', 'go-essential-elementor'),
+				'label' => __('Title HTML Tag', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::SELECT,
 				'separator' => 'after',
 				'options' => Helper::aem_title_tags(),
@@ -73,12 +73,12 @@ class AEM_Accordion extends Widget_Base
 
 		$repeater->start_controls_tabs('aem_accordion_item_tabs');
 
-		$repeater->start_controls_tab('aem_accordion_item_content_tab', ['label' => __('Content', 'go-essential-elementor')]);
+		$repeater->start_controls_tab('aem_accordion_item_content_tab', ['label' => __('Content', AEM_TEXTDOMAIN)]);
 
 		$repeater->add_control(
 			'aem_accordion_default_active',
 			[
-				'label' => esc_html__('Active as Default', 'go-essential-elementor'),
+				'label' => esc_html__('Active as Default', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'no',
 				'return_value' => 'yes'
@@ -88,10 +88,10 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_icon_show',
 			[
-				'label' => esc_html__('Enable Title Icon', 'go-essential-elementor'),
+				'label' => esc_html__('Enable Title Icon', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __('On', 'go-essential-elementor'),
-				'label_off' => __('Off', 'go-essential-elementor'),
+				'label_on' => __('On', AEM_TEXTDOMAIN),
+				'label_off' => __('Off', AEM_TEXTDOMAIN),
 				'default' => 'no',
 				'return_value' => 'yes'
 			]
@@ -100,7 +100,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_title_icon',
 			[
-				'label' => __('Icon', 'go-essential-elementor'),
+				'label' => __('Icon', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::ICONS,
 				'label_block' => true,
 				'default' => [
@@ -116,10 +116,10 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_title',
 			[
-				'label' => esc_html__('Title', 'go-essential-elementor'),
+				'label' => esc_html__('Title', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__('Accordion Title', 'go-essential-elementor'),
+				'default' => esc_html__('Accordion Title', AEM_TEXTDOMAIN),
 				'dynamic' => ['active' => true]
 			]
 		);
@@ -127,19 +127,19 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_content',
 			[
-				'label' => esc_html__('Content', 'go-essential-elementor'),
+				'label' => esc_html__('Content', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::WYSIWYG,
-				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'go-essential-elementor')
+				'default' => esc_html__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', AEM_TEXTDOMAIN)
 			]
 		);
 
 		$repeater->add_control(
 			'aem_accordion_show_read_more_btn',
 			[
-				'label' => esc_html__('Enable Button.', 'go-essential-elementor'),
+				'label' => esc_html__('Enable Button.', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __('On', 'go-essential-elementor'),
-				'label_off' => __('Off', 'go-essential-elementor'),
+				'label_on' => __('On', AEM_TEXTDOMAIN),
+				'label_off' => __('Off', AEM_TEXTDOMAIN),
 				'default' => 'no',
 				'return_value' => 'yes',
 				'separator' => 'before'
@@ -149,10 +149,10 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_read_more_btn_text',
 			[
-				'label' => esc_html__('Button Text', 'go-essential-elementor'),
+				'label' => esc_html__('Button Text', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::TEXT,
-				'placeholder' => esc_html__('See Details', 'go-essential-elementor'),
-				'default' => esc_html__('See Details', 'go-essential-elementor'),
+				'placeholder' => esc_html__('See Details', AEM_TEXTDOMAIN),
+				'default' => esc_html__('See Details', AEM_TEXTDOMAIN),
 				'condition' => [
 					'.aem_accordion_show_read_more_btn' => 'yes'
 				],
@@ -165,14 +165,14 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_read_more_btn_url',
 			[
-				'label' => esc_html__('Button Link', 'go-essential-elementor'),
+				'label' => esc_html__('Button Link', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::URL,
 				'default' => [
 					'url' => '#',
 					'is_external' => ''
 				],
 				'show_external' => true,
-				'placeholder' => __('http://your-link.com', 'go-essential-elementor'),
+				'placeholder' => __('http://your-link.com', AEM_TEXTDOMAIN),
 				'condition' => [
 					'.aem_accordion_show_read_more_btn' => 'yes'
 				]
@@ -181,12 +181,12 @@ class AEM_Accordion extends Widget_Base
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab('aem_accordion_item_image_tab', ['label' => __('Image', 'go-essential-elementor')]);
+		$repeater->start_controls_tab('aem_accordion_item_image_tab', ['label' => __('Image', AEM_TEXTDOMAIN)]);
 
 		$repeater->add_control(
 			'aem_accordion_image',
 			[
-				'label' => esc_html__('Choose Image', 'go-essential-elementor'),
+				'label' => esc_html__('Choose Image', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -196,12 +196,12 @@ class AEM_Accordion extends Widget_Base
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab('aem_accordion_item_style_tab', ['label' => __('Style', 'go-essential-elementor')]);
+		$repeater->start_controls_tab('aem_accordion_item_style_tab', ['label' => __('Style', AEM_TEXTDOMAIN)]);
 
 		$repeater->add_control(
 			'aem_accordion_each_item_container_style',
 			[
-				'label' => esc_html__('Container', 'go-essential-elementor'),
+				'label' => esc_html__('Container', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::HEADING
 			]
 		);
@@ -209,7 +209,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_container_bg_color',
 			[
-				'label' => __('Background Color', 'go-essential-elementor'),
+				'label' => __('Background Color', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}.aem-accordion-single-item' => 'background-color: {{VALUE}};'
@@ -220,7 +220,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_title_style',
 			[
-				'label' => esc_html__('Title', 'go-essential-elementor'),
+				'label' => esc_html__('Title', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -229,7 +229,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_title_color',
 			[
-				'label' => __('Text Color', 'go-essential-elementor'),
+				'label' => __('Text Color', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}.aem-accordion-single-item .aem-accordion-title .aem-accordion-heading' => 'color: {{VALUE}};'
@@ -240,7 +240,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_title_bg_color',
 			[
-				'label' => __('Background Color', 'go-essential-elementor'),
+				'label' => __('Background Color', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}.aem-accordion-single-item .aem-accordion-title' => 'background-color: {{VALUE}};'
@@ -251,7 +251,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_title_hover_color',
 			[
-				'label' => __('Hover Color', 'go-essential-elementor'),
+				'label' => __('Hover Color', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}.aem-accordion-single-item .aem-accordion-title:hover .aem-accordion-heading' => 'color: {{VALUE}};'
@@ -262,7 +262,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_title_hover_bg_color',
 			[
-				'label' => __('Hover Background Color', 'go-essential-elementor'),
+				'label' => __('Hover Background Color', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}.aem-accordion-single-item .aem-accordion-title:hover' => 'background-color: {{VALUE}};'
@@ -273,7 +273,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->add_control(
 			'aem_accordion_each_item_content_style',
 			[
-				'label' => esc_html__('Content', 'go-essential-elementor'),
+				'label' => esc_html__('Content', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -298,11 +298,11 @@ class AEM_Accordion extends Widget_Base
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'aem_accordion_title' => esc_html__('Accordion Title 1', 'go-essential-elementor'),
+						'aem_accordion_title' => esc_html__('Accordion Title 1', AEM_TEXTDOMAIN),
 						'aem_accordion_default_active' => 'yes'
 					],
-					['aem_accordion_title' => esc_html__('Accordion Title 2', 'go-essential-elementor')],
-					['aem_accordion_title' => esc_html__('Accordion Title 3', 'go-essential-elementor')]
+					['aem_accordion_title' => esc_html__('Accordion Title 2', AEM_TEXTDOMAIN)],
+					['aem_accordion_title' => esc_html__('Accordion Title 3', AEM_TEXTDOMAIN)]
 				],
 				'title_field' => '{{aem_accordion_title}}'
 			]
@@ -311,7 +311,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_title_show_active_inactive_icon',
 			[
-				'label' => esc_html__('Show Active/Inactive Icon?', 'go-essential-elementor'),
+				'label' => esc_html__('Show Active/Inactive Icon?', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default' => 'yes',
@@ -322,7 +322,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_title_active_icon',
 			[
-				'label' => __('Active Icon', 'go-essential-elementor'),
+				'label' => __('Active Icon', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-angle-up',
@@ -337,7 +337,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_title_inactive_icon',
 			[
-				'label' => __('Inactive Icon', 'go-essential-elementor'),
+				'label' => __('Inactive Icon', AEM_TEXTDOMAIN),
 				'type' => Controls_Manager::ICONS,
 				'default' => [
 					'value' => 'fas fa-angle-down',
@@ -359,7 +359,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_section_exclusive_accordions_container_style',
 			[
-				'label'	=> esc_html__('Container', 'go-essential-elementor'),
+				'label'	=> esc_html__('Container', AEM_TEXTDOMAIN),
 				'tab'	=> Controls_Manager::TAB_STYLE
 			]
 		);
@@ -367,7 +367,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_container_background_color',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item' => 'background-color: {{VALUE}};'
@@ -378,7 +378,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_container_padding',
 			[
-				'label'      => __('Padding', 'go-essential-elementor'),
+				'label'      => __('Padding', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
@@ -390,7 +390,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_container_margin',
 			[
-				'label'        => __('Margin', 'go-essential-elementor'),
+				'label'        => __('Margin', AEM_TEXTDOMAIN),
 				'type'         => Controls_Manager::DIMENSIONS,
 				'size_units'   => ['px', '%'],
 				'default'      => [
@@ -417,7 +417,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_container_border_radius',
 			[
-				'label'      => __('Border Radius', 'go-essential-elementor'),
+				'label'      => __('Border Radius', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -445,7 +445,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_section_exclusive_accordions_tab_style',
 			[
-				'label' => esc_html__('Title', 'go-essential-elementor'),
+				'label' => esc_html__('Title', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -466,7 +466,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_padding',
 			[
-				'label'      => __('Padding', 'go-essential-elementor'),
+				'label'      => __('Padding', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -484,7 +484,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_margin',
 			[
-				'label'      => __('Margin', 'go-essential-elementor'),
+				'label'      => __('Margin', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -526,7 +526,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_border_radius',
 			[
-				'label'      => esc_html__('Border Radius', 'go-essential-elementor'),
+				'label'      => esc_html__('Border Radius', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -546,11 +546,11 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_tabs('aem_accordion_header_tabs');
 
 		# Normal State Tab
-		$this->start_controls_tab('aem_accordion_header_normal', ['label' => esc_html__('Normal', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_header_normal', ['label' => esc_html__('Normal', AEM_TEXTDOMAIN)]);
 		$this->add_control(
 			'aem_accordion_tab_text_color',
 			[
-				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Text Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#000000',
 				'selectors'	=> [
@@ -562,7 +562,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_color',
 			[
-				'label'     => esc_html__('Background Color', 'go-essential-elementor'),
+				'label'     => esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title' => 'background-color: {{VALUE}};'
@@ -573,11 +573,11 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		#Hover State Tab
-		$this->start_controls_tab('aem_accordion_header_hover', ['label' => esc_html__('Hover', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_header_hover', ['label' => esc_html__('Hover', AEM_TEXTDOMAIN)]);
 		$this->add_control(
 			'aem_accordion_tab_text_color_hover',
 			[
-				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Text Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title:hover .aem-accordion-heading' => 'color: {{VALUE}};',
@@ -589,7 +589,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_color_bg_hover',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title:hover' => 'background-color: {{VALUE}};'
@@ -600,11 +600,11 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		#Active State Tab
-		$this->start_controls_tab('aem_accordion_header_active', ['label' => esc_html__('Active', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_header_active', ['label' => esc_html__('Active', AEM_TEXTDOMAIN)]);
 		$this->add_control(
 			'aem_accordion_tab_text_color_active',
 			[
-				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Text Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active .aem-accordion-heading' => 'color: {{VALUE}} !important;'
@@ -615,7 +615,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_color_bg_active',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active' => 'background-color: {{VALUE}};'
@@ -630,7 +630,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_accordion_tab_title_icon_style',
 			[
-				'label'	=> esc_html__('Title Icon', 'go-essential-elementor'),
+				'label'	=> esc_html__('Title Icon', AEM_TEXTDOMAIN),
 				'tab'	=> Controls_Manager::TAB_STYLE
 			]
 		);
@@ -638,7 +638,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_icon_size',
 			[
-				'label'        => __('Size', 'go-essential-elementor'),
+				'label'        => __('Size', AEM_TEXTDOMAIN),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -660,7 +660,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_icon_width',
 			[
-				'label'    => esc_html__('Width', 'go-essential-elementor'),
+				'label'    => esc_html__('Width', AEM_TEXTDOMAIN),
 				'type'     => Controls_Manager::SLIDER,
 				'default'  => [
 					'size' => 70
@@ -687,7 +687,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_icon_padding',
 			[
-				'label'      => __('Padding', 'go-essential-elementor'),
+				'label'      => __('Padding', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
@@ -699,7 +699,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_title_icon_margin',
 			[
-				'label'      => __('Margin', 'go-essential-elementor'),
+				'label'      => __('Margin', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
@@ -711,12 +711,12 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_tabs('aem_accordion_title_icon_style_tabs');
 
 		// normal state tab
-		$this->start_controls_tab('aem_accordion_title_icon_general_style', ['label' => esc_html__('Normal', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_title_icon_general_style', ['label' => esc_html__('Normal', AEM_TEXTDOMAIN)]);
 
 		$this->add_control(
 			'aem_accordion_tab_title_icon_color',
 			[
-				'label'		=> esc_html__('Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title span.aem-tab-title-icon' => 'color: {{VALUE}};'
@@ -727,7 +727,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_tab_title_icon_bg_color',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title span.aem-tab-title-icon' => 'background-color: {{VALUE}};'
@@ -738,12 +738,12 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		// active state tab
-		$this->start_controls_tab('aem_accordion_title_icon_active_style', ['label' => esc_html__('Active', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_title_icon_active_style', ['label' => esc_html__('Active', AEM_TEXTDOMAIN)]);
 
 		$this->add_control(
 			'aem_accordion_title_icon_active_color',
 			[
-				'label'		=> esc_html__('Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active span.aem-tab-title-icon i' => 'color: {{VALUE}};'
@@ -754,7 +754,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_title_icon_active_bg_color',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active span.aem-tab-title-icon' => 'background-color: {{VALUE}};'
@@ -771,7 +771,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_accordion_active_inactive_icon_style',
 			[
-				'label'     => esc_html__('Active/Inactive Icon', 'go-essential-elementor'),
+				'label'     => esc_html__('Active/Inactive Icon', AEM_TEXTDOMAIN),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'aem_accordion_tab_title_show_active_inactive_icon' => 'yes'
@@ -782,7 +782,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_active_inactive_icon_size',
 			[
-				'label'        => esc_html__('Size', 'go-essential-elementor'),
+				'label'        => esc_html__('Size', AEM_TEXTDOMAIN),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -804,7 +804,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_active_inactive_icon_width',
 			[
-				'label'       => esc_html__('Width', 'go-essential-elementor'),
+				'label'       => esc_html__('Width', AEM_TEXTDOMAIN),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => [
 					'size'    => 70
@@ -831,12 +831,12 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_tabs('aem_accordion_active_inactive_icon_style_tabs');
 
 		// normal state tab
-		$this->start_controls_tab('aem_accordion_general_style', ['label' => esc_html__('Normal', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_general_style', ['label' => esc_html__('Normal', AEM_TEXTDOMAIN)]);
 
 		$this->add_control(
 			'aem_accordion_general_icon_color',
 			[
-				'label'		=> esc_html__('Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#000000',
 				'selectors'	=> [
@@ -848,7 +848,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_general_icon_bg_color',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-active-inactive-icon' => 'background-color: {{VALUE}};'
@@ -859,12 +859,12 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		// active state tab
-		$this->start_controls_tab('aem_accordion_active_style', ['label' => esc_html__('Active', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_active_style', ['label' => esc_html__('Active', AEM_TEXTDOMAIN)]);
 
 		$this->add_control(
 			'aem_accordion_active_icon_color',
 			[
-				'label'		=> esc_html__('Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#000000',
 				'selectors'	=> [
@@ -876,7 +876,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_active_icon_bg_color',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'selectors'	=> [
 					'{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active .aem-active-inactive-icon' => 'background-color: {{VALUE}};'
@@ -899,7 +899,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_section_accordion_tab_content_style_settings',
 			[
-				'label'	=> esc_html__('Content', 'go-essential-elementor'),
+				'label'	=> esc_html__('Content', AEM_TEXTDOMAIN),
 				'tab'	=> Controls_Manager::TAB_STYLE
 			]
 		);
@@ -915,7 +915,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_content_bg_color',
 			[
-				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '',
 				'selectors'	=> [
@@ -927,7 +927,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_content_text_color',
 			[
-				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
+				'label'		=> esc_html__('Text Color', AEM_TEXTDOMAIN),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#000000',
 				'selectors' => [
@@ -939,7 +939,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_content_padding',
 			[
-				'label'      => __('Padding', 'go-essential-elementor'),
+				'label'      => __('Padding', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -957,7 +957,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_content_margin',
 			[
-				'label'      => __('Margin', 'go-essential-elementor'),
+				'label'      => __('Margin', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -1000,7 +1000,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_content_border_radius',
 			[
-				'label'      => __('Border Radius', 'go-essential-elementor'),
+				'label'      => __('Border Radius', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -1020,7 +1020,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_section_accordion_tab_image_style',
 			[
-				'label'	=> esc_html__('Image', 'go-essential-elementor'),
+				'label'	=> esc_html__('Image', AEM_TEXTDOMAIN),
 				'tab'	=> Controls_Manager::TAB_STYLE
 
 			]
@@ -1030,7 +1030,7 @@ class AEM_Accordion extends Widget_Base
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'aem_accordion_image_size',
-				'label'   => esc_html__('Image Type', 'go-essential-elementor'),
+				'label'   => esc_html__('Image Type', AEM_TEXTDOMAIN),
 				'default' => 'medium'
 			]
 		);
@@ -1038,16 +1038,16 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_image_align',
 			[
-				'label'         => esc_html__('Image Position', 'go-essential-elementor'),
+				'label'         => esc_html__('Image Position', AEM_TEXTDOMAIN),
 				'type'          => Controls_Manager::CHOOSE,
 				'toggle'        => false,
 				'options'       => [
 					'left'      => [
-						'title' => esc_html__('Left', 'go-essential-elementor'),
+						'title' => esc_html__('Left', AEM_TEXTDOMAIN),
 						'icon'  => 'eicon-angle-left'
 					],
 					'right'     => [
-						'title' => esc_html__('Right', 'go-essential-elementor'),
+						'title' => esc_html__('Right', AEM_TEXTDOMAIN),
 						'icon'  => 'eicon-angle-right'
 					]
 				],
@@ -1058,7 +1058,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_image_padding',
 			[
-				'label'      => __('Padding', 'go-essential-elementor'),
+				'label'      => __('Padding', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
@@ -1076,7 +1076,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_image_margin',
 			[
-				'label'      => __('Margin', 'go-essential-elementor'),
+				'label'      => __('Margin', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors'  => [
@@ -1098,7 +1098,7 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_section(
 			'aem_accordion_details_btn_style_section',
 			[
-				'label' => esc_html__('Button', 'go-essential-elementor'),
+				'label' => esc_html__('Button', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -1114,7 +1114,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_details_btn_padding',
 			[
-				'label'      => esc_html__('Padding', 'go-essential-elementor'),
+				'label'      => esc_html__('Padding', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'default'    => [
@@ -1132,7 +1132,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_details_btn_margin',
 			[
-				'label'      => esc_html__('Margin', 'go-essential-elementor'),
+				'label'      => esc_html__('Margin', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'default'    => [
@@ -1150,12 +1150,12 @@ class AEM_Accordion extends Widget_Base
 		$this->start_controls_tabs('aem_accordion_details_button_style_tabs');
 
 		// normal state tab
-		$this->start_controls_tab('aem_accordion_details_btn_normal', ['label' => esc_html__('Normal', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_details_btn_normal', ['label' => esc_html__('Normal', AEM_TEXTDOMAIN)]);
 
 		$this->add_control(
 			'aem_accordion_details_btn_normal_text_color',
 			[
-				'label'     => esc_html__('Text Color', 'go-essential-elementor'),
+				'label'     => esc_html__('Text Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
@@ -1167,7 +1167,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_details_btn_normal_bg_color',
 			[
-				'label'     => esc_html__('Background Color', 'go-essential-elementor'),
+				'label'     => esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -1203,7 +1203,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_details_button_border_radius',
 			[
-				'label'      => esc_html__('Border Radius', 'go-essential-elementor'),
+				'label'      => esc_html__('Border Radius', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -1223,12 +1223,12 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		// hover state tab
-		$this->start_controls_tab('aem_accordion_details_btn_hover', ['label' => esc_html__('Hover', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_details_btn_hover', ['label' => esc_html__('Hover', AEM_TEXTDOMAIN)]);
 
 		$this->add_control(
 			'aem_accordion_details_btn_hover_text_color',
 			[
-				'label'     => esc_html__('Text Color', 'go-essential-elementor'),
+				'label'     => esc_html__('Text Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -1240,7 +1240,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_control(
 			'aem_accordion_details_btn_hover_bg_color',
 			[
-				'label'     => esc_html__('Background Color', 'go-essential-elementor'),
+				'label'     => esc_html__('Background Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
@@ -1260,7 +1260,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_responsive_control(
 			'aem_accordion_details_button_border_radius_hover',
 			[
-				'label'      => esc_html__('Border Radius', 'go-essential-elementor'),
+				'label'      => esc_html__('Border Radius', AEM_TEXTDOMAIN),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px'],
 				'selectors'  => [

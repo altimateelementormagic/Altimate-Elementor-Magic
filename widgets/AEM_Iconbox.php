@@ -22,7 +22,7 @@ class AEM_Iconbox extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Icon Box', 'go-essential-elementor' );
+		return esc_html__( 'Icon Box', AEM_TEXTDOMAIN );
 	}
 
 	public function get_icon() {
@@ -46,29 +46,29 @@ class AEM_Iconbox extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_infobox_content',
 			[
-				'label' => esc_html__( 'Content', 'go-essential-elementor' )
+				'label' => esc_html__( 'Content', AEM_TEXTDOMAIN )
 			]
 		);
 		
 		$this->add_control(
 			'aem_infobox_img_or_icon',
 			[
-				'label'         => esc_html__( 'Image or Icon', 'go-essential-elementor' ),
+				'label'         => esc_html__( 'Image or Icon', AEM_TEXTDOMAIN ),
 				'type'          => Controls_Manager::CHOOSE,
 				'toggle'        => false,
 				'label_block'   => true,
 				'default'       => 'icon',
 				'options'       => [
 					'none'      => [
-						'title' => esc_html__( 'None', 'go-essential-elementor' ),
+						'title' => esc_html__( 'None', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-ban'
 					],
 					'icon'      => [
-						'title' => esc_html__( 'Icon', 'go-essential-elementor' ),
+						'title' => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-info-circle'
 					],
 					'img'       => [
-						'title' => esc_html__( 'Image', 'go-essential-elementor' ),
+						'title' => esc_html__( 'Image', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-image-bold'
 					]
 				]
@@ -78,7 +78,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_image',
 			[
-				'label'     => esc_html__( 'Image', 'go-essential-elementor' ),
+				'label'     => esc_html__( 'Image', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::MEDIA,
 				'default'   => [
 					'url'   => Utils::get_placeholder_image_src()
@@ -105,7 +105,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_icon',
 			[
-				'label'       => esc_html__( 'Icon', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Icon', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::ICONS,
 				'default'     => [
 					'value'   => 'fas fa-tag',
@@ -121,10 +121,10 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_title',
 			[
-				'label'       => esc_html__( 'Title', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Title', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Infobox Title', 'go-essential-elementor' ),
+				'default'     => esc_html__( 'Infobox Title', AEM_TEXTDOMAIN ),
 				'dynamic' => [
 					'active' => true,
 				]
@@ -134,7 +134,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
             'aem_infobox_title_html_tag',
             [
-                'label'   => __('Title HTML Tag', 'go-essential-elementor'),
+                'label'   => __('Title HTML Tag', AEM_TEXTDOMAIN),
                 'type'    => Controls_Manager::SELECT,
                 'options' => Helper::aem_title_tags(),
                 'default' => 'h3',
@@ -144,9 +144,9 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_title_link',
 			[
-				'label'       => __( 'Title URL', 'go-essential-elementor' ),
+				'label'       => __( 'Title URL', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'go-essential-elementor' ),
+				'placeholder' => __( 'https://your-link.com', AEM_TEXTDOMAIN ),
 				'label_block' => true
 			]
 		);
@@ -154,9 +154,9 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_description',
 			[
-				'label'   => esc_html__( 'Description', 'go-essential-elementor' ),
+				'label'   => esc_html__( 'Description', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Put your information in the box. Anything you\'d like. Please don\'t keep it empty.', 'go-essential-elementor' ),
+				'default' => esc_html__( 'Put your information in the box. Anything you\'d like. Please don\'t keep it empty.', AEM_TEXTDOMAIN ),
 				'dynamic' => [
 					'active' => true,
 				]
@@ -172,7 +172,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_infobox_styles_preset',
 			[
-				'label' => esc_html__( 'Container', 'go-essential-elementor' ),
+				'label' => esc_html__( 'Container', AEM_TEXTDOMAIN ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -180,7 +180,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_container_min_height',
 			[
-				'label'       => esc_html__( 'Min Height', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Min Height', AEM_TEXTDOMAIN ),
 				'type'    	  => Controls_Manager::SLIDER,
 			  	'range'       => [
 				  	'px'      => [
@@ -196,20 +196,20 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_alignment',
             [
-				'label'   => __( 'Alignment', 'go-essential-elementor' ),
+				'label'   => __( 'Alignment', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::CHOOSE,
 				'toggle'  => false,
 				'options' => [
 					'aem-infobox-align-left'   => [
-						'title' => __( 'Left', 'go-essential-elementor' ),
+						'title' => __( 'Left', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-text-align-left'
 					],
 					'aem-infobox-align-center' => [
-						'title' => __( 'Center', 'go-essential-elementor' ),
+						'title' => __( 'Center', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-text-align-center'
 					],
 					'aem-infobox-align-right'  => [
-						'title' => __( 'Right', 'go-essential-elementor' ),
+						'title' => __( 'Right', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
@@ -231,7 +231,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_padding',
 			[
-				'label'      => esc_html__( 'Padding', 'go-essential-elementor' ),
+				'label'      => esc_html__( 'Padding', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default'    => [
@@ -249,7 +249,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
+				'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default'    => [
@@ -266,7 +266,7 @@ class AEM_Iconbox extends Widget_Base {
 
 		$this->start_controls_tabs( 'aem_infobox_container_tabs' );
 
-			$this->start_controls_tab( 'aem_infobox_container_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_container_normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_group_control(
 					Group_Control_Background::get_type(),
@@ -295,7 +295,7 @@ class AEM_Iconbox extends Widget_Base {
 
 			$this->end_controls_tab();
 		
-			$this->start_controls_tab( 'aem_infobox_container_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_container_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_group_control(
 					Group_Control_Background::get_type(),
@@ -310,7 +310,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_control(
 					'aem_infobox_background_hover_title_color',
 					[
-						'label'     => esc_html__( 'Title Color', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Title Color', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'selectors' => [
 							  '{{WRAPPER}} .aem-infobox-item:hover .aem-infobox-content-title' => 'color: {{VALUE}};'
@@ -321,7 +321,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_control(
 					'aem_infobox_background_hover_description_color',
 					[
-						'label'     => esc_html__( 'Description Color', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Description Color', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'selectors' => [
 							'{{WRAPPER}} .aem-infobox-item:hover .aem-infobox-content-description' => 'color: {{VALUE}};'
@@ -357,7 +357,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->start_controls_section(
             'section_infobox_transition_style',
             [
-				'label' => __('Transition', 'go-essential-elementor'),
+				'label' => __('Transition', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
 		);
@@ -365,10 +365,10 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_transition_top',
             [
-				'label'        => __( 'Transition Top', 'go-essential-elementor' ),
+				'label'        => __( 'Transition Top', AEM_TEXTDOMAIN ),
 				'type'         =>  Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'go-essential-elementor' ),
-				'label_off'    => __( 'Hide', 'go-essential-elementor' ),
+				'label_on'     => __( 'Show', AEM_TEXTDOMAIN ),
+				'label_off'    => __( 'Hide', AEM_TEXTDOMAIN ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -376,10 +376,10 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_transition_zoom',
             [
-				'label'        => __( 'Transition Zoom', 'go-essential-elementor' ),
+				'label'        => __( 'Transition Zoom', AEM_TEXTDOMAIN ),
 				'type'         =>  Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'go-essential-elementor' ),
-				'label_off'    => __( 'Hide', 'go-essential-elementor' ),
+				'label_on'     => __( 'Show', AEM_TEXTDOMAIN ),
+				'label_off'    => __( 'Hide', AEM_TEXTDOMAIN ),
 				'return_value' => 'yes',
 				'default'      => 'no'
 			]
@@ -400,7 +400,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_transition_zoom_title_color',
 			[
-				'label'     => esc_html__( 'Title Color', 'go-essential-elementor' ),
+				'label'     => esc_html__( 'Title Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '100',
 				'selectors' => [
@@ -415,7 +415,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_transition_zoom_description_color',
 			[
-				'label'     => esc_html__( 'Description Color', 'go-essential-elementor' ),
+				'label'     => esc_html__( 'Description Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '100',
 				'selectors' => [
@@ -433,7 +433,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->start_controls_section(
             'section_infobox_icon',
             [
-				'label' => __('Icon/Image', 'go-essential-elementor'),
+				'label' => __('Icon/Image', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
 		);
@@ -441,20 +441,20 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_icon_position',
 			[
-				'label'   => __( 'Position', 'go-essential-elementor' ),
+				'label'   => __( 'Position', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::CHOOSE,
 				'toggle'  => false,
 				'options' => [
 					'aem-infobox-icon-position-left'   => [
-						'title' => __( 'Left', 'go-essential-elementor' ),
+						'title' => __( 'Left', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-arrow-left'
 					],
 					'aem-infobox-icon-position-center' => [
-						'title' => __( 'Top', 'go-essential-elementor' ),
+						'title' => __( 'Top', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-arrow-up'
 					],
 					'aem-infobox-icon-position-right'  => [
-						'title' => __( 'Right', 'go-essential-elementor' ),
+						'title' => __( 'Right', AEM_TEXTDOMAIN ),
 						'icon'  => 'eicon-arrow-right'
 					]
 				],
@@ -465,10 +465,10 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_enable_box',
             [
-				'label'        => __( 'Enable Box', 'go-essential-elementor' ),
+				'label'        => __( 'Enable Box', AEM_TEXTDOMAIN ),
 				'type'         =>  Controls_Manager::SWITCHER,
-				'label_on'     => __( 'Show', 'go-essential-elementor' ),
-				'label_off'    => __( 'Hide', 'go-essential-elementor' ),
+				'label_on'     => __( 'Show', AEM_TEXTDOMAIN ),
+				'label_off'    => __( 'Hide', AEM_TEXTDOMAIN ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -477,7 +477,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_height',
 			[
-				'label'       => esc_html__( 'Height', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Height', AEM_TEXTDOMAIN ),
 				'type'    	  => Controls_Manager::SLIDER,
 				'default'     => [
 					'size'    => 80
@@ -499,7 +499,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_width',
 			[
-				'label'       => esc_html__( 'Width', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Width', AEM_TEXTDOMAIN ),
 				'type'    	  => Controls_Manager::SLIDER,
 				'default'     => [
 					'size'    => 80
@@ -523,7 +523,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_font_size',
 			[
-				'label'       => esc_html__( 'Icon Size', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Icon Size', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => [
 					'size'    => 35
@@ -547,7 +547,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_image_size',
 			[
-				'label'       => esc_html__( 'Image Size', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Image Size', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::SLIDER,
 				'default'     => [
 					'size'    => 40
@@ -570,7 +570,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radius', 'go-essential-elementor' ),
+				'label'      => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default'    => [
@@ -609,7 +609,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_margin_top',
 			[
-				'label'       => esc_html__( 'Top Spacing', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Top Spacing', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -631,7 +631,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_icon_margin_bottom',
 			[
-				'label'       => esc_html__( 'Bottom Spacing', 'go-essential-elementor' ),
+				'label'       => esc_html__( 'Bottom Spacing', AEM_TEXTDOMAIN ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -652,12 +652,12 @@ class AEM_Iconbox extends Widget_Base {
 
 		$this->start_controls_tabs( 'aem_infobox_icon_tabs' );
 			// Normal State Tab
-			$this->start_controls_tab( 'aem_infobox_icon_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_icon_normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_control(
 					'aem_infobox_icon_background_color_normal',
 					[
-						'label'     => esc_html__( 'Background', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Background', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => $aem_primary_color,
 						'selectors' => [
@@ -669,7 +669,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_control(
 					'aem_infobox_icon_color_normal',
 					[
-						'label'     => esc_html__( 'Icon Color', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Icon Color', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
@@ -693,12 +693,12 @@ class AEM_Iconbox extends Widget_Base {
 			$this->end_controls_tab();
 
 			// Hover State Tab
-			$this->start_controls_tab( 'aem_infobox_icon_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_icon_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_control(
 					'aem_infobox_icon_background_color_hover',
 					[
-						'label'     => esc_html__( 'Background', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Background', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
@@ -710,7 +710,7 @@ class AEM_Iconbox extends Widget_Base {
 				$this->add_control(
 					'aem_infobox_icon_color_hover',
 					[
-						'label'     => esc_html__( 'Icon Color', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Icon Color', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => $aem_primary_color,
 						'selectors' => [
@@ -741,7 +741,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->start_controls_section(
             'section_infobox_title',
             [
-				'label' => __('Title', 'go-essential-elementor'),
+				'label' => __('Title', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
@@ -768,7 +768,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_title_margin',
 			[
-				'label'      => __( 'Margin', 'go-essential-elementor' ),
+				'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'default'    => [
@@ -787,12 +787,12 @@ class AEM_Iconbox extends Widget_Base {
 
 		$this->start_controls_tabs( 'aem_infobox_title_tabs' );
 
-			$this->start_controls_tab( 'aem_infobox_title_normal', [ 'label' => esc_html__( 'Normal', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_title_normal', [ 'label' => esc_html__( 'Normal', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_control(
 					'aem_title_color_normal',
 					[
-						'label'     => __('Color', 'go-essential-elementor'),
+						'label'     => __('Color', AEM_TEXTDOMAIN),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#000000',
 						'selectors' => [
@@ -803,12 +803,12 @@ class AEM_Iconbox extends Widget_Base {
 
 			$this->end_controls_tab();
 		
-			$this->start_controls_tab( 'aem_infobox_title_hover', [ 'label' => esc_html__( 'Hover', 'go-essential-elementor' ) ] );
+			$this->start_controls_tab( 'aem_infobox_title_hover', [ 'label' => esc_html__( 'Hover', AEM_TEXTDOMAIN ) ] );
 
 				$this->add_control(
 					'aem_title_color_hover',
 					[
-						'label'     => esc_html__( 'Title Color', 'go-essential-elementor' ),
+						'label'     => esc_html__( 'Title Color', AEM_TEXTDOMAIN ),
 						'type'      => Controls_Manager::COLOR,
 						'selectors' => [
 							  '{{WRAPPER}} .aem-infobox-item .aem-infobox-content-title:hover' => 'color: {{VALUE}};'
@@ -825,7 +825,7 @@ class AEM_Iconbox extends Widget_Base {
         $this->start_controls_section(
             'section_infobox_description',
             [
-				'label' => __('Description', 'go-essential-elementor'),
+				'label' => __('Description', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
@@ -833,7 +833,7 @@ class AEM_Iconbox extends Widget_Base {
         $this->add_control(
             'aem_description_color',
             [
-				'label'     => __('Color', 'go-essential-elementor'),
+				'label'     => __('Color', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#797c80',
 				'selectors' => [
@@ -853,7 +853,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_infobox_description_margin',
 			[
-				'label'      => __( 'Margin', 'go-essential-elementor' ),
+				'label'      => __( 'Margin', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
 				'default'    => [
@@ -879,7 +879,7 @@ class AEM_Iconbox extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_infobox_animating_mask',
 			[
-				'label' 	=> esc_html__( 'Animating Mask', 'go-essential-elementor' ),
+				'label' 	=> esc_html__( 'Animating Mask', AEM_TEXTDOMAIN ),
 				'tab'   	=> Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -887,10 +887,10 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_animating_mask_switcher',
 			[
-				'label' 		=> __( 'Enable Animating Mask', 'go-essential-elementor' ),
+				'label' 		=> __( 'Enable Animating Mask', AEM_TEXTDOMAIN ),
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> __( 'ON', 'go-essential-elementor' ),
-				'label_off' 	=> __( 'OFF', 'go-essential-elementor' ),
+				'label_on' 		=> __( 'ON', AEM_TEXTDOMAIN ),
+				'label_off' 	=> __( 'OFF', AEM_TEXTDOMAIN ),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'no',
 			]
@@ -899,13 +899,13 @@ class AEM_Iconbox extends Widget_Base {
 		$this->add_control(
 			'aem_infobox_animating_mask_style',
 			[
-				'label'        => __( 'Animating Mask Style', 'go-essential-elementor' ),
+				'label'        => __( 'Animating Mask Style', AEM_TEXTDOMAIN ),
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'style_1',
 				'options'      => [
-					'style_1'  => __( 'Style 1', 'go-essential-elementor' ),
-					'style_2'  => __( 'Style 2', 'go-essential-elementor' ),
-					'style_3'  => __( 'Style 3', 'go-essential-elementor' ),
+					'style_1'  => __( 'Style 1', AEM_TEXTDOMAIN ),
+					'style_2'  => __( 'Style 2', AEM_TEXTDOMAIN ),
+					'style_3'  => __( 'Style 3', AEM_TEXTDOMAIN ),
 				],
 				'condition'		=> [
 					'aem_infobox_animating_mask_switcher' => 'yes'

@@ -54,11 +54,11 @@ class AEM_Button extends Widget_Base
         $this->add_control(
             'aem_button_text',
             [
-                'label' => __('Button Text', 'go-essential-elementor'),
+                'label' => __('Button Text', AEM_TEXTDOMAIN),
                 'type' => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default' => __('Download!', 'go-essential-elementor'),
-                'placeholder' => __('Enter button text', 'go-essential-elementor'),
+                'default' => __('Download!', AEM_TEXTDOMAIN),
+                'placeholder' => __('Enter button text', AEM_TEXTDOMAIN),
                 'dynamic' => [
                     'active' => true,
                 ]
@@ -68,7 +68,7 @@ class AEM_Button extends Widget_Base
         $this->add_control(
             'aem_button_link_url',
             [
-                'label' => esc_html__('Link Url', 'go-essential-elementor'),
+                'label' => esc_html__('Link Url', AEM_TEXTDOMAIN),
                 'type' => Controls_Manager::URL,
                 'label_block' => true,
                 'default' => [
@@ -82,7 +82,7 @@ class AEM_Button extends Widget_Base
         $this->add_control(
             'aem_button_icon',
             [
-                'label' => esc_html__('Icon', 'go-essential-elementor'),
+                'label' => esc_html__('Icon', AEM_TEXTDOMAIN),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-download',
@@ -94,12 +94,12 @@ class AEM_Button extends Widget_Base
         $this->add_control(
             'aem_button_icon_position',
             [
-                'label' => esc_html__("Button Icon Position", 'go-essential-elementor'),
+                'label' => esc_html__("Button Icon Position", AEM_TEXTDOMAIN),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'aem-button-icon-before-text',
                 'options' => [
-                    'aem-button-icon-before-text' => esc_html__('Before Text', 'go-essential-elementor'),
-                    'aem-button-icon-after-text' => esc_html__("After Text", 'go-essential-elementor')
+                    'aem-button-icon-before-text' => esc_html__('Before Text', AEM_TEXTDOMAIN),
+                    'aem-button-icon-after-text' => esc_html__("After Text", AEM_TEXTDOMAIN)
                 ]
             ]
         );
@@ -108,7 +108,7 @@ class AEM_Button extends Widget_Base
         $this->start_controls_section(
             'aem_section_button_settings',
             [
-                'label' => esc_html__( 'Styles & Effects', 'go-essential-elementor' ),
+                'label' => esc_html__( 'Styles & Effects', AEM_TEXTDOMAIN ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -116,7 +116,7 @@ class AEM_Button extends Widget_Base
         $this->add_control(
             'aem_button_effect',
             [
-                'label' => esc_html__( "Button Effect", 'go-essential-elementor' ),
+                'label' => esc_html__( "Button Effect", AEM_TEXTDOMAIN ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'effect-2',
                 'options' => [

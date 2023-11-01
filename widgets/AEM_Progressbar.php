@@ -15,7 +15,7 @@ class AEM_Progressbar extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Progress Bar', 'go-essential-elementor' );
+		return esc_html__( 'Progress Bar', AEM_TEXTDOMAIN );
 	}
 
 	public function get_icon() {
@@ -50,16 +50,16 @@ class AEM_Progressbar extends Widget_Base {
 		$this->start_controls_section(
 			'aem_progress_bar_section_content',
 			[
-				'label' => __('Content', 'go-essential-elementor')
+				'label' => __('Content', AEM_TEXTDOMAIN)
 			]
 		);
 					
 		$this->add_control(
 			'aem_progress_bar_title',
 			[
-				'label'     => __('Title', 'go-essential-elementor'),
+				'label'     => __('Title', AEM_TEXTDOMAIN),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => __('Progress Bar', 'go-essential-elementor'),
+				'default'   => __('Progress Bar', AEM_TEXTDOMAIN),
 				'separator' => 'before',
 				'dynamic' => [
 					'active' => true,
@@ -70,7 +70,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_value',
 			[
-				'label'   => __( 'Percentage Value', 'go-essential-elementor' ),
+				'label'   => __( 'Percentage Value', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 100,
@@ -84,7 +84,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->start_controls_section(
 			'aem_section_progress_bar_styles_preset',
 			[
-				'label' => __('General Styles', 'go-essential-elementor'),
+				'label' => __('General Styles', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -92,13 +92,13 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_preset',
 			[
-				'label'   => __('Style Presets', 'go-essential-elementor'),
+				'label'   => __('Style Presets', AEM_TEXTDOMAIN),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'line'        => __('Line', 'go-essential-elementor'),
-					'line-bubble' => __('Line Bubble', 'go-essential-elementor'),
-					'circle'      => __('Circle', 'go-essential-elementor'),
-					'fan'         => __('Half Circle', 'go-essential-elementor')
+					'line'        => __('Line', AEM_TEXTDOMAIN),
+					'line-bubble' => __('Line Bubble', AEM_TEXTDOMAIN),
+					'circle'      => __('Circle', AEM_TEXTDOMAIN),
+					'fan'         => __('Half Circle', AEM_TEXTDOMAIN)
 				],
 				'default' => 'line'
 			]
@@ -109,7 +109,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->start_controls_section(
 			'aem_progress_bar_title_styles',
 			[
-				'label' => __('Title', 'go-essential-elementor'),
+				'label' => __('Title', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -117,7 +117,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_title_color',
 			[
-				'label'     => __( 'Color', 'go-essential-elementor' ),
+				'label'     => __( 'Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -148,7 +148,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
             'aem_progress_bar_title_margin',
             [
-                'label'        => __('Margin', 'go-essential-elementor'),
+                'label'        => __('Margin', AEM_TEXTDOMAIN),
                 'type'         => Controls_Manager::DIMENSIONS,
                 'size_units'   => ['px', '%'],
                 'default'      => [
@@ -170,7 +170,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->start_controls_section(
 			'aem_progress_bar_front_style',
 			[
-				'label' => __('Front Bar', 'go-essential-elementor'),
+				'label' => __('Front Bar', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -178,7 +178,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_stroke_color',
 			[
-				'label'   => __( 'Color', 'go-essential-elementor' ),
+				'label'   => __( 'Color', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::COLOR,
 				'alpha'	  => false,
 				'default' => $this->hexToRGB($aem_primary_color)
@@ -188,7 +188,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_stroke_width',
 			[
-				'label'   => __( 'Width', 'go-essential-elementor' ),
+				'label'   => __( 'Width', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 100,
@@ -202,7 +202,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->start_controls_section(
 			'aem_progress_bar_back_style',
 			[
-				'label' => __('Back Bar', 'go-essential-elementor'),
+				'label' => __('Back Bar', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -210,7 +210,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_trail_color',
 			[
-				'label'   => __( 'Color', 'go-essential-elementor' ),
+				'label'   => __( 'Color', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::COLOR,
 				'default' => '#ddd'
 			]
@@ -219,7 +219,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_trail_width',
 			[
-				'label'   => __( 'Width', 'go-essential-elementor' ),
+				'label'   => __( 'Width', AEM_TEXTDOMAIN ),
 				'type'    => Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 100,
@@ -233,7 +233,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->start_controls_section(
 			'aem_progress_bar_value_styles',
 			[
-				'label' => __('Percentage Value', 'go-essential-elementor'),
+				'label' => __('Percentage Value', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -241,7 +241,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_progress_bar_value_width',
 			[
-				'label'      => __( 'Width', 'go-essential-elementor' ),
+				'label'      => __( 'Width', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -263,7 +263,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_progress_bar_value_height',
 			[
-				'label'      => __( 'height', 'go-essential-elementor' ),
+				'label'      => __( 'height', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -285,7 +285,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_progress_bar_value_position',
 			[
-				'label'      => __( 'Position', 'go-essential-elementor' ),
+				'label'      => __( 'Position', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ '%' ],
 				'range'      => [
@@ -311,7 +311,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_progress_bar_value_position_top',
 			[
-				'label'      => __( 'Top Position', 'go-essential-elementor' ),
+				'label'      => __( 'Top Position', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -333,7 +333,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_control(
 			'aem_progress_bar_value_color',
 			[
-				'label'     => __( 'Text Color', 'go-essential-elementor' ),
+				'label'     => __( 'Text Color', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000000',
 				'selectors' => [
@@ -370,7 +370,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_progress_bar_radius',
 			[
-				'label'      => __( 'Border Radius', 'go-essential-elementor' ),
+				'label'      => __( 'Border Radius', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
@@ -389,7 +389,7 @@ class AEM_Progressbar extends Widget_Base {
 		$this->add_responsive_control(
 			'aem_progress_bar_padding_style',
 			[
-				'label'      => __( 'Padding', 'go-essential-elementor' ),
+				'label'      => __( 'Padding', AEM_TEXTDOMAIN ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
