@@ -1550,3 +1550,78 @@
 }
 
 /* Pricing List End */
+/* Accordion Start */ 
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-accordion-heading {
+  width: 100%;
+  font-size: 15px;
+}
+
+.aem-accordion-single-item .aem-accordion-heading {
+  font-weight: 600;  
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title:hover {
+  cursor: pointer;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-active-inactive-icon{
+    position: relative;
+    margin-left: 15px;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title span.aem-tab-title-icon {
+  position: relative;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-active-icon i,
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-inactive-icon i,
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title span.aem-tab-title-icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active .aem-inactive-icon,
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-active-icon {
+  display: none;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title.active .aem-active-icon {
+  display: block;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content {
+    display: none;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-title .aem-active-inactive-icon {
+    width: 70px;
+    margin-left: auto;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper {
+    display: flex;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper.has-image-yes .aem-accordion-text {
+    width: 60%;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper.has-image-yes .aem-accordion-image {
+    width: 40%;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper.has-image-yes.image-position-left .aem-accordion-text {
+  order: 2;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper.has-image-yes.image-position-left .aem-accordion-image {
+  order: 1;
+}
+.aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper .aem-accordion-button a {
+  display: inline-block;
+}
+@media only screen and (max-width: 767px) {
+  .aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper {
+    flex-direction: column;
+  }
+  .aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper.has-image-yes .aem-accordion-text,
+  .aem-accordion-items .aem-accordion-single-item .aem-accordion-content .aem-accordion-content-wrapper.has-image-yes .aem-accordion-image {
+    width: 100%;
+  }
+}
+/* Exclusive Accordion End */ 

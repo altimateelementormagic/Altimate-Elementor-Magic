@@ -76,7 +76,7 @@ class AEM_Accordion extends Widget_Base
 		$repeater->start_controls_tab('aem_accordion_item_content_tab', ['label' => __('Content', 'go-essential-elementor')]);
 
 		$repeater->add_control(
-			'aem_exclusive_accordion_default_active',
+			'aem_accordion_default_active',
 			[
 				'label' => esc_html__('Active as Default', 'go-essential-elementor'),
 				'type' => Controls_Manager::SWITCHER,
@@ -86,7 +86,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$repeater->add_control(
-			'aem_exclusive_accordion_icon_show',
+			'aem_accordion_icon_show',
 			[
 				'label' => esc_html__('Enable Title Icon', 'go-essential-elementor'),
 				'type' => Controls_Manager::SWITCHER,
@@ -98,7 +98,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$repeater->add_control(
-			'aem_exclusive_accordion_title_icon',
+			'aem_accordion_title_icon',
 			[
 				'label' => __('Icon', 'go-essential-elementor'),
 				'type' => Controls_Manager::ICONS,
@@ -108,13 +108,13 @@ class AEM_Accordion extends Widget_Base
 					'library' => 'fa-regular'
 				],
 				'condition' => [
-					'aem_exclusive_accordion_icon_show' => 'yes'
+					'aem_accordion_icon_show' => 'yes'
 				]
 			]
 		);
 
 		$repeater->add_control(
-			'aem_exclusive_accordion_title',
+			'aem_accordion_title',
 			[
 				'label' => esc_html__('Title', 'go-essential-elementor'),
 				'type' => Controls_Manager::TEXT,
@@ -125,7 +125,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$repeater->add_control(
-			'aem_exclusive_accordion_content',
+			'aem_accordion_content',
 			[
 				'label' => esc_html__('Content', 'go-essential-elementor'),
 				'type' => Controls_Manager::WYSIWYG,
@@ -292,24 +292,24 @@ class AEM_Accordion extends Widget_Base
 		$repeater->end_controls_tabs();
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab',
+			'aem_accordion_tab',
 			[
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'aem_exclusive_accordion_title' => esc_html__('Accordion Title 1', 'go-essential-elementor'),
-						'aem_exclusive_accordion_default_active' => 'yes'
+						'aem_accordion_title' => esc_html__('Accordion Title 1', 'go-essential-elementor'),
+						'aem_accordion_default_active' => 'yes'
 					],
-					['aem_exclusive_accordion_title' => esc_html__('Accordion Title 2', 'go-essential-elementor')],
-					['aem_exclusive_accordion_title' => esc_html__('Accordion Title 3', 'go-essential-elementor')]
+					['aem_accordion_title' => esc_html__('Accordion Title 2', 'go-essential-elementor')],
+					['aem_accordion_title' => esc_html__('Accordion Title 3', 'go-essential-elementor')]
 				],
-				'title_field' => '{{aem_exclusive_accordion_title}}'
+				'title_field' => '{{aem_accordion_title}}'
 			]
 		);
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab_title_show_active_inactive_icon',
+			'aem_accordion_tab_title_show_active_inactive_icon',
 			[
 				'label' => esc_html__('Show Active/Inactive Icon?', 'go-essential-elementor'),
 				'type' => Controls_Manager::SWITCHER,
@@ -320,7 +320,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab_title_active_icon',
+			'aem_accordion_tab_title_active_icon',
 			[
 				'label' => __('Active Icon', 'go-essential-elementor'),
 				'type' => Controls_Manager::ICONS,
@@ -329,13 +329,13 @@ class AEM_Accordion extends Widget_Base
 					'library' => 'fa-solid'
 				],
 				'condition' => [
-					'aem_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'
+					'aem_accordion_tab_title_show_active_inactive_icon' => 'yes'
 				]
 			]
 		);
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab_title_inactive_icon',
+			'aem_accordion_tab_title_inactive_icon',
 			[
 				'label' => __('Inactive Icon', 'go-essential-elementor'),
 				'type' => Controls_Manager::ICONS,
@@ -344,7 +344,7 @@ class AEM_Accordion extends Widget_Base
 					'library' => 'fa-solid'
 				],
 				'condition' => [
-					'aem_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'
+					'aem_accordion_tab_title_show_active_inactive_icon' => 'yes'
 				]
 			]
 		);
@@ -376,7 +376,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'aem_exclusive_accordion_container_padding',
+			'aem_accordion_container_padding',
 			[
 				'label'      => __('Padding', 'go-essential-elementor'),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -388,7 +388,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'aem_exclusive_accordion_container_margin',
+			'aem_accordion_container_margin',
 			[
 				'label'        => __('Margin', 'go-essential-elementor'),
 				'type'         => Controls_Manager::DIMENSIONS,
@@ -409,13 +409,13 @@ class AEM_Accordion extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'aem_exclusive_accordion_container_border',
+				'name'     => 'aem_accordion_container_border',
 				'selector' => '{{WRAPPER}} .aem-accordion-items .aem-accordion-single-item'
 			]
 		);
 
 		$this->add_responsive_control(
-			'aem_exclusive_accordion_container_border_radius',
+			'aem_accordion_container_border_radius',
 			[
 				'label'      => __('Border Radius', 'go-essential-elementor'),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -453,7 +453,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'            => 'aem_exclusive_accordion_title_typography',
+				'name'            => 'aem_accordion_title_typography',
 				'selector'        => '{{WRAPPER}} .aem-accordion-single-item .aem-accordion-heading',
 				'fields_options'  => [
 					'font_weight' => [
@@ -464,7 +464,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'aem_exclusive_accordion_title_padding',
+			'aem_accordion_title_padding',
 			[
 				'label'      => __('Padding', 'go-essential-elementor'),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -482,7 +482,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'aem_exclusive_accordion_title_margin',
+			'aem_accordion_title_margin',
 			[
 				'label'      => __('Margin', 'go-essential-elementor'),
 				'type'       => Controls_Manager::DIMENSIONS,
@@ -502,7 +502,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'               => 'aem_exclusive_accordion_title_border',
+				'name'               => 'aem_accordion_title_border',
 				'fields_options'     => [
 					'border' 	     => [
 						'default'    => 'solid'
@@ -543,12 +543,12 @@ class AEM_Accordion extends Widget_Base
 			]
 		);
 
-		$this->start_controls_tabs('aem_exclusive_accordion_header_tabs');
+		$this->start_controls_tabs('aem_accordion_header_tabs');
 
 		# Normal State Tab
-		$this->start_controls_tab('aem_exclusive_accordion_header_normal', ['label' => esc_html__('Normal', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_header_normal', ['label' => esc_html__('Normal', 'go-essential-elementor')]);
 		$this->add_control(
-			'aem_exclusive_accordion_tab_text_color',
+			'aem_accordion_tab_text_color',
 			[
 				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
 				'type'		=> Controls_Manager::COLOR,
@@ -560,7 +560,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab_color',
+			'aem_accordion_tab_color',
 			[
 				'label'     => esc_html__('Background Color', 'go-essential-elementor'),
 				'type'      => Controls_Manager::COLOR,
@@ -573,9 +573,9 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		#Hover State Tab
-		$this->start_controls_tab('aem_exclusive_accordion_header_hover', ['label' => esc_html__('Hover', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_header_hover', ['label' => esc_html__('Hover', 'go-essential-elementor')]);
 		$this->add_control(
-			'aem_exclusive_accordion_tab_text_color_hover',
+			'aem_accordion_tab_text_color_hover',
 			[
 				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
 				'type'		=> Controls_Manager::COLOR,
@@ -587,7 +587,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab_color_bg_hover',
+			'aem_accordion_tab_color_bg_hover',
 			[
 				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
 				'type'		=> Controls_Manager::COLOR,
@@ -600,9 +600,9 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_tab();
 
 		#Active State Tab
-		$this->start_controls_tab('aem_exclusive_accordion_header_active', ['label' => esc_html__('Active', 'go-essential-elementor')]);
+		$this->start_controls_tab('aem_accordion_header_active', ['label' => esc_html__('Active', 'go-essential-elementor')]);
 		$this->add_control(
-			'aem_exclusive_accordion_tab_text_color_active',
+			'aem_accordion_tab_text_color_active',
 			[
 				'label'		=> esc_html__('Text Color', 'go-essential-elementor'),
 				'type'		=> Controls_Manager::COLOR,
@@ -613,7 +613,7 @@ class AEM_Accordion extends Widget_Base
 		);
 
 		$this->add_control(
-			'aem_exclusive_accordion_tab_color_bg_active',
+			'aem_accordion_tab_color_bg_active',
 			[
 				'label'		=> esc_html__('Background Color', 'go-essential-elementor'),
 				'type'		=> Controls_Manager::COLOR,
@@ -774,7 +774,7 @@ class AEM_Accordion extends Widget_Base
 				'label'     => esc_html__('Active/Inactive Icon', 'go-essential-elementor'),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'aem_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'
+					'aem_accordion_tab_title_show_active_inactive_icon' => 'yes'
 				]
 			]
 		);
@@ -907,7 +907,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'aem_exclusive_accordion_content_typography',
+				'name'     => 'aem_accordion_content_typography',
 				'selector' => '{{WRAPPER}} .aem-accordion-single-item .aem-accordion-text'
 			]
 		);
@@ -975,7 +975,7 @@ class AEM_Accordion extends Widget_Base
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'                 => 'aem_exclusive_accordion_content_border',
+				'name'                 => 'aem_accordion_content_border',
 				'fields_options'       => [
 					'border' 	       => [
 						'default'      => 'solid'
@@ -1296,14 +1296,14 @@ class AEM_Accordion extends Widget_Base
     
         <div class="aem-accordion-items">
         	<?php do_action('aem_accordion_wrapper_before');
-            foreach( $settings['aem_exclusive_accordion_tab'] as $key => $accordion ) :
+            foreach( $settings['aem_accordion_tab'] as $key => $accordion ) :
             	do_action('aem_accordion_each_item_wrapper_before');
                 
-                $accordion_item_setting_key = $this->get_repeater_setting_key('aem_exclusive_accordion_title', 'aem_exclusive_accordion_tab', $key);
+                $accordion_item_setting_key = $this->get_repeater_setting_key('aem_accordion_title', 'aem_accordion_tab', $key);
 
                 $accordion_class = ['aem-accordion-title'];
 
-                if ( $accordion['aem_exclusive_accordion_default_active'] === 'yes' ) {
+                if ( $accordion['aem_accordion_default_active'] === 'yes' ) {
                     $accordion_class[] = 'active-default';
                 } 
 
@@ -1317,26 +1317,26 @@ class AEM_Accordion extends Widget_Base
                 <div class="aem-accordion-single-item elementor-repeater-item-<?php echo esc_attr($accordion['_id']); ?>">
                     <div <?php echo $this->get_render_attribute_string($accordion_item_setting_key); ?>>
 
-						<?php if ( ! empty( $accordion['aem_exclusive_accordion_title_icon']['value'] ) && 'yes' === $accordion['aem_exclusive_accordion_icon_show'] ) : ?>
+						<?php if ( ! empty( $accordion['aem_accordion_title_icon']['value'] ) && 'yes' === $accordion['aem_accordion_icon_show'] ) : ?>
 							<span class="aem-tab-title-icon">
-								<?php Icons_Manager::render_icon( $accordion['aem_exclusive_accordion_title_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+								<?php Icons_Manager::render_icon( $accordion['aem_accordion_title_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 							</span>
 						<?php endif; ?>
 
                         <<?php echo Utils::validate_html_tag( $settings['aem_accordion_title_html_tag'] ); ?>  <?php echo $this->get_render_attribute_string( 'aem_accordion_heading' ); ?>>
-							<?php echo Helper::aem_wp_kses($accordion['aem_exclusive_accordion_title']); ?>
+							<?php echo Helper::aem_wp_kses($accordion['aem_accordion_title']); ?>
 						</<?php echo Utils::validate_html_tag( $settings['aem_accordion_title_html_tag'] ); ?> >
 
-                        <?php if( 'yes' === $settings['aem_exclusive_accordion_tab_title_show_active_inactive_icon']) : ?>
+                        <?php if( 'yes' === $settings['aem_accordion_tab_title_show_active_inactive_icon']) : ?>
                             <div class="aem-active-inactive-icon">
-                                <?php if( !empty( $settings['aem_exclusive_accordion_tab_title_active_icon']['value'])) { ?>
+                                <?php if( !empty( $settings['aem_accordion_tab_title_active_icon']['value'])) { ?>
                                     <span class="aem-active-icon">
-                                        <?php Icons_Manager::render_icon( $settings['aem_exclusive_accordion_tab_title_active_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                                        <?php Icons_Manager::render_icon( $settings['aem_accordion_tab_title_active_icon'], [ 'aria-hidden' => 'true' ] ); ?>
                                     </span>                            
                                 <?php } ?>
-                                <?php if( !empty( $settings['aem_exclusive_accordion_tab_title_inactive_icon']['value'] ) ) { ?>
+                                <?php if( !empty( $settings['aem_accordion_tab_title_inactive_icon']['value'] ) ) { ?>
                                     <span class="aem-inactive-icon">
-                                        <?php Icons_Manager::render_icon( $settings['aem_exclusive_accordion_tab_title_inactive_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                                        <?php Icons_Manager::render_icon( $settings['aem_accordion_tab_title_inactive_icon'], [ 'aria-hidden' => 'true' ] ); ?>
                                     </span>
                                 <?php } ?>
                             </div>
@@ -1346,7 +1346,7 @@ class AEM_Accordion extends Widget_Base
                     <div class="aem-accordion-content">
                         <div class="aem-accordion-content-wrapper has-image-<?php echo esc_attr($has_image); ?> image-position-<?php echo esc_attr( $settings['aem_accordion_image_align'] ); ?>">
                             <div <?php echo $this->get_render_attribute_string( 'aem_accordion_details' ); ?>>
-                                <div> <?php echo wp_kses_post( $accordion['aem_exclusive_accordion_content'] ); ?></div>
+                                <div> <?php echo wp_kses_post( $accordion['aem_accordion_content'] ); ?></div>
                                 <?php if( 'yes' === $accordion['aem_accordion_show_read_more_btn'] ) : ?>
 									<?php if( $accordion['aem_accordion_read_more_btn_url']['url'] ) { ?>
 									    <?php $this->add_render_attribute( $link_key, 'href', esc_url( $accordion['aem_accordion_read_more_btn_url']['url'] ) ); ?>

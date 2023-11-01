@@ -17,154 +17,184 @@
             });
         });
     }
-    var exclusiveNewsTicker = function( $scope, $ ) {
+    var exclusiveNewsTicker = function ($scope, $) {
 
-        var aem_news_ticker = $scope.find( '.aem-news-ticker' );
-    
-        if ( $.isFunction( $.fn.breakingNews ) ) {  
-            aem_news_ticker.each( function() {
-                var t            = $(this),
-                auto             = t.data( 'autoplay' ) ? !0 : !1,
-                animationEffect  = t.data( 'animation' ) ? t.data( 'animation' ) : '',                                   
-                fixedPosition      = t.data( 'fixed_position' ) ? t.data( 'fixed_position' ) : '',                                   
-                pauseOnHover     = t.data( 'pause_on_hover' ) ? t.data( 'pause_on_hover' ) : '',                                   
-                animationSpeed   = t.data( 'animation_speed' ) ? t.data( 'animation_speed' ) : '',                                   
-                autoplayInterval = t.data( 'autoplay_interval' ) ? t.data( 'autoplay_interval' ) : '',                                   
-                height           = t.data( 'ticker_height' ) ? t.data( 'ticker_height' ) : '',                                   
-                direction        = t.data( 'direction' ) ? t.data( 'direction' ) : ''; 
-    
-                $(this).breakingNews( {
+        var aem_news_ticker = $scope.find('.aem-news-ticker');
+
+        if ($.isFunction($.fn.breakingNews)) {
+            aem_news_ticker.each(function () {
+                var t = $(this),
+                    auto = t.data('autoplay') ? !0 : !1,
+                    animationEffect = t.data('animation') ? t.data('animation') : '',
+                    fixedPosition = t.data('fixed_position') ? t.data('fixed_position') : '',
+                    pauseOnHover = t.data('pause_on_hover') ? t.data('pause_on_hover') : '',
+                    animationSpeed = t.data('animation_speed') ? t.data('animation_speed') : '',
+                    autoplayInterval = t.data('autoplay_interval') ? t.data('autoplay_interval') : '',
+                    height = t.data('ticker_height') ? t.data('ticker_height') : '',
+                    direction = t.data('direction') ? t.data('direction') : '';
+
+                $(this).breakingNews({
                     position: fixedPosition,
                     play: auto,
                     direction: direction,
                     scrollSpeed: animationSpeed,
                     stopOnHover: pauseOnHover,
                     effect: animationEffect,
-                    delayTimer: autoplayInterval,                    
+                    delayTimer: autoplayInterval,
                     height: height,
                     fontSize: 'default',
                     themeColor: 'default',
-                    background: 'default'             
-                } );    
-            } );
+                    background: 'default'
+                });
+            });
         }
     }
 
     // countdown timer script starts
-    var exclusiveCountdownTimer = function ( $scope, $ ) {
-        var countdownTimerWrapper = $scope.find( '[data-countdown]' ).eq(0);
+    var exclusiveCountdownTimer = function ($scope, $) {
+        var countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
 
-        if ( 'undefined' !== typeof countdownTimerWrapper && null !== countdownTimerWrapper ) {
-            var $this   = countdownTimerWrapper,
-            finalDate   = $this.data( 'countdown' ),
-            day         = $this.data( 'day' ),
-            hours       = $this.data( 'hours' ),
-            minutes     = $this.data( 'minutes' ),
-            seconds     = $this.data( 'seconds' ),
-            expiredText = $this.data( 'expired-text' );
+        if ('undefined' !== typeof countdownTimerWrapper && null !== countdownTimerWrapper) {
+            var $this = countdownTimerWrapper,
+                finalDate = $this.data('countdown'),
+                day = $this.data('day'),
+                hours = $this.data('hours'),
+                minutes = $this.data('minutes'),
+                seconds = $this.data('seconds'),
+                expiredText = $this.data('expired-text');
 
-            if ( $.isFunction( $.fn.countdown ) ) {
-                $this.countdown( finalDate, function ( event ) {
-                    $( this ).html( event.strftime(' ' +
+            if ($.isFunction($.fn.countdown)) {
+                $this.countdown(finalDate, function (event) {
+                    $(this).html(event.strftime(' ' +
                         '<div class="aem-countdown-container"><div class="aem-countdown-timer-wrapper"><span class="aem-countdown-count">%-D </span><span class="aem-countdown-title">' + day + '</span></div></div>' +
                         '<div class="aem-countdown-container"><div class="aem-countdown-timer-wrapper"><span class="aem-countdown-count">%H </span><span class="aem-countdown-title">' + hours + '</span></div></div>' +
                         '<div class="aem-countdown-container"><div class="aem-countdown-timer-wrapper"><span class="aem-countdown-count">%M </span><span class="aem-countdown-title">' + minutes + '</span></div></div>' +
                         '<div class="aem-countdown-container"><div class="aem-countdown-timer-wrapper"><span class="aem-countdown-count">%S </span><span class="aem-countdown-title">' + seconds + '</span></div></div>'));
-                } ).on( 'finish.countdown', function (event) {
-                    $(this).html( '<p class="message">'+ expiredText +'</p>' );
-                } );
+                }).on('finish.countdown', function (event) {
+                    $(this).html('<p class="message">' + expiredText + '</p>');
+                });
             }
         }
     }
 
-// image carousel script starts
-var aemImageCarousel   = function ( $scope, $ ) {
-    var logoCarouselWrapper = $scope.find( '.aem-image-carousel-element' ).eq(0),
-    slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
-    carouselColumnTablet    = logoCarouselWrapper.data( 'slidestoshow-tablet' ),
-    carouselColumnMobile    = logoCarouselWrapper.data( 'slidestoshow-mobile' ),
-    slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
-    carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
-    direction               = logoCarouselWrapper.data( 'direction' ),
-    loop                    = undefined !== logoCarouselWrapper.data( 'loop' ) ? logoCarouselWrapper.data( 'loop' ) : false,
-    autoPlay                = undefined !== logoCarouselWrapper.data( 'autoplay' ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
-    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false,
-    Smooth                  = undefined !== logoCarouselWrapper.data( 'smooth' ) ? logoCarouselWrapper.data( 'smooth' ) : false,
-    SmoothSpeed             = undefined !== logoCarouselWrapper.data( 'smooth-speed' ) ? logoCarouselWrapper.data( 'smooth-speed' ) : 300;
+    // image carousel script starts
+    var aemImageCarousel = function ($scope, $) {
+        var logoCarouselWrapper = $scope.find('.aem-image-carousel-element').eq(0),
+            slidesToShow = logoCarouselWrapper.data('slidestoshow'),
+            carouselColumnTablet = logoCarouselWrapper.data('slidestoshow-tablet'),
+            carouselColumnMobile = logoCarouselWrapper.data('slidestoshow-mobile'),
+            slidesToScroll = logoCarouselWrapper.data('slidestoscroll'),
+            carouselNav = logoCarouselWrapper.data('carousel-nav'),
+            direction = logoCarouselWrapper.data('direction'),
+            loop = undefined !== logoCarouselWrapper.data('loop') ? logoCarouselWrapper.data('loop') : false,
+            autoPlay = undefined !== logoCarouselWrapper.data('autoplay') ? logoCarouselWrapper.data('autoplay') : false,
+            autoplaySpeed = undefined !== logoCarouselWrapper.data('autoplayspeed') ? logoCarouselWrapper.data('autoplayspeed') : false,
+            Smooth = undefined !== logoCarouselWrapper.data('smooth') ? logoCarouselWrapper.data('smooth') : false,
+            SmoothSpeed = undefined !== logoCarouselWrapper.data('smooth-speed') ? logoCarouselWrapper.data('smooth-speed') : 300;
 
-    var arrows, dots, cssEase;
+        var arrows, dots, cssEase;
 
-    if ( Smooth ){
-        cssEase = 'linear';
-        autoplaySpeed = 0;
-    } else {
-        cssEase = 'ease';
-    }
-    if ( 'both' === carouselNav ) {
-        arrows = true;
-        dots   = true;
-    } else if ( 'arrows' === carouselNav ) {
-        arrows = true;
-        dots   = false;
-    } else if ( 'dots' === carouselNav ) {
-        arrows = false;
-        dots   = true;
-    } else {
-        arrows = false;
-        dots   = false;
-    }
+        if (Smooth) {
+            cssEase = 'linear';
+            autoplaySpeed = 0;
+        } else {
+            cssEase = 'ease';
+        }
+        if ('both' === carouselNav) {
+            arrows = true;
+            dots = true;
+        } else if ('arrows' === carouselNav) {
+            arrows = true;
+            dots = false;
+        } else if ('dots' === carouselNav) {
+            arrows = false;
+            dots = true;
+        } else {
+            arrows = false;
+            dots = false;
+        }
 
-    if ( $.isFunction( $.fn.slick ) ) {
-        logoCarouselWrapper.slick( {
-            infinite: loop,
-            slidesToShow: slidesToShow,
-            slidesToScroll: slidesToScroll,
-            autoplay: autoPlay,
-            autoplaySpeed: autoplaySpeed,
-            dots: dots,
-            rtl: direction,
-            arrows: arrows,
-            speed: SmoothSpeed,
-            cssEase: cssEase,
-            prevArrow: '<div class="aem-image-carousel-prev"><i class="eicon-chevron-left"></i></div>',
-            nextArrow: '<div class="aem-image-carousel-next"><i class="eicon-chevron-right"></i></div>',
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: carouselColumnTablet
+        if ($.isFunction($.fn.slick)) {
+            logoCarouselWrapper.slick({
+                infinite: loop,
+                slidesToShow: slidesToShow,
+                slidesToScroll: slidesToScroll,
+                autoplay: autoPlay,
+                autoplaySpeed: autoplaySpeed,
+                dots: dots,
+                rtl: direction,
+                arrows: arrows,
+                speed: SmoothSpeed,
+                cssEase: cssEase,
+                prevArrow: '<div class="aem-image-carousel-prev"><i class="eicon-chevron-left"></i></div>',
+                nextArrow: '<div class="aem-image-carousel-next"><i class="eicon-chevron-right"></i></div>',
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: carouselColumnTablet
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: carouselColumnTablet
+                        }
+                    },
+                    {
+                        breakpoint: 450,
+                        settings: {
+                            slidesToShow: carouselColumnMobile
+                        }
                     }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: carouselColumnTablet
-                    }
-                },
-                {
-                    breakpoint: 450,
-                    settings: {
-                        slidesToShow: carouselColumnMobile
-                    }
-                }
-            ]
-        } );	
+                ]
+            });
+        }
     }
-}
+    // image carousel script ends
 
-// image carousel script ends
+    // accordion script starts
 
-    // countdown timer script ends
+    var aemAccordion = function ($scope, $) {
+        var accordionTitle = $scope.find('.aem-accordion-title');
+
+        // Open default actived tab
+        accordionTitle.each(function () {
+            if ($(this).hasClass('active-default')) {
+                $(this).addClass('active');
+                $(this).next('.aem-accordion-content').slideDown();
+            }
+        });
+
+        // Remove multiple click event for nested accordion
+        accordionTitle.unbind('click');
+
+        //$accordionWrapper.children('.aem-accordion-content').first().show();
+        accordionTitle.click(function (e) {
+            e.preventDefault();
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $(this).next().slideUp(400);
+            } else {
+                $(this).parent().parent().find('.aem-accordion-title').removeClass('active');
+                $(this).parent().parent().find('.aem-accordion-content').slideUp(400);
+                $(this).toggleClass('active');
+                $(this).next().slideToggle(400);
+            }
+        });
+    }
+    // accordion script ends
 
     $(window).on('elementor/frontend/init', function () {
         if (elementorFrontend.isEditMode()) {
             editMode = true;
         }
-        
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-exclusive-alert.default', exclusiveAlert );
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-news-ticker.default', exclusiveNewsTicker );
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-countdown-timer.default', exclusiveCountdownTimer );
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-image-carousel.default', aemImageCarousel );
+
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-exclusive-alert.default', exclusiveAlert);
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-news-ticker.default', exclusiveNewsTicker);
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-countdown-timer.default', exclusiveCountdownTimer);
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-image-carousel.default', aemImageCarousel);
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-accordion.default', aemAccordion );
 
     });
 
