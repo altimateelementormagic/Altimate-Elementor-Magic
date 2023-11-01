@@ -1,0 +1,15 @@
+.aem-logo:after {
+  content: "AEM";
+  color: #d6d6d6;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.6;
+  font-style: normal;
+  font-family: 'Go Essential Elementor';
+}
+
+
+
