@@ -83,6 +83,7 @@ function aem_register_widget($widgets_manager)
     require_once(AEM_PATH . 'widgets/AEM_Tooltips.php');
     require_once(AEM_PATH . 'widgets/AEM_Countdown.php');
     require_once(AEM_PATH . 'widgets/AEM_Pricing_Menu.php');
+    require_once(AEM_PATH . 'widgets/AEM_Map.php');
 
     // register the widget
     $widgets_manager->register(new AEM_Testimonial_Addon());
@@ -106,6 +107,7 @@ function aem_register_widget($widgets_manager)
     $widgets_manager->register(new AEM_Tooltips());
     $widgets_manager->register(new AEM_Countdown());
     $widgets_manager->register(new AEM_Pricing_Menu());
+    $widgets_manager->register(new AEM_Map());
 }
 add_action('elementor/widgets/register', 'aem_register_widget');
 
@@ -154,6 +156,9 @@ add_action('elementor/editor/after_enqueue_scripts', 'aem_frontend_editor_script
 function aem_register_dependency_scripts()
 {
     wp_register_script('aem-slick', AEM_ASSETS_URL . 'vendor/js/slick.min.js', array('jquery'), AEM_PLUGIN_VERSION, true);
+    wp_register_script( 'aem-google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap', array(), AEM_PLUGIN_VERSION, false );
+    wp_register_script( 'aem-gmap3', AEM_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+
 }
 add_action('elementor/frontend/after_register_scripts', 'aem_register_dependency_scripts', 20);
 
