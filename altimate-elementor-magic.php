@@ -159,6 +159,9 @@ function aem_register_dependency_scripts()
     wp_register_script( 'aem-google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap', array(), AEM_PLUGIN_VERSION, false );
     wp_register_script( 'aem-gmap3', AEM_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
+    wp_register_script( 'aem-news-ticker', AEM_ASSETS_URL . 'vendor/js/aem-news-ticker.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+
+
 }
 add_action('elementor/frontend/after_register_scripts', 'aem_register_dependency_scripts', 20);
 
