@@ -742,7 +742,7 @@ class AEM_Heading extends Widget_Base {
 		$settings          = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 
-			'aem_exclusive_heading_wrapper', 
+			'aem_heading_wrapper', 
 			[ 
 				'class' => [ 
 					'aem-heading-wrapper', 
@@ -761,7 +761,7 @@ class AEM_Heading extends Widget_Base {
 		);
 
 		if( 'yes' === $settings['aem_heading_icon_box'] ){
-			$this->add_render_attribute( 'aem_exclusive_heading_wrapper', 'class', 'aem-heading-icon-box-yes');
+			$this->add_render_attribute( 'aem_heading_wrapper', 'class', 'aem-heading-icon-box-yes');
 		}
 
 		if( $settings['aem_heading_title_link']['url'] ) {
@@ -781,7 +781,7 @@ class AEM_Heading extends Widget_Base {
 		?>
 
         <div class="aem-heading">
-            <div <?php echo $this->get_render_attribute_string( 'aem_exclusive_heading_wrapper' ); ?>>
+            <div <?php echo $this->get_render_attribute_string( 'aem_heading_wrapper' ); ?>>
 			<?php
 				if ( 'yes' === $settings['aem_heading_icon_show'] && !empty( $settings['aem_heading_icon']['value'] ) ) : ?>
           			<span class="aem-heading-icon">

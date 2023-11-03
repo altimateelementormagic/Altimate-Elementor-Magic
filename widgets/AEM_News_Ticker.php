@@ -93,12 +93,12 @@ class AEM_News_Ticker extends Widget_Base {
                 'fields'      => $news_ticker_repeater->get_controls(),
                 'title_field' => '{{{ aem_news_ticker_title }}}',
                 'default'     => [
-                    [ 'aem_news_ticker_title' => __( 'Exclusive Elementor News item 1', AEM_TEXTDOMAIN ) ],
-                    [ 'aem_news_ticker_title' => __( 'Exclusive Elementor News item 2', AEM_TEXTDOMAIN ) ],
-                    [ 'aem_news_ticker_title' => __( 'Exclusive Elementor News item 3', AEM_TEXTDOMAIN ) ],
-                    [ 'aem_news_ticker_title' => __( 'Exclusive Elementor News item 4', AEM_TEXTDOMAIN ) ],
-                    [ 'aem_news_ticker_title' => __( 'Exclusive Elementor News item 5', AEM_TEXTDOMAIN ) ],
-                    [ 'aem_news_ticker_title' => __( 'Exclusive Elementor News item 6', AEM_TEXTDOMAIN ) ]
+                    [ 'aem_news_ticker_title' => __( 'Elementor News item 1', AEM_TEXTDOMAIN ) ],
+                    [ 'aem_news_ticker_title' => __( 'Elementor News item 2', AEM_TEXTDOMAIN ) ],
+                    [ 'aem_news_ticker_title' => __( 'Elementor News item 3', AEM_TEXTDOMAIN ) ],
+                    [ 'aem_news_ticker_title' => __( 'Elementor News item 4', AEM_TEXTDOMAIN ) ],
+                    [ 'aem_news_ticker_title' => __( 'Elementor News item 5', AEM_TEXTDOMAIN ) ],
+                    [ 'aem_news_ticker_title' => __( 'Elementor News item 6', AEM_TEXTDOMAIN ) ]
                 ]
             ]
         );

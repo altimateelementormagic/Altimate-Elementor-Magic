@@ -49,10 +49,10 @@ class AEM_Accordion extends Widget_Base
 	protected function register_controls()
 	{
 		/**
-		 * Exclusive Accordion Content Settings
+		 * Accordion Content Settings
 		 */
 		$this->start_controls_section(
-			'aem_section_exclusive_accordion_content_settings',
+			'aem_section_accordion_content_settings',
 			[
 				'label' => esc_html__('Contents', AEM_TEXTDOMAIN)
 			]
@@ -353,11 +353,11 @@ class AEM_Accordion extends Widget_Base
 
 		/**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Accordion Container Style
+		 * Tab Style Accordion Container Style
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
-			'aem_section_exclusive_accordions_container_style',
+			'aem_section_accordions_container_style',
 			[
 				'label'	=> esc_html__('Container', AEM_TEXTDOMAIN),
 				'tab'	=> Controls_Manager::TAB_STYLE
@@ -443,7 +443,7 @@ class AEM_Accordion extends Widget_Base
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'aem_section_exclusive_accordions_tab_style',
+			'aem_section_accordions_tab_style',
 			[
 				'label' => esc_html__('Title', AEM_TEXTDOMAIN),
 				'tab'   => Controls_Manager::TAB_STYLE
@@ -892,7 +892,7 @@ class AEM_Accordion extends Widget_Base
 
 		/**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Accordion Content Style
+		 * Tab Style Accordion Content Style
 		 * -------------------------------------------
 		 */
 

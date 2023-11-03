@@ -506,7 +506,7 @@ class AEM_Button extends Widget_Base
 			$this->add_render_attribute( 'aem_button', 'class', 'mouse-hover-effect' );
 		}
 
-		$this->add_inline_editing_attributes( 'exclusive_button_text', 'none' );
+		$this->add_inline_editing_attributes( 'aem_button_text', 'none' );
 		$this->add_render_attribute( 'aem_button_link_url', 'class', 'aem-button-action' );
 
 		if( $aem_button_link_url['url'] ) {
