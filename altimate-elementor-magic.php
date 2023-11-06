@@ -68,7 +68,6 @@ function aem_register_widget($widgets_manager)
     require_once(AEM_PATH . 'widgets/AEM_Progressbar.php');
     require_once(AEM_PATH . 'widgets/AEM_Iconbox.php');
     require_once(AEM_PATH . 'widgets/AEM_Image_Carousel.php');
-    require_once(AEM_PATH . 'widgets/AEM_Gallery_Slider.php');
     require_once(AEM_PATH . 'widgets/AEM_Flipbox.php');
     require_once(AEM_PATH . 'widgets/AEM_Button.php');
     require_once(AEM_PATH . 'widgets/AEM_Dual_Button.php');
@@ -93,7 +92,6 @@ function aem_register_widget($widgets_manager)
     $widgets_manager->register(new AEM_Progressbar());
     $widgets_manager->register(new AEM_Iconbox());
     $widgets_manager->register(new AEM_Image_Carousel());
-    $widgets_manager->register(new AEM_Gallery_Slider());
     $widgets_manager->register(new AEM_Flipbox());
     $widgets_manager->register(new AEM_Button());
     $widgets_manager->register(new AEM_Dual_Button());
@@ -163,6 +161,7 @@ function aem_register_dependency_scripts()
 
     wp_register_script( 'aem-progress-bar', AEM_ASSETS_URL . 'vendor/js/aem-progress-bar-vendor.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
     wp_register_script( 'aem-waypoints', AEM_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+    wp_register_script( 'aem-post-grid', AEM_ASSETS_URL . 'vendor/js/jquery.matchHeight.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
     wp_register_script( 'aem-news-ticker', AEM_ASSETS_URL . 'vendor/js/aem-news-ticker.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 

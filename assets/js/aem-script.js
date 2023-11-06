@@ -320,16 +320,16 @@
     // Post grid script starts
 
     var aemPostGrid = function ($scope, $) {
-        var exadPostgridWrapped = $scope.find('.aem-post-grid');
+        var aemPostgridWrapped = $scope.find('.aem-post-grid');
 
-        var exadPostArticle = exadPostgridWrapped.find('.aem-post-grid-three .aem-post-grid-container.aem-post-grid-equal-height-yes');
-        var exadPostWrapper = exadPostgridWrapped.find('.aem-row-wrapper');
+        var aemPostArticle = aemPostgridWrapped.find('.aem-post-grid-three .aem-post-grid-container.aem-post-grid-equal-height-yes');
+        var aemPostWrapper = aemPostgridWrapped.find('.aem-row-wrapper');
         // Match Height
-        exadPostArticle.matchHeight({
+        aemPostArticle.matchHeight({
             byRow: 0
         });
 
-        var btn = exadPostgridWrapped.find('.aem-post-grid-paginate-btn');
+        var btn = aemPostgridWrapped.find('.aem-post-grid-paginate-btn');
         var btnText = btn.text();
 
         var page = 2;
@@ -337,7 +337,7 @@
         $(btn).on("click", function (e) {
             e.preventDefault();
             $.ajax({
-                url: exad_ajax_object.ajax_url,
+                url: aem_ajax_object.ajax_url,
                 type: 'POST',
                 data: {
                     action: 'ajax_pagination',
@@ -383,10 +383,10 @@
                 success: function (html) {
                     if (html.length > 0) {
                         btn.text(btnText);
-                        exadPostWrapper.append(html);
+                        aemPostWrapper.append(html);
                         page++;
                         setTimeout(function () {
-                            var newExadPostArticle = exadPostgridWrapped.find('.aem-post-grid-three .aem-post-grid-container.aem-post-grid-equal-height-yes');
+                            var newExadPostArticle = aemPostgridWrapped.find('.aem-post-grid-three .aem-post-grid-container.aem-post-grid-equal-height-yes');
                             newExadPostArticle.matchHeight({
                                 byRow: 0
                             });

@@ -244,7 +244,7 @@ class AEM_Post_Grid extends Widget_Base {
             [
 				'label'     => __( 'Excerpt Words', AEM_TEXTDOMAIN ),
 				'type'      => Controls_Manager::NUMBER,
-				'default'   => '25',
+				'default'   => '15',
 				'condition' => [
 					'aem_post_grid_show_excerpt' => 'yes'
 				]
