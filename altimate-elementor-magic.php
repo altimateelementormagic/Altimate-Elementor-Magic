@@ -161,6 +161,9 @@ function aem_register_dependency_scripts()
     wp_register_script( 'aem-google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap', array(), AEM_PLUGIN_VERSION, false );
     wp_register_script( 'aem-gmap3', AEM_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
+    wp_register_script( 'aem-progress-bar', AEM_ASSETS_URL . 'vendor/js/aem-progress-bar-vendor.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+    wp_register_script( 'aem-waypoints', AEM_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+
     wp_register_script( 'aem-news-ticker', AEM_ASSETS_URL . 'vendor/js/aem-news-ticker.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
 
