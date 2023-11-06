@@ -66,7 +66,7 @@ class AEM_Dropcap extends Widget_Base {
                     'label' => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap p' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .aem-drop-cap p' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -75,7 +75,7 @@ class AEM_Dropcap extends Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'content_typography',
-                    'selector' => '{{WRAPPER}} .htmove-drop-cap p',
+                    'selector' => '{{WRAPPER}} .aem-drop-cap p',
                 ]
             );
 
@@ -86,7 +86,7 @@ class AEM_Dropcap extends Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .aem-drop-cap p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -96,7 +96,7 @@ class AEM_Dropcap extends Widget_Base {
                 [
                     'name' => 'content_border',
                     'label' => esc_html__( 'Border', AEM_TEXTDOMAIN ),
-                    'selector' => '{{WRAPPER}} .htmove-drop-cap',
+                    'selector' => '{{WRAPPER}} .aem-drop-cap',
                 ]
             );
 
@@ -106,7 +106,7 @@ class AEM_Dropcap extends Widget_Base {
                     'label' => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+                        '{{WRAPPER}} .aem-drop-cap' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                     ],
                 ]
             );
@@ -128,7 +128,7 @@ class AEM_Dropcap extends Widget_Base {
                     'label' => esc_html__( 'Color', AEM_TEXTDOMAIN ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -137,7 +137,7 @@ class AEM_Dropcap extends Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'dropcap_letter_typography',
-                    'selector' => '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter',
+                    'selector' => '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter',
                 ]
             );
 
@@ -147,7 +147,7 @@ class AEM_Dropcap extends Widget_Base {
                     'name' => 'dropcap_letter_background',
                     'label' => esc_html__( 'Background', AEM_TEXTDOMAIN ),
                     'types' => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter',
+                    'selector' => '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter',
                 ]
             );
 
@@ -156,7 +156,7 @@ class AEM_Dropcap extends Widget_Base {
                 [
                     'name' => 'dropcap_letter_box_shadow',
                     'label' => esc_html__( 'Box Shadow', AEM_TEXTDOMAIN ),
-                    'selector' => '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter',
+                    'selector' => '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter',
                 ]
             );
 
@@ -167,7 +167,7 @@ class AEM_Dropcap extends Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                     'separator' =>'before',
                 ]
@@ -180,7 +180,7 @@ class AEM_Dropcap extends Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -190,7 +190,7 @@ class AEM_Dropcap extends Widget_Base {
                 [
                     'name' => 'dropcap_letter_border',
                     'label' => esc_html__( 'Border', AEM_TEXTDOMAIN ),
-                    'selector' => '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter',
+                    'selector' => '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter',
                 ]
             );
 
@@ -200,7 +200,7 @@ class AEM_Dropcap extends Widget_Base {
                     'label' => esc_html__( 'Border Radius', AEM_TEXTDOMAIN ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'selectors' => [
-                        '{{WRAPPER}} .htmove-drop-cap p:first-of-type:first-letter' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+                        '{{WRAPPER}} .aem-drop-cap p:first-of-type:first-letter' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                     ],
                 ]
             );
@@ -212,7 +212,7 @@ class AEM_Dropcap extends Widget_Base {
 
     protected function render( $instance = [] ) {
         $settings   = $this->get_settings_for_display();
-        $this->add_render_attribute( 'area_attr', 'class', 'htmove-drop-cap' );
+        $this->add_render_attribute( 'area_attr', 'class', 'aem-drop-cap' );
 
         ?>                
         <div <?php echo $this->get_render_attribute_string( 'area_attr' ); ?> >

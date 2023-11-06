@@ -2881,3 +2881,27 @@ nav.aem-post-pagination ul li {
 }
 
 /*  Dual Button Style end */
+
+/* dropcap style */
+.aem-drop-cap p {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  display: block;
+}
+
+.aem-drop-cap p:last-child {
+  margin-bottom: 0;
+}
+
+.aem-drop-cap p:first-of-type::first-letter {
+  font-family: "Playfair Display", serif;
+  font-size: 72px;
+  line-height: 1;
+  float: left;
+  margin-top: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  color: #1D39D7;
+}
