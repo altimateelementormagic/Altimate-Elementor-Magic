@@ -941,4 +941,122 @@ class AEM_Dual_Button extends Widget_Base {
 
         $this->end_controls_section();
     }
+    protected function render() {
+        $settings                = $this->get_settings_for_display();
+        $secondary_btn_icon_pos = $settings['aem_dual_button_secondary_button_icon_position'];
+        $primary_btn_icon_pos   = $settings['aem_dual_button_primary_button_icon_position'];
+
+        $this->add_render_attribute( 
+            'aem_dual_button', 
+            [
+                'class' => [ 
+                    'aem-dual-button', 
+                    esc_attr( $settings['aem_dual_button_container_alignment'] ) 
+                ]
+            ]
+        );
+
+        $this->add_render_attribute( 
+            'aem_dual_button_primary_button_url', 
+            [
+                'class' => [ 
+                    'aem-dual-button-primary aem-dual-button-action', 
+                    esc_attr( $settings['aem_dual_button_primary_button_animation'] ) 
+                ]
+            ]
+        );
+        
+        $this->add_render_attribute( 
+            'aem_dual_button_secondary_button_url', 
+            [
+                'class' => [ 
+                    'aem-dual-button-secondary aem-dual-button-action', 
+                    esc_attr( $settings['aem_dual_button_secondary_button_animation'] ) 
+                ]
+            ]
+        );
+
+        if( $settings['aem_dual_button_primary_button_url']['url'] ) {
+            $this->add_render_attribute( 'aem_dual_button_primary_button_url', 'href', esc_url( $settings['aem_dual_button_primary_button_url']['url'] ) );
+            if( $settings['aem_dual_button_primary_button_url']['is_external'] ) {
+                $this->add_render_attribute( 'aem_dual_button_primary_button_url', 'target', '_blank' );
+            }
+            if( $settings['aem_dual_button_primary_button_url']['nofollow'] ) {
+                $this->add_render_attribute( 'aem_dual_button_primary_button_url', 'rel', 'nofollow' );
+            }
+        }
+
+        if( $settings['aem_dual_button_secondary_button_url']['url'] ) {
+            $this->add_render_attribute( 'aem_dual_button_secondary_button_url', 'href', esc_url( $settings['aem_dual_button_secondary_button_url']['url'] ) );
+            if( $settings['aem_dual_button_secondary_button_url']['is_external'] ) {
+                $this->add_render_attribute( 'aem_dual_button_secondary_button_url', 'target', '_blank' );
+            }
+            if( $settings['aem_dual_button_secondary_button_url']['nofollow'] ) {
+                $this->add_render_attribute( 'aem_dual_button_secondary_button_url', 'rel', 'nofollow' );
+            }
+        }
+
+        $this->add_inline_editing_attributes( 'aem_dual_button_primary_button_text', 'none' );
+        $this->add_inline_editing_attributes( 'aem_dual_button_connector_text', 'none' );
+        $this->add_inline_editing_attributes( 'aem_dual_button_secondary_button_text', 'none' );
+        ?>
+
+        <div <?php echo $this->get_render_attribute_string( 'aem_dual_button' ); ?>>
+            <div class="aem-dual-button-wrapper">
+                <a <?php echo $this->get_render_attribute_string( 'aem_dual_button_primary_button_url' ); ?>>
+                    <span class="<?php echo esc_attr( $primary_btn_icon_pos ); ?>">
+                    <?php 
+                        if ( 'aem-icon-pos-left' === $primary_btn_icon_pos && !empty( $settings['aem_dual_button_primary_button_icon']['value'] ) ) {
+                            Icons_Manager::render_icon( $settings['aem_dual_button_primary_button_icon'] );
+                        }
+                    ?>
+                        <span <?php echo $this->get_render_attribute_string( 'aem_dual_button_primary_button_text' ); ?>>
+                            <?php echo esc_html( $settings['aem_dual_button_primary_button_text'] ); ?>
+                        </span>
+                        <?php 
+                        if ( 'aem-icon-pos-right' === $primary_btn_icon_pos && !empty( $settings['aem_dual_button_primary_button_icon']['value'] ) ) {
+                            Icons_Manager::render_icon( $settings['aem_dual_button_primary_button_icon'] );
+                        }
+                        ?>
+                    </span>
+
+                    <?php    
+                    if ( 'yes' === $settings['aem_dual_button_connector_switch'] ) { ?>
+                        <div class="aem-dual-button-connector">
+                        <?php if ( 'text' === $settings['aem_dual_button_connector_type'] ) { ?>
+                            <span <?php echo $this->get_render_attribute_string( 'aem_dual_button_connector_text' ); ?>>
+                                <?php echo esc_html( $settings['aem_dual_button_connector_text'] ); ?>
+                            </span>
+                            <?php 
+                            }
+                            if ( 'icon' === $settings['aem_dual_button_connector_type'] && !empty( $settings['aem_dual_button_connector_icon']['value'] ) ) { ?>
+                                <span>
+                                    <?php Icons_Manager::render_icon( $settings['aem_dual_button_connector_icon'] ); ?>
+                                </span>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                </a>
+                
+                <a <?php echo $this->get_render_attribute_string( 'aem_dual_button_secondary_button_url' ); ?>>
+                    <span class="<?php echo esc_attr( $secondary_btn_icon_pos ); ?>">
+                    <?php 
+                        if ( 'aem-icon-pos-left' === $secondary_btn_icon_pos && !empty( $settings['aem_dual_button_secondary_button_icon']['value'] ) ) {
+                            Icons_Manager::render_icon( $settings['aem_dual_button_secondary_button_icon'] );
+                        }
+                        ?>
+                        <span <?php echo $this->get_render_attribute_string( 'aem_dual_button_secondary_button_text' ); ?>>
+                            <?php echo esc_html( $settings['aem_dual_button_secondary_button_text'] ); ?>
+                        </span>
+                        <?php 
+                        if ( 'aem-icon-pos-right' === $secondary_btn_icon_pos && !empty( $settings['aem_dual_button_secondary_button_icon']['value'] ) ) {
+                            Icons_Manager::render_icon( $settings['aem_dual_button_secondary_button_icon'] );
+                        }
+                        ?>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <?php 
+    }
 }
