@@ -84,6 +84,7 @@ function aem_register_widget($widgets_manager)
     require_once(AEM_PATH . 'widgets/AEM_Pricing_Menu.php');
     require_once(AEM_PATH . 'widgets/AEM_Map.php');
     require_once(AEM_PATH . 'widgets/AEM_Team_Member.php');
+    require_once(AEM_PATH . 'widgets/header/AEM_Header_Menu.php');
 
     // register the widget
     $widgets_manager->register(new AEM_Testimonial_Addon());
@@ -108,6 +109,7 @@ function aem_register_widget($widgets_manager)
     $widgets_manager->register(new AEM_Pricing_Menu());
     $widgets_manager->register(new AEM_Map());
     $widgets_manager->register(new AEM_Team_Member());
+    $widgets_manager->register(new AEM_Header_Menu());
 }
 add_action('elementor/widgets/register', 'aem_register_widget');
 
