@@ -3,7 +3,7 @@
 
     var editMode = false;
     //alert script starts
-    var exclusiveAlert = function ($scope, $) {
+    var aemAlert = function ($scope, $) {
         var alertClose = $scope.find('[data-alert]').eq(0);
         alertClose.each(function (index) {
             var alert = $(this);
@@ -406,14 +406,14 @@
             editMode = true;
         }
 
-        elementorFrontend.hooks.addAction('frontend/element_ready/aem-exclusive-alert.default', exclusiveAlert);
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-alert.default', aemAlert);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-news-ticker.default', exclusiveNewsTicker);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-countdown-timer.default', exclusiveCountdownTimer);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-image-carousel.default', aemImageCarousel);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-accordion.default', aemAccordion);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-progress-bar.default', aemProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-google-maps.default', aemGoogleMaps);
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-post-grid.default', aemPostGrid );
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-post-grid.default', aemPostGrid);
 
 
     });
