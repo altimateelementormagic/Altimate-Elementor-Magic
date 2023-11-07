@@ -44,14 +44,14 @@ class AEM_Map extends Widget_Base {
         $this->add_control(
 			'aem_googlemap_embed',
 			[
-				'label' => esc_html__( 'Embed Map HTML', AEM_TEXTDOMAIN ),
+				'label' => esc_html__( 'Embed Map Url', AEM_TEXTDOMAIN ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'rows' => 10,
-				'default' => esc_html__( 'Default description', AEM_TEXTDOMAIN ),
-				'placeholder' => esc_html__( 'Type your description here', AEM_TEXTDOMAIN ),
+				'default' => esc_html__( 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597057.564256965!2d79.12159278173114!3d28.305850050124064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995e8c77d2e68cf%3A0x34a29abcd0cc86de!2sNepal!5e0!3m2!1sen!2snp!4v1699344816185!5m2!1sen!2snp', AEM_TEXTDOMAIN ),
+				'placeholder' => esc_html__( 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597057.564256965!2d79.12159278173114!3d28.305850050124064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995e8c77d2e68cf%3A0x34a29abcd0cc86de!2sNepal!5e0!3m2!1sen!2snp!4v1699344816185!5m2!1sen!2snp', AEM_TEXTDOMAIN ),
 			]
 		);
-		 
+
   		$this->end_controls_section();
 		
   		/**
@@ -75,7 +75,7 @@ class AEM_Map extends Widget_Base {
 		$settings = $this->get_settings_for_display();
         ?>
 		
-        <div class="google-map-embed"><?php echo $settings['aem_googlemap_embed'] ?></div>
+        <div class="google-map-embed"><iframe src="<?php echo $settings['aem_googlemap_embed'] ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 	<?php 	
 	}
 
