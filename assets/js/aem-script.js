@@ -51,7 +51,7 @@
     }
 
     // countdown timer script starts
-    var exclusiveCountdownTimer = function ($scope, $) {
+    var aemCountdownTimer = function ($scope, $) {
         var countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
 
         if ('undefined' !== typeof countdownTimerWrapper && null !== countdownTimerWrapper) {
@@ -408,7 +408,7 @@
 
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-alert.default', aemAlert);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-news-ticker.default', exclusiveNewsTicker);
-        elementorFrontend.hooks.addAction('frontend/element_ready/aem-countdown-timer.default', exclusiveCountdownTimer);
+        elementorFrontend.hooks.addAction('frontend/element_ready/aem-countdown-timer.default', aemCountdownTimer);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-image-carousel.default', aemImageCarousel);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-accordion.default', aemAccordion);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-progress-bar.default', aemProgressBar);

@@ -165,6 +165,8 @@ function aem_register_dependency_scripts()
     wp_register_script( 'aem-waypoints', AEM_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
     wp_register_script( 'aem-post-grid', AEM_ASSETS_URL . 'vendor/js/jquery.matchHeight.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
+    wp_register_script( 'aem-countdown', AEM_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+
     wp_register_script( 'aem-news-ticker', AEM_ASSETS_URL . 'vendor/js/aem-news-ticker.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
 
