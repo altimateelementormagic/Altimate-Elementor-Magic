@@ -3211,3 +3211,240 @@ nav.aem-post-pagination ul li {
       padding: 12px 26px 12px 34px !important;
   }
 }
+
+/* Company History */
+
+.company_history {
+  position: relative
+}
+
+.company_history>ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.company_history>ul>li,.company_history>ul>li:last-child {
+  margin: 0
+}
+
+.company_history>ul>li .year {
+  font-size: 20px;
+  font-weight: 700;
+  color: #002e5b;
+  line-height: 28px;
+  letter-spacing: -.04em;
+  display: table-cell
+}
+
+.company_history>ul>li .sep {
+  position: relative;
+  display: table-cell;
+  width: 80px
+}
+
+.company_history>ul>li .sep:after,.company_history>ul>li .sep:before {
+  position: absolute;
+  border-radius: 100%;
+  transform: translateX(-50%);
+  content: ''
+}
+
+.company_history>ul>li .sep:after {
+  left: 50%;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  background: #fde428
+}
+
+.company_history>ul>li .sep:before {
+  left: 50%;
+  top: 20px;
+  bottom: -5px;
+  width: 1px;
+  background: #e6e6e6
+}
+
+.company_history>ul>li:last-child .sep:before {
+  display: none
+}
+
+.company_history>ul>li:last-child .company_history_text {
+  padding: 0
+}
+
+.company_history>ul>li .company_history_text {
+  display: table-cell;
+  padding: 0 0 50px
+}
+
+.company_history>ul>li .company_history_text h4 {
+  margin: 0 0 16px;
+  padding: 0;
+  font-weight: 700
+}
+
+.company_history>ul>li .company_history_text p {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0
+}
+
+@media only screen and (max-width: 580px) {
+  .company_history>ul>li .company_history_text,.company_history>ul>li .year {
+      display:block
+  }
+
+  .company_history>ul>li .sep {
+      display: none
+  }
+}
+
+.company_history.style_2 {
+  display: block
+}
+
+.company_history.style_2>ul {
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+  min-width: 100%
+}
+
+.company_history.style_2>ul li.history-item {
+  flex: 1;
+  padding: 20px 0 0
+}
+
+.company_history.style_2>ul li.history-item .year {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fde428;
+  margin: 0 0 17px
+}
+
+.company_history.style_2>ul li.history-item .sep {
+  display: flex;
+  align-items: center;
+  padding: 10px 0
+}
+
+.company_history.style_2>ul li.history-item .sep:before {
+  content: ' ';
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fde428
+}
+
+.company_history.style_2>ul li.history-item .sep:after {
+  content: ' ';
+  display: block;
+  flex-grow: 1;
+  height: 2px;
+  background: #fde428
+}
+
+.company_history.style_2>ul li.history-item .company_history_text {
+  color: #777;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 20px 30px 0 0
+}
+
+.company_history.style_2>ul li.history-item .company_history_text h4 {
+  color: #002e5b;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0 0 15px
+}
+
+.company_history.style_2>ul li.history-item .company_history_text p {
+  margin: 0 0 13px
+}
+
+.company_history.style_2>ul li.history-item:last-child .sep:after {
+  display: none
+}
+
+.company_history.style_2>ul.slick-initialized,.company_history.style_2>ul.slick-initialized li:last-child .sep:after {
+  display: block
+}
+
+.company_history.style_2>ul.slick-initialized .slick-slide:last-child li .sep:after {
+  display: none
+}
+
+.company_history.style_2 .slick_next,.company_history.style_2 .slick_prev {
+  position: absolute;
+  bottom: 100%!important;
+  top: auto!important;
+  right: 0!important;
+  left: auto!important;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 45px;
+  border-width: 2px;
+  border-radius: 50%;
+  border-color: #6c98e1
+}
+
+.company_history.style_2 .slick_next i,.company_history.style_2 .slick_prev i {
+  font-size: 34px;
+  line-height: .8;
+  color: #fde428
+}
+
+.company_history.style_2 .slick_next.slick-disabled,.company_history.style_2 .slick_prev.slick-disabled {
+  border-color: #fde428
+}
+
+.company_history.style_2 .slick_next.slick-disabled i,.company_history.style_2 .slick_prev.slick-disabled i {
+  color: #6c98e1
+}
+
+.company_history.style_2 .slick_next:hover i,.company_history.style_2 .slick_prev:hover i,.company_history.style_2.dark-bg-mode .slick_next.slick-disabled i,.company_history.style_2.dark-bg-mode .slick_prev.slick-disabled i,.company_history.style_2.dark-bg-mode>ul li.history-item .company_history_text,.company_history.style_2.dark-bg-mode>ul li.history-item .company_history_text h4 {
+  color: #fff
+}
+
+.company_history.style_2 .slick_prev {
+  transform: translateX(-100%);
+  margin-right: 10px
+}
+
+@media (max-width: 767px) {
+  .company_history.style_2 .slick_next,.company_history.style_2 .slick_prev {
+      bottom:auto!important;
+      top: 100%!important;
+      margin-top: 0
+  }
+
+  .company_history.style_2 .slick_prev {
+      left: auto!important;
+      right: 50%!important;
+      transform: none;
+      margin-right: 5px
+  }
+
+  .company_history.style_2 .slick_next {
+      right: auto!important;
+      left: 50%!important;
+      margin-left: 5px
+  }
+}
+
+.company_history.style_2.dark-bg-mode .slick_next,.company_history.style_2.dark-bg-mode .slick_prev {
+  border-color: #fff
+}
+
+.company_history.style_2.dark-bg-mode .slick_next.slick-disabled,.company_history.style_2.dark-bg-mode .slick_prev.slick-disabled {
+  border-color: #fde428
+}
+
+.company_history.style_2.dark-bg-mode .slick_next:hover,.company_history.style_2.dark-bg-mode .slick_prev:hover {
+  background: #fde428;
+  border-color: #fde428!important
+}

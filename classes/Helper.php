@@ -591,6 +591,131 @@ class Helper {
 
         return $plugins[ $basename ];
     }
+    // woocommerce 
+    public static function aem_addons_get_post_list( $posttype, $args = [] ) {
+        $postes = [];
+        $limit = 20;
+        if( !empty( $args['limit'] ) ){
+            $limit = $args['limit'];
+        }
+    
+        $get_post_list = get_posts( [
+            'post_type'      => $posttype,
+            'post_status'    => 'publish',
+            'posts_per_page' => $limit,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
+        ] );
+    
+        if ( ! empty( $get_post_list ) ) {
+            $postes = wp_list_pluck( $get_post_list, 'post_title', 'ID' );
+        }
+    
+        return $postes;
+    }
+    public static function aem_addons_get_taxonomies( $texonomy = 'category' ){
+        $categories = [];
+    
+        $terms = get_terms( array(
+            'taxonomy' => $texonomy,
+            'hide_empty' => true,
+        ));
+        if ( ! empty( $terms ) ){
+            $categories = wp_list_pluck( $terms, 'name', 'slug' );
+        }
+        return $categories;
+    }
+    public static function aem_addons_elementor_version( $operator = '<', $version = '2.6.0' ) {
+        if( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, $version, $operator ) ) 
+        { 
+            return true; 
+        } else{ 
+            return false; 
+        }
+    }
+    public static function aem_addons_render_icon( $settings = [], $new_icon = 'selected_icon', $old_icon = 'icon', $attributes = [] ){
 
+        $migrated = isset( $settings['__fa4_migrated'][$new_icon] );
+        $is_new = empty( $settings[$old_icon] ) && \Elementor\Icons_Manager::is_migration_allowed();
+    
+        $attributes['aria-hidden'] = 'true';
+        $output = '';
+    
+        if ( self::aem_addons_elementor_version( '>=', '2.6.0' ) && ( $is_new || $migrated ) ) {
+    
+            if ( empty( $settings[$new_icon]['library'] ) ) {
+                return false;
+            }
+    
+            $tag = 'i';
+            // handler SVG Icon
+            if ( 'svg' === $settings[$new_icon]['library'] ) {
+                if ( ! isset( $settings[$new_icon]['value']['id'] ) ) {
+                    return '';
+                }
+                $output = Elementor\Core\Files\Assets\Svg\Svg_Handler::get_inline_svg( $settings[$new_icon]['value']['id'] );
+    
+            } else {
+                $icon_types = \Elementor\Icons_Manager::get_icon_manager_tabs();
+                if ( isset( $icon_types[ $settings[$new_icon]['library'] ]['render_callback'] ) && is_callable( $icon_types[ $settings[$new_icon]['library'] ]['render_callback'] ) ) {
+                    return call_user_func_array( $icon_types[ $settings[$new_icon]['library'] ]['render_callback'], [ $settings[$new_icon], $attributes, $tag ] );
+                }
+    
+                if ( empty( $attributes['class'] ) ) {
+                    $attributes['class'] = $settings[$new_icon]['value'];
+                } else {
+                    if ( is_array( $attributes['class'] ) ) {
+                        $attributes['class'][] = $settings[$new_icon]['value'];
+                    } else {
+                        $attributes['class'] .= ' ' . $settings[$new_icon]['value'];
+                    }
+                }
+                $output = '<' . $tag . ' ' . \Elementor\Utils::render_html_attributes( $attributes ) . '></' . $tag . '>';
+            }
+    
+        } else {
+            if ( empty( $attributes['class'] ) ) {
+                $attributes['class'] = $settings[ $old_icon ];
+            } else {
+                if ( is_array( $attributes['class'] ) ) {
+                    $attributes['class'][] = $settings[ $old_icon ];
+                } else {
+                    $attributes['class'] .= ' ' . $settings[ $old_icon ];
+                }
+            }
+            $output = sprintf( '<i %s></i>', \Elementor\Utils::render_html_attributes( $attributes ) );
+        }
+    
+        return $output;
+     
+    }
+    /**
+ * [aem_addons_get_taxonomie_list]
+ * @param  integer  $id product id
+ * @param  string  $taxonomy
+ * @param  integer $limit 
+ * @return [void] 
+ */
+public static function aem_addons_get_taxonomie_list( $limit = 1, $taxonomy = 'product_cat', $id = null ) { 
+    $terms = get_the_terms( $id, $taxonomy );
+    $i = 0;
+    if ( is_wp_error( $terms ) )
+        return $terms;
+
+    if ( empty( $terms ) )
+        return false;
+
+    foreach ( $terms as $term ) {
+        $i++;
+        $link = get_term_link( $term, $taxonomy );
+        if ( is_wp_error( $link ) ) {
+            return $link;
+        }
+        echo '<li><a href="' . esc_url( $link ) . '">' . $term->name . '</a></li>';
+        if( $i == $limit ){
+            break;
+        }else{ continue; }
+    }
+}
 
 }

@@ -401,6 +401,56 @@
 
     // post grid script ends
 
+    // quick product view
+    var aemProductQuickView = function ( $scope, $ ){
+        var grid_elem = $scope.find('.htmove-product-grid').eq(0);
+
+        if ( grid_elem.length > 0 ) {
+            $(document).on('click', '.movequickview', function (event) {
+                event.preventDefault();
+
+                var $this = $(this);
+                var productID = $this.data('quickid');
+
+                $('.htmove-modal-body').html(''); /*clear content*/
+                $('#htmovequick-viewmodal').addClass('htmovequickview-open htmoveloading');
+                $('#htmovequick-viewmodal .htmove-modal-close').hide();
+                $('.htmove-modal-body').html('<div class="htmove-loading"><div class="htmoveds-css"><div style="width:100%;height:100%" class="htmoveds-ripple"><div></div><div></div></div>');
+
+                var data = {
+                    id: productID,
+                    action: "move_quickview",
+                };
+                $.ajax({
+                    url: HTFMOVE.ajaxurl,
+                    data: data,
+                    method: 'POST',
+                    success: function (response) {
+                        setTimeout(function () {
+                            $('.htmove-modal-body').html(response);
+                            $('#htmovequick-viewmodal .htmove-modal-close').show();
+                            $('.htmove-modal-dialog .htmove-modal-content').css("background-color","#ffffff");
+                            $('#htmovequick-viewmodal').removeClass('htmoveloading');
+                            MoveImageSlider();
+                        }, 300 );
+                    },
+                    error: function () {
+                        console.log("Quick View Not Loaded");
+                    },
+                });
+
+            });
+            $('.htmove-modal-close').on('click', function(event){
+                $('#htmovequick-viewmodal').removeClass('htmovequickview-open');
+                $('body').removeClass('htmovequickview');
+                $('.htmove-modal-dialog .htmove-modal-content').css("background-color","transparent");
+            });
+        }
+
+    }
+
+    // end quick product view
+
     $(window).on('elementor/frontend/init', function () {
         if (elementorFrontend.isEditMode()) {
             editMode = true;
@@ -414,6 +464,8 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-progress-bar.default', aemProgressBar);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-google-maps.default', aemGoogleMaps);
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-post-grid.default', aemPostGrid);
+        
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-shop-product-grid.default', aemProductQuickView );
 
 
     });
