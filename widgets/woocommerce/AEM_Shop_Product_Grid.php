@@ -1014,7 +1014,7 @@ class AEM_Shop_Product_Grid extends Widget_Base {
 
         $this->add_render_attribute( 'area_attr', 'class', 'aem-product-grid aem-row aem-product-grid-'.$settings['layout'] );
         if( $settings['no_gutters'] === 'yes' ){
-            $this->add_render_attribute( 'area_attr', 'class', 'aemno-gutters' );
+            $this->add_render_attribute( 'area_attr', 'class', 'aem-no-gutters' );
         }
 
         // Query Argument
@@ -1197,11 +1197,11 @@ class AEM_Shop_Product_Grid extends Widget_Base {
                             <?php if( ( $product->is_on_sale() || $product->get_featured() ) && ( $settings['show_badge'] == 'yes') ): ?>
                                 <span class="aem-product-badges">
                                     <?php if( $product->get_featured() ): ?>
-                                        <span class="aem-product-badge aem-product-badge-hot"><?php echo esc_html__( $feature_badge, AEM_TEXTDOMAIN); ?></span>
+                                        <span class="aem-product-badge aem-product-badge-hot"><?php echo esc_html__( $feature_badge, 'moveaddons'); ?></span>
                                     <?php endif; ?>
 
                                     <?php if( $product->is_on_sale() ): ?>
-                                        <span class="aem-product-badge aem-product-badge-sale"><?php echo esc_html__( $onsale_badge, AEM_TEXTDOMAIN); ?></span>
+                                        <span class="aem-product-badge aem-product-badge-sale"><?php echo esc_html__( $onsale_badge, 'moveaddons'); ?></span>
                                     <?php endif; ?>
                                 </span>
                             <?php endif; ?>
@@ -1212,7 +1212,7 @@ class AEM_Shop_Product_Grid extends Widget_Base {
                             <ul class="aem-product-action aem-product-action-primary">
                                 <?php
                                     if ( class_exists( 'YITH_WCWL' ) ) {
-                                        echo '<li>'.aem_addons_add_to_wishlist_button().'</li>';
+                                        echo '<li>'.move_addons_add_to_wishlist_button().'</li>';
                                     }
 
                                     if( class_exists('TInvWL_Public_AddToWishlist') ){
@@ -1223,18 +1223,18 @@ class AEM_Shop_Product_Grid extends Widget_Base {
                                 
                                     if( class_exists('YITH_Woocompare_Frontend') ){
                                         echo '<li>';
-                                            aem_addons_compare_button(2);
+                                            move_addons_compare_button(2);
                                         echo '</li>';
                                     }
                                 ?>
                                 <li>
-                                    <a href="#" class="aem-product-action-btn aemquickview" data-quickid="<?php echo $product->get_id(); ?>">
+                                    <a href="#" class="aem-product-action-btn movequickview" data-quickid="<?php echo $product->get_id(); ?>">
                                         <i class="fas fa-search"></i>
                                     </a>
                                 </li>
                             </ul>
                             <?php if( $settings['layout'] == 'three' ): ?>
-                                <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="<?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, AEM_TEXTDOMAIN );?></a>
+                                <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="<?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'moveaddons' );?></a>
                             <?php endif;?>
                         </div>
                         <div class="aem-product-content">
@@ -1246,7 +1246,7 @@ class AEM_Shop_Product_Grid extends Widget_Base {
                             <h4 class="aem-product-heading">
                                 <a href="<?php echo $product->get_permalink(); ?>" class="aem-product-title"><?php echo $product->get_title(); ?></a>
                                 <?php if( $settings['layout'] != 'three' ): ?>
-                                    <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="<?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, AEM_TEXTDOMAIN );?></a>
+                                    <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="<?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'moveaddons' );?></a>
                                 <?php endif; ?>
                             </h4>
 
@@ -1271,7 +1271,7 @@ class AEM_Shop_Product_Grid extends Widget_Base {
             <?php
             }
         }else{
-            echo __('<p>No product found.</p>', AEM_TEXTDOMAIN);
+            echo __('<p>No product found.</p>', 'moveaddons');
         }
 
         wp_reset_postdata();

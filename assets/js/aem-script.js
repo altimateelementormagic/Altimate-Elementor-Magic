@@ -317,6 +317,7 @@
     }
 
     // google maps script ends
+
     // Post grid script starts
 
     var aemPostGrid = function ($scope, $) {
@@ -403,7 +404,7 @@
 
     // quick product view
     var aemProductQuickView = function ( $scope, $ ){
-        var grid_elem = $scope.find('.htmove-product-grid').eq(0);
+        var grid_elem = $scope.find('.aem-product-grid').eq(0);
 
         if ( grid_elem.length > 0 ) {
             $(document).on('click', '.movequickview', function (event) {
@@ -412,14 +413,14 @@
                 var $this = $(this);
                 var productID = $this.data('quickid');
 
-                $('.htmove-modal-body').html(''); /*clear content*/
-                $('#htmovequick-viewmodal').addClass('htmovequickview-open htmoveloading');
-                $('#htmovequick-viewmodal .htmove-modal-close').hide();
-                $('.htmove-modal-body').html('<div class="htmove-loading"><div class="htmoveds-css"><div style="width:100%;height:100%" class="htmoveds-ripple"><div></div><div></div></div>');
+                $('.aem-modal-body').html(''); /*clear content*/
+                $('#aem-quick-viewmodal').addClass('aem-quickview-open aem-loading');
+                $('#aem-quick-viewmodal .aem-modal-close').hide();
+                $('.aem-modal-body').html('<div class="aem-loading"><div class="aem-ds-css"><div style="width:100%;height:100%" class="aem-ds-ripple"><div></div><div></div></div>');
 
                 var data = {
                     id: productID,
-                    action: "move_quickview",
+                    action: "aem_quickview",
                 };
                 $.ajax({
                     url: HTFMOVE.ajaxurl,
@@ -427,10 +428,10 @@
                     method: 'POST',
                     success: function (response) {
                         setTimeout(function () {
-                            $('.htmove-modal-body').html(response);
-                            $('#htmovequick-viewmodal .htmove-modal-close').show();
-                            $('.htmove-modal-dialog .htmove-modal-content').css("background-color","#ffffff");
-                            $('#htmovequick-viewmodal').removeClass('htmoveloading');
+                            $('.aem-modal-body').html(response);
+                            $('#aem-quick-viewmodal .aem-modal-close').show();
+                            $('.aem-modal-dialog .aem-modal-content').css("background-color","#ffffff");
+                            $('#aem-quick-viewmodal').removeClass('aem-loading');
                             MoveImageSlider();
                         }, 300 );
                     },
@@ -440,16 +441,79 @@
                 });
 
             });
-            $('.htmove-modal-close').on('click', function(event){
-                $('#htmovequick-viewmodal').removeClass('htmovequickview-open');
-                $('body').removeClass('htmovequickview');
-                $('.htmove-modal-dialog .htmove-modal-content').css("background-color","transparent");
+            $('.aem-modal-close').on('click', function(event){
+                $('#aem-quick-viewmodal').removeClass('aem-quickview-open');
+                $('body').removeClass('aem-quickview');
+                $('.aem-modal-dialog .aem-modal-content').css("background-color","transparent");
             });
         }
 
     }
 
     // end quick product view
+       /* 
+    * Product Slider 
+    */
+       var aemProductSlider = function ($scope, $) {
+        var slider_elem = $scope.find('.product-slider').eq(0);
+        
+        if (slider_elem.length > 0) {
+
+            slider_elem[0].style.display='block';
+
+            var settings = slider_elem.data('settings');
+            var arrows = settings['arrows'];
+            var dots = settings['dots'];
+            var autoplay = settings['autoplay'];
+            var rtl = settings['rtl'];
+            var autoplay_speed = parseInt(settings['autoplay_speed']) || 3000;
+            var animation_speed = parseInt(settings['animation_speed']) || 300;
+            var fade = settings['fade'];
+            var pause_on_hover = settings['pause_on_hover'];
+            var display_columns = parseInt(settings['product_items']) || 4;
+            var scroll_columns = parseInt(settings['scroll_columns']) || 4;
+            var tablet_width = parseInt(settings['tablet_width']) || 800;
+            var tablet_display_columns = parseInt(settings['tablet_display_columns']) || 2;
+            var tablet_scroll_columns = parseInt(settings['tablet_scroll_columns']) || 2;
+            var mobile_width = parseInt(settings['mobile_width']) || 480;
+            var mobile_display_columns = parseInt(settings['mobile_display_columns']) || 1;
+            var mobile_scroll_columns = parseInt(settings['mobile_scroll_columns']) || 1;
+
+            slider_elem.not('.slick-initialized').slick({
+                arrows: arrows,
+                prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
+                dots: dots,
+                infinite: true,
+                autoplay: autoplay,
+                autoplaySpeed: autoplay_speed,
+                speed: animation_speed,
+                fade: false,
+                pauseOnHover: pause_on_hover,
+                slidesToShow: display_columns,
+                slidesToScroll: scroll_columns,
+                rtl: rtl,
+                responsive: [
+                    {
+                        breakpoint: tablet_width,
+                        settings: {
+                            slidesToShow: tablet_display_columns,
+                            slidesToScroll: tablet_scroll_columns
+                        }
+                    },
+                    {
+                        breakpoint: mobile_width,
+                        settings: {
+                            slidesToShow: mobile_display_columns,
+                            slidesToScroll: mobile_scroll_columns
+                        }
+                    }
+                ]
+            });
+        }
+    };
+
+    // product slider end
 
     $(window).on('elementor/frontend/init', function () {
         if (elementorFrontend.isEditMode()) {
@@ -466,6 +530,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/aem-post-grid.default', aemPostGrid);
         
         elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-shop-product-grid.default', aemProductQuickView );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-category-grid.default', aemProductSlider );
 
 
     });
