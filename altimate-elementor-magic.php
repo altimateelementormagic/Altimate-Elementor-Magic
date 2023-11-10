@@ -89,6 +89,7 @@ function aem_register_widget($widgets_manager)
     require_once(AEM_PATH . 'widgets/woocommerce/AEM_Shop_Product_Grid.php');
     require_once(AEM_PATH . 'widgets/AEM_Image_Marker.php');
     require_once(AEM_PATH . 'widgets/AEM_Heading_Simple.php');
+    require_once(AEM_PATH . 'widgets/AEM_Image_Box.php');
 
     require_once(AEM_PATH . 'widgets/woocommerce/AEM_Special_Offer.php');
     require_once(AEM_PATH . 'widgets/woocommerce/AEM_Store_Features.php');
@@ -124,6 +125,7 @@ function aem_register_widget($widgets_manager)
     $widgets_manager->register(new AEM_Store_Features());
     $widgets_manager->register(new AEM_Category_Grid());
     $widgets_manager->register(new AEM_Heading_Simple());
+    $widgets_manager->register(new AEM_Image_Box());
 }
 add_action('elementor/widgets/register', 'aem_register_widget');
 
