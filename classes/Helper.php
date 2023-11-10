@@ -130,6 +130,27 @@ class Helper
         return $tag_array;
     }
 
+    public static function aem_addons_validate_html_tag( $tag ) {
+        $allowed_html_tags = [
+            'article',
+            'aside',
+            'footer',
+            'header',
+            'section',
+            'nav',
+            'main',
+            'div',
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'p',
+            'span',
+        ];
+        return in_array( strtolower( $tag ), $allowed_html_tags ) ? $tag : 'div';
+    }
 
     /**
      * All Author with published post
@@ -574,17 +595,16 @@ class Helper
     // Title Tags
     public static function aem_title_tags()
     {
-
         $title_tags = [
-            'h1'   => 'H1',
-            'h2'   => 'H2',
-            'h3'   => 'H3',
-            'h4'   => 'H4',
-            'h5'   => 'H5',
-            'h6'   => 'H6',
-            'div'  => 'div',
-            'span' => 'span',
-            'p'    => 'p',
+            'h1'   => esc_html__( 'H1', AEM_TEXTDOMAIN ),
+            'h2'   => esc_html__( 'H2', AEM_TEXTDOMAIN ),
+            'h3'   => esc_html__( 'H3', AEM_TEXTDOMAIN ),
+            'h4'   => esc_html__( 'H4', AEM_TEXTDOMAIN ),
+            'h5'   => esc_html__( 'H5', AEM_TEXTDOMAIN ),
+            'h6'   => esc_html__( 'H6', AEM_TEXTDOMAIN ),
+            'p'    => esc_html__( 'p', AEM_TEXTDOMAIN ),
+            'div'  => esc_html__( 'div', AEM_TEXTDOMAIN ),
+            'span' => esc_html__( 'span', AEM_TEXTDOMAIN ),
         ];
 
         return $title_tags;
