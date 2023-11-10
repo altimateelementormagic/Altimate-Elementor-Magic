@@ -514,6 +514,53 @@
     };
 
     // product slider end
+    // filterable gallery script starts
+
+var aemFilterableGallery = function( $scope, $ ) {
+
+    if ( $.isFunction( $.fn.isotope ) ) {
+        var aemGetGallery       = $scope.find( '.aem-gallery-element' ).eq( 0 ),
+        currentGalleryId         = '#' + aemGetGallery.attr( 'id' ),
+        $container             = $scope.find( currentGalleryId ).eq( 0 );
+        
+        var galleryMainWrapper = $scope.find( '.aem-gallery-items' ).eq( 0 ),
+        galleryItem            = '#' + galleryMainWrapper.attr( 'id' );
+
+        $container.isotope({
+            filter: '*',
+            animationOptions: {
+                queue: true
+            }
+        });
+
+        $( galleryItem + ' .aem-gallery-menu button' ).click( function() {
+            $( galleryItem + ' .aem-gallery-menu button.current' ).removeClass( 'current' );
+            $( this ).addClass( 'current' );
+     
+            var selector = $( this ).attr( 'data-filter' );
+            $container.isotope( {
+                filter: selector,
+                layoutMode: 'fitRows',
+                getSortData: {
+                    name: '.name',
+                    symbol: '.symbol',
+                    number: '.number parseInt',
+                    category: '[data-category]',
+                    weight: function( itemElem ) {
+                        var weight = $( itemElem ).find( '.weight' ).text();
+                        return parseFloat( weight.replace( /[\(\)]/g, '' ) );
+                    }
+                },
+                animationOptions: {
+                    queue: true
+                }
+             } );
+             return false;
+        } ); 
+    }
+}
+
+// filterable gallery script ends
 
     $(window).on('elementor/frontend/init', function () {
         if (elementorFrontend.isEditMode()) {
@@ -531,6 +578,8 @@
         
         elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-shop-product-grid.default', aemProductQuickView );
         elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-category-grid.default', aemProductSlider );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/aem-filterable-gallery.default', aemFilterableGallery );
+
 
 
     });

@@ -90,6 +90,7 @@ function aem_register_widget($widgets_manager)
     require_once(AEM_PATH . 'widgets/AEM_Image_Marker.php');
     require_once(AEM_PATH . 'widgets/AEM_Heading_Simple.php');
     require_once(AEM_PATH . 'widgets/AEM_Image_Box.php');
+    require_once(AEM_PATH . 'widgets/AEM_Filterable_Gallery.php');
 
     require_once(AEM_PATH . 'widgets/woocommerce/AEM_Special_Offer.php');
     require_once(AEM_PATH . 'widgets/woocommerce/AEM_Store_Features.php');
@@ -126,6 +127,7 @@ function aem_register_widget($widgets_manager)
     $widgets_manager->register(new AEM_Category_Grid());
     $widgets_manager->register(new AEM_Heading_Simple());
     $widgets_manager->register(new AEM_Image_Box());
+    $widgets_manager->register(new AEM_Filterable_Gallery());
 }
 add_action('elementor/widgets/register', 'aem_register_widget');
 
@@ -184,6 +186,7 @@ function aem_register_dependency_scripts()
     wp_register_script( 'aem-countdown', AEM_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
     wp_register_script( 'aem-news-ticker', AEM_ASSETS_URL . 'vendor/js/aem-news-ticker.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
+    wp_register_script( 'aem-gallery-isotope', AEM_ASSETS_URL . 'vendor/js/isotop.min.js', array( 'jquery' ), AEM_PLUGIN_VERSION, true );
 
 
 }
